@@ -71,7 +71,7 @@ defmodule Words.RandomWords do
     |> HTTPoison.get([], [follow_redirect: true])
 
     case resp do
-      {:ok, content} -> Jason.decode!(content.body)
+      {:ok, content} -> {:ok, Jason.decode!(content.body)}
       {:error, _} -> resp
     end
   end
