@@ -22,9 +22,9 @@ defmodule Word.Pronunciations do
     "http://api.wordnik.com/v4/word.json/#{word}/definitions?api_key=#{api_key}"
   end
 
-  defp format_param(limit: limit) when is_integer(limit), do: "limit=#{limit}"
-  defp format_param(type_format: format) when is_valid_type_format(format), do: "typeFormat=#{format}"
-  defp format_param(source_dict: source_dict) when is_valid_dict(source_dict), do: "sourceDictionary=#{source_dict}"
+  defp format_param({:limit, limit}) when is_integer(limit), do: "limit=#{limit}"
+  defp format_param({:type_format, format}) when is_valid_type_format(format), do: "typeFormat=#{format}"
+  defp format_param({:source_dict, source_dict}) when is_valid_dict(source_dict), do: "sourceDictionary=#{source_dict}"
   defp format_param(:use_canonical), do: "useCanonical=true"
 
   defp format_params(url, [head | tail]) do

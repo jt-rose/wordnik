@@ -3,8 +3,8 @@ defmodule Word.Phrases do
     "http://api.wordnik.com/v4/word.json/#{word}/phrases?api_key=#{api_key}"
   end
 
-  defp format_param(limit: limit) when is_integer(limit), do: "limit=#{limit}"
-  defp format_param(wlmi: wlmi) when is_integer(wlmi), do: "wlmi=#{wlmi}"
+  defp format_param({:limit, limit}) when is_integer(limit), do: "limit=#{limit}"
+  defp format_param({:wlmi, wlmi}) when is_integer(wlmi), do: "wlmi=#{wlmi}"
   defp format_param(:use_canonical), do: "useCanonical=true"
 
   defp format_params(url, [head | tail]) do

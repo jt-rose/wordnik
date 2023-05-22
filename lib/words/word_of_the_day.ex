@@ -3,7 +3,7 @@ defmodule Words.WordOfTheDay do
     "http://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=#{api_key}"
   end
 
-  defp format_param(date: date), do: "date=#{date}"
+  defp format_param({:date, date}), do: "date=#{date}"
 
   defp format_params(url, [head | tail]) do
     param = format_param(head)

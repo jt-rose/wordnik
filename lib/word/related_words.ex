@@ -25,8 +25,8 @@ defmodule Word.RelatedWords do
     "http://api.wordnik.com/v4/word.json/#{word}/relatedWords?api_key=#{api_key}"
   end
 
-  defp format_param(limit_per_relationship_type: limit) when is_integer(limit), do: "limitPerRelationshipType=#{limit}"
-  defp format_param(relationship_types: types) when is_valid_relationship_types(types), do: "relationshipTypes=#{types}"
+  defp format_param({:limit_per_relationship_type, limit}) when is_integer(limit), do: "limitPerRelationshipType=#{limit}"
+  defp format_param({:relationship_types, types}) when is_valid_relationship_types(types), do: "relationshipTypes=#{types}"
   defp format_param(:use_canonical), do: "useCanonical=true"
 
   defp format_params(url, [head | tail]) do

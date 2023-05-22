@@ -45,9 +45,9 @@ defmodule Word.Definitions do
     "http://api.wordnik.com/v4/word.json/#{word}/definitions?api_key=#{api_key}"
   end
 
-  # defp format_param(limit: limit) when is_integer(limit), do: "limit=#{limit}"
-  defp format_param(part_of_speech: part) when is_valid_part_of_speech(part), do: "partOfSpeech=#{part}"
-  defp format_param(source_dict: source_dict) when is_valid_dict(source_dict), do: "sourceDictionary=#{source_dict}"
+  defp format_param({:limit, limit}) when is_integer(limit), do: "limit=#{limit}"
+  defp format_param({:part_of_speech, part}) when is_valid_part_of_speech(part), do: "partOfSpeech=#{part}"
+  defp format_param({:source_dict, source_dict}) when is_valid_dict(source_dict), do: "sourceDictionary=#{source_dict}"
   defp format_param(:include_related), do: "includeRelated=true"
   defp format_param(:use_canonical), do: "useCanonical=true"
   defp format_param(:include_tags), do: "includeTags=true"
