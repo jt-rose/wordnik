@@ -65,12 +65,12 @@ defmodule Words.ReverseDictionary do
     sources
   end
 
-  defp format_param(include_source_dictionaries: sources) do
+  defp format_param({:include_source_dictionaries, sources}) do
     validate_sources(sources)
     "includeSourceDictionaries=#{sources}"
   end
 
-  defp format_param(exclude_source_dictionaries: sources) do
+  defp format_param({:exclude_source_dictionaries, sources}) do
     validate_sources(sources)
     "excludeSourceDictionaries=#{sources}"
   end
