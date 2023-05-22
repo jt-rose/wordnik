@@ -1,6 +1,4 @@
 defmodule Word.Audio do
-  alias HTTPoison
-
   defp format_url(word, api_key) do
     "http://api.wordnik.com/v4/word.json/#{word}/audio?api_key=#{api_key}"
   end

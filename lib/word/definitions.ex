@@ -1,6 +1,4 @@
 defmodule Word.Definitions do
-  alias HTTPoison
-
   @dictonaries [
     "all",
     "ahd-5",
