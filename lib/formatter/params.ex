@@ -201,10 +201,10 @@ defmodule Formatter.Params do
 
 
   # validate, format, and run query
-  def validate_and_fetch_query(url, params, valid_params) do
+  def validate_and_fetch_query(url, params, valid_params, fn_name) do
     params
     |> standardize_params
-    |> validate_params(valid_params, "fn")
+    |> validate_params(valid_params, fn_name)
     |> fetch_query(url)
   end
 end
