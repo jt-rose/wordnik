@@ -132,6 +132,9 @@ defmodule Formatter.Params do
     "excludeSourceDictionaries=#{sources}"
   end
 
+  # if none match, return error
+  defp format_param({field, _value}), do: {:error, "field '#{field}' is not a viable parameter"}
+
   defp validate_source_dict(dict) when dict in @source_dictionaries, do: dict
   defp validate_sources(sources) do
     sources
@@ -140,5 +143,68 @@ defmodule Formatter.Params do
     |> Enum.map(&validate_source_dict/1)
 
     sources
+  end
+
+  # update query string
+  defp format_params(url, [head | tail]) do
+    param = format_param(head)
+    format_params(url <> "&" <> param, tail)
+  end
+
+  # return fully updated query string
+  defp format_params(url, []), do: url
+
+  # convert params map to list of tuples
+  defp standardize_params(params) when is_map(params) do
+    Map.to_list(params)
+  end
+
+  # convert atoms to expected tuple with 'true' alue
+  defp standardize_params(params) when is_list(params) do
+    Enum.map(params, &convert_atoms/1)
+  end
+
+  defp convert_atoms(item) when is_atom(item), do: {item, true}
+  defp convert_atoms(item), do: item
+
+  # validate params against accepted list of parameters
+  defp validate_params(params, valid_list, fn_name) do
+    invalid_param = params
+    |> Enum.map(fn({name, _}) -> name end)
+    |> Enum.find(fn(name) -> name not in valid_list end)
+
+    if invalid_param == nil do
+      {:ok, params}
+    else
+      {:error, "'#{invalid_param}' not a valid parameter for the '#{fn_name}' function"}
+    end
+  end
+
+  # fetch formatted query and decode if success
+  defp fetch_query({:ok, fmt_params}, url) do
+    # format query string and fetch data
+    resp = url
+    |> format_params(fmt_params)
+    |> HTTPoison.get([], [follow_redirect: true])
+
+    # return decoded response or error
+    case resp do
+      {:ok, content} -> {:ok, Jason.decode!(content.body)}
+      {:error, _} -> resp
+    end
+  end
+
+  # return error tuple if invalid parameter provided
+  defp fetch_query({:error, msg }, _url) do
+    {:error, msg}
+  end
+
+
+  # validate, format, and run query
+  def validate_and_fetch_query(url, params, valid_params) do
+    params
+    |> standardize_params
+    |> validate_params(valid_params, "fn")
+    |> fetch_query(url)
   end
 end
