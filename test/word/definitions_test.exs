@@ -20,7 +20,7 @@ defmodule DefinitionsTest do
         :include_related,
         :include_tags,
         part_of_speech: "noun",
-        source_dict: "ahd-5"
+        source_dictionaries: "ahd-5,webster"
       ])
 
     found = Enum.find(resp, fn item -> item["text"] == @definition end)
@@ -32,5 +32,17 @@ defmodule DefinitionsTest do
     {status, msg} = Word.Definitions.get_definitions(@test_word, @api_key, [:whoops])
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_definitions' function"
+  end
+
+  test "reject definitions query with invalid list of source dictionaries" do
+    {status, msg} =
+      Word.Definitions.get_definitions(@test_word, @api_key,
+        source_dictionaries: "adh-5,webster,whoops"
+      )
+
+    assert status == :error
+
+    assert msg ==
+             "Invalid source dictionaries provided. Provide 'all', a single dictionary, or a comma-separated list of dictionaries excluding 'all'."
   end
 end

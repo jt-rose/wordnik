@@ -99,6 +99,8 @@ defmodule Formatter.Params do
   defp format_param({:source_dict, source_dict}) when is_valid_dict(source_dict),
     do: "sourceDictionary=#{source_dict}"
 
+  defp format_param({:source_dictionaries, sources}), do: "sourceDictionaries=#{sources}"
+
   defp format_param({:include_related, bool}), do: "includeRelated=#{bool}"
   defp format_param({:use_canonical, bool}), do: "useCanonical=#{bool}"
   defp format_param({:include_tags, bool}), do: "includeTags=#{bool}"
@@ -145,8 +147,6 @@ defmodule Formatter.Params do
   defp format_param({:sort_order, sort_order}) when sort_order in @sort_order,
     do: "sortOrder=#{sort_order}"
 
-  defp format_param({:find_sense_for_word, sense}), do: "findSenseForWord=#{sense}"
-  defp format_param({:expand_terms, query}), do: "expandTerms=#{query}"
   defp format_param({:allow_regex, bool}), do: "allowRegex=#{bool}"
 
   defp format_param({:case_sensitive, sensitive}) when is_boolean(sensitive),
@@ -154,28 +154,22 @@ defmodule Formatter.Params do
 
   defp format_param({:date, date}), do: "date=#{date}"
 
-  defp format_param({:include_source_dictionaries, sources}) do
-    validate_sources(sources)
-    "includeSourceDictionaries=#{sources}"
-  end
-
-  defp format_param({:exclude_source_dictionaries, sources}) do
-    validate_sources(sources)
-    "excludeSourceDictionaries=#{sources}"
-  end
-
   # if none match, return error
   defp format_param({field, _value}), do: {:error, "field '#{field}' is not a viable parameter"}
 
-  defp validate_source_dict(dict) when dict in @source_dictionaries, do: dict
+  defp validate_source_dict(dict), do: dict in @dictonaries
+
+  defp validate_sources(source) when source in @dictonaries, do: true
 
   defp validate_sources(sources) do
-    sources
-    |> String.split(",")
-    |> Enum.filter(fn str -> str != "" end)
-    |> Enum.map(&validate_source_dict/1)
-
-    sources
+    if String.contains?(sources, "all") do
+      false
+    else
+      sources
+      |> String.split(",")
+      |> Enum.filter(fn str -> str != "" end)
+      |> Enum.all?(&validate_source_dict/1)
+    end
   end
 
   # update query string
