@@ -8,16 +8,6 @@ defmodule Formatter.Params do
     "wordnet"
   ]
 
-  @source_dictionaries [
-    "ahd-5",
-    "century",
-    "cmu",
-    "macmillan",
-    "wiktionary",
-    "webster",
-    "wordnet"
-  ]
-
   @parts_of_speech [
     "noun",
     "adjective",
@@ -147,30 +137,10 @@ defmodule Formatter.Params do
   defp format_param({:sort_order, sort_order}) when sort_order in @sort_order,
     do: "sortOrder=#{sort_order}"
 
-  defp format_param({:allow_regex, bool}), do: "allowRegex=#{bool}"
-
-  defp format_param({:case_sensitive, sensitive}) when is_boolean(sensitive),
-    do: "caseSensitive=#{sensitive}"
-
   defp format_param({:date, date}), do: "date=#{date}"
 
   # if none match, return error
   defp format_param({field, _value}), do: {:error, "field '#{field}' is not a viable parameter"}
-
-  defp validate_source_dict(dict), do: dict in @dictonaries
-
-  defp validate_sources(source) when source in @dictonaries, do: true
-
-  defp validate_sources(sources) do
-    if String.contains?(sources, "all") do
-      false
-    else
-      sources
-      |> String.split(",")
-      |> Enum.filter(fn str -> str != "" end)
-      |> Enum.all?(&validate_source_dict/1)
-    end
-  end
 
   # update query string
   defp format_params(url, [head | tail]) do
