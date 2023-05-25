@@ -8,7 +8,7 @@ defmodule Formatter.Validator do
     "wordnet"
   ]
 
-  defp validate_source_dict(dict), do: dict in @dictonaries
+  defp valid_source_dict?(dict), do: dict in @dictonaries
 
   def has_valid_sources?(source) when source in @dictonaries, do: true
 
@@ -19,7 +19,7 @@ defmodule Formatter.Validator do
       sources
       |> String.split(",")
       |> Enum.filter(fn str -> str != "" end)
-      |> Enum.all?(&validate_source_dict/1)
+      |> Enum.all?(&valid_source_dict?/1)
     end
   end
 end
