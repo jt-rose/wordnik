@@ -28,6 +28,17 @@ defmodule Words.WordOfTheDay do
 
   def get_word_of_the_day(api_key, params \\ [])
 
+  def get_word_of_the_day(api_key, %{"date" => date}) do
+    {status, msg} = validate_date_format(date)
+
+    if status == :error do
+      {status, msg}
+    else
+      format_url(api_key)
+      |> Formatter.Params.validate_and_fetch_query([{:date, date}], @valid_params, @fn_name)
+    end
+  end
+
   def get_word_of_the_day(api_key, [{:date, date}]) do
     {status, msg} = validate_date_format(date)
 
