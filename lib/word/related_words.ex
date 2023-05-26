@@ -1,4 +1,6 @@
 defmodule Word.RelatedWords do
+  @moduledoc false
+
   @valid_params [
     :limit,
     :relationship_types,

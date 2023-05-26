@@ -1,4 +1,6 @@
 defmodule Word.ScrabbleScore do
+  @moduledoc false
+
   defp format_url(word, api_key) do
     "http://api.wordnik.com/v4/word.json/#{word}/scrabbleScore?api_key=#{api_key}"
   end

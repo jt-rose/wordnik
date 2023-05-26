@@ -1,4 +1,6 @@
 defmodule Word.Phrases do
+  @moduledoc false
+
   @valid_params [
     :limit,
     :wlmi,

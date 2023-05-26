@@ -1,4 +1,6 @@
 defmodule Word.Examples do
+  @moduledoc false
+
   @valid_params [
     :limit,
     :skip,

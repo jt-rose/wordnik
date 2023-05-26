@@ -1,4 +1,6 @@
 defmodule Word.Frequency do
+  @moduledoc false
+
   @valid_params [
     :start_year,
     :end_year,

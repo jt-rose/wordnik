@@ -1,4 +1,6 @@
 defmodule Formatter.Validator do
+  @moduledoc false
+
   @dictonaries [
     "all",
     "ahd-5",

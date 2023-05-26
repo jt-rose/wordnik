@@ -1,4 +1,6 @@
 defmodule Word.Definitions do
+  @moduledoc false
+
   @valid_params [
     :limit,
     :part_of_speech,

@@ -1,4 +1,6 @@
 defmodule Word.Audio do
+  @moduledoc false
+
   @valid_params [
     :limit,
     :use_canonical

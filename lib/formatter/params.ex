@@ -1,4 +1,6 @@
 defmodule Formatter.Params do
+  @moduledoc false
+
   @dictonaries [
     "all",
     "ahd-5",

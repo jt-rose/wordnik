@@ -1,4 +1,6 @@
 defmodule Words.RandomWords do
+  @moduledoc false
+
   @valid_params [
     :has_dictionary_def,
     :include_part_of_speech,

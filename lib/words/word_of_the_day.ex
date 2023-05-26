@@ -1,4 +1,6 @@
 defmodule Words.WordOfTheDay do
+  @moduledoc false
+
   @valid_params [
     :date
   ]

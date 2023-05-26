@@ -1,4 +1,6 @@
 defmodule Word.Pronunciations do
+  @moduledoc false
+
   @valid_params [
     :limit,
     :type_format,

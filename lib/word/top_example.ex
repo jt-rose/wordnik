@@ -1,4 +1,6 @@
 defmodule Word.TopExample do
+  @moduledoc false
+
   @valid_params [
     :use_canonical
   ]

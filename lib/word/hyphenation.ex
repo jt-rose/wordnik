@@ -1,4 +1,6 @@
 defmodule Word.Hyphenation do
+  @moduledoc false
+
   @valid_params [
     :limit,
     :source_dict,
