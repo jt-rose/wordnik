@@ -1,6 +1,21 @@
 defmodule Wordnik do
+  @moduledoc """
+  queries to the Wordnik API for word definitions, examples, related words, random words, and more
+  """
+
+  @doc """
+  get audio information for requested word, including link to recording
+
+  `get_audio("Havana", "SECRET_KEY", [:use_canonical, limit: 5])`
+
+  """
+  @spec get_audio(String.t(), String.t(), Word.Audio.audio_params()) ::
+          {:error, String.t()} | {:ok, Word.Audio.audio_response()}
   def get_audio(word, api_key, params \\ []), do: Word.Audio.get_audio(word, api_key, params)
 
+  @doc """
+
+  """
   def get_definitions(word, api_key, params \\ []),
     do: Word.Definitions.get_definitions(word, api_key, params)
 

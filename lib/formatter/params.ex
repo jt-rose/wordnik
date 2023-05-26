@@ -180,19 +180,16 @@ defmodule Formatter.Params do
     end
   end
 
+  defp format_response(response) do
+    {:ok, Jason.decode!(response.body)}
+  end
+
   # fetch formatted query and decode if success
   defp fetch_query({:ok, fmt_params}, url) do
-    # format query string and fetch data
-    resp =
-      url
-      |> format_params(fmt_params)
-      |> HTTPoison.get([], follow_redirect: true)
-
-    # return decoded response or error
-    case resp do
-      {:ok, content} -> {:ok, Jason.decode!(content.body)}
-      {:error, _} -> resp
-    end
+    url
+    |> format_params(fmt_params)
+    |> HTTPoison.get!([], follow_redirect: true)
+    |> format_response
   end
 
   # return error tuple if invalid parameter provided
