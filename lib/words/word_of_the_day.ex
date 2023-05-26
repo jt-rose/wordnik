@@ -3,7 +3,6 @@ defmodule Words.WordOfTheDay do
     :date
   ]
 
-  @fn_name "get_word_of_the_day"
   @invalid_date_error_msg "Error: please provide a valid date in 'yyyy-MM-dd' format"
 
   defp format_url(api_key) do
@@ -34,8 +33,10 @@ defmodule Words.WordOfTheDay do
     if status == :error do
       {status, msg}
     else
+      {fn_name, _} = __ENV__.function
+
       format_url(api_key)
-      |> Formatter.Params.validate_and_fetch_query([{:date, date}], @valid_params, @fn_name)
+      |> Formatter.Params.validate_and_fetch_query([{:date, date}], @valid_params, fn_name)
     end
   end
 
@@ -45,13 +46,17 @@ defmodule Words.WordOfTheDay do
     if status == :error do
       {status, msg}
     else
+      {fn_name, _} = __ENV__.function
+
       format_url(api_key)
-      |> Formatter.Params.validate_and_fetch_query([{:date, date}], @valid_params, @fn_name)
+      |> Formatter.Params.validate_and_fetch_query([{:date, date}], @valid_params, fn_name)
     end
   end
 
   def get_word_of_the_day(api_key, params) do
+    {fn_name, _} = __ENV__.function
+
     format_url(api_key)
-    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, @fn_name)
+    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

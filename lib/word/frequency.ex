@@ -5,14 +5,14 @@ defmodule Word.Frequency do
     :use_canonical
   ]
 
-  @fn_name "get_frequency"
-
   defp format_url(word, api_key) do
     "http://api.wordnik.com/v4/word.json/#{word}/frequency?api_key=#{api_key}"
   end
 
   def get_frequency(word, api_key, params \\ []) do
+    {fn_name, _} = __ENV__.function
+
     format_url(word, api_key)
-    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, @fn_name)
+    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

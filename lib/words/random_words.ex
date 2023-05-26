@@ -14,14 +14,14 @@ defmodule Words.RandomWords do
     :sort_order
   ]
 
-  @fn_name "get_random_words"
-
   defp format_url(api_key) do
     "http://api.wordnik.com/v4/words.json/randomWords?api_key=#{api_key}"
   end
 
   def get_random_words(api_key, params \\ []) do
+    {fn_name, _} = __ENV__.function
+
     format_url(api_key)
-    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, @fn_name)
+    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

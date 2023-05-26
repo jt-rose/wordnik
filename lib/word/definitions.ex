@@ -8,8 +8,6 @@ defmodule Word.Definitions do
     :include_tags
   ]
 
-  @fn_name "get_definitions"
-
   defp format_url(word, api_key) do
     "http://api.wordnik.com/v4/word.json/#{word}/definitions?api_key=#{api_key}"
   end
@@ -38,8 +36,10 @@ defmodule Word.Definitions do
       {:error,
        "Invalid source dictionaries provided. Provide 'all', a single dictionary, or a comma-separated list of dictionaries excluding 'all'."}
     else
+      {fn_name, _} = __ENV__.function
+
       format_url(word, api_key)
-      |> Formatter.Params.validate_and_fetch_query(params, @valid_params, @fn_name)
+      |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
     end
   end
 end
