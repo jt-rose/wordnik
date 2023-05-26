@@ -24,6 +24,14 @@ defmodule Wordnik do
   def get_definitions(word, api_key, params \\ []),
     do: Word.Definitions.get_definitions(word, api_key, params)
 
+  @doc """
+  get etymologies for requested word
+
+  `get_etymologies("verbose", "SECRET_KEY", [:use_canonical])`
+
+  """
+  @spec get_etymologies(String.t(), String.t(), Word.Etymologies.etymologies_params()) ::
+          {:error, String.t()} | {:ok, Word.Etymologies.etymology()}
   def get_etymologies(word, api_key, params \\ []),
     do: Word.Etymologies.get_etymologies(word, api_key, params)
 
