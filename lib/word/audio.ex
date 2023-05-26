@@ -21,8 +21,8 @@ defmodule Word.Audio do
   @typedoc """
   parsed JSON response to 'get_audio' query
   """
-  @type audio_response ::
-          list(%{
+  @type audio ::
+          %{
             attributionText: String.t(),
             attributionUrl: String.t(),
             audioType: String.t(),
@@ -37,7 +37,7 @@ defmodule Word.Audio do
             voteCount: integer,
             voteWeightedAverage: integer,
             word: String.t()
-          })
+          }
 
   @valid_params [
     :limit,
@@ -55,7 +55,7 @@ defmodule Word.Audio do
 
   """
   @spec get_audio(String.t(), String.t(), audio_params()) ::
-          {:error, String.t()} | {:ok, audio_response()}
+          {:error, String.t()} | {:ok, list(audio)}
   def get_audio(word, api_key, params \\ []) do
     {fn_name, _} = __ENV__.function
 

@@ -10,7 +10,7 @@ defmodule Wordnik do
 
   """
   @spec get_audio(String.t(), String.t(), Word.Audio.audio_params()) ::
-          {:error, String.t()} | {:ok, Word.Audio.audio_response()}
+          {:error, String.t()} | {:ok, list(Word.Audio.audio())}
   def get_audio(word, api_key, params \\ []), do: Word.Audio.get_audio(word, api_key, params)
 
   @doc """
