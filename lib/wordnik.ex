@@ -14,8 +14,13 @@ defmodule Wordnik do
   def get_audio(word, api_key, params \\ []), do: Word.Audio.get_audio(word, api_key, params)
 
   @doc """
+  get definition(s) for requested word
+
+  `get_definitions("verbose", "SECRET_KEY", [part_of_speech: "noun", limit: 5])`
 
   """
+  @spec get_definitions(String.t(), String.t(), Word.Definitions.definitions_params()) ::
+          {:error, String.t()} | {:ok, list(Word.Definitions.definition())}
   def get_definitions(word, api_key, params \\ []),
     do: Word.Definitions.get_definitions(word, api_key, params)
 
