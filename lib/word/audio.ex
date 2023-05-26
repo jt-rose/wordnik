@@ -21,22 +21,23 @@ defmodule Word.Audio do
   @typedoc """
   parsed JSON response to 'get_audio' query
   """
-  @type audio_response :: %{
-          attributionText: String.t(),
-          attributionUrl: String.t(),
-          audioType: String.t(),
-          commentCount: integer,
-          createdAt: String.t(),
-          createdBy: String.t(),
-          description: String.t(),
-          duration: integer,
-          fileUrl: String.t(),
-          id: integer,
-          voteAverage: integer,
-          voteCount: integer,
-          voteWeightedAverage: integer,
-          word: String.t()
-        }
+  @type audio_response ::
+          list(%{
+            attributionText: String.t(),
+            attributionUrl: String.t(),
+            audioType: String.t(),
+            commentCount: integer,
+            createdAt: String.t(),
+            createdBy: String.t(),
+            description: String.t(),
+            duration: integer,
+            fileUrl: String.t(),
+            id: integer,
+            voteAverage: integer,
+            voteCount: integer,
+            voteWeightedAverage: integer,
+            word: String.t()
+          })
 
   @valid_params [
     :limit,
