@@ -2,11 +2,12 @@ defmodule Word.Audio do
   @moduledoc """
   audio information about requested word, including link to audio recording
   """
+  alias Formatter.ParamTypes
 
   @typedoc """
   optional parameter that can be passed to 'get_audio' query
   """
-  @type audio_param :: {:limit, integer} | :use_canonical | {:use_canonical, boolean()}
+  @type audio_param :: ParamTypes.use_canonical() | ParamTypes.limit()
 
   @typedoc """
   map or list of optional parameters that can be passed to 'get_audio' query
