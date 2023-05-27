@@ -35,6 +35,14 @@ defmodule Wordnik do
   def get_etymologies(word, api_key, params \\ []),
     do: Word.Etymologies.get_etymologies(word, api_key, params)
 
+  @doc """
+  get examples for requested word
+
+  `get_examples("verbose", "SECRET_KEY", [:use_canonical, limit: 5])`
+
+  """
+  @spec get_examples(String.t(), String.t(), Word.Examples.examples_params()) ::
+          {:error, String.t()} | {:ok, Word.Examples.example()}
   def get_examples(word, api_key, params \\ []),
     do: Word.Examples.get_examples(word, api_key, params)
 
