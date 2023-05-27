@@ -46,6 +46,14 @@ defmodule Wordnik do
   def get_examples(word, api_key, params \\ []),
     do: Word.Examples.get_examples(word, api_key, params)
 
+  @doc """
+  get frequency for requested word
+
+  `get_frequency("verbose", "SECRET_KEY", [:use_canonical, start_year: 1990, end_year: 2000])`
+
+  """
+  @spec get_frequency(String.t(), String.t(), Word.Frequency.frequency_params()) ::
+          {:error, String.t()} | {:ok, Word.Frequency.frequency()}
   def get_frequency(word, api_key, params \\ []),
     do: Word.Frequency.get_frequency(word, api_key, params)
 
