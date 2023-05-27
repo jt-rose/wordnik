@@ -90,6 +90,14 @@ defmodule Wordnik do
   def get_pronunciations(word, api_key, params \\ []),
     do: Word.Pronunciations.get_pronunciations(word, api_key, params)
 
+  @doc """
+  get related_words for requested word
+
+  `get_related_words("verbose", "SECRET_KEY", [:use_canonical, relationship_types: "synonym"])`
+
+  """
+  @spec get_related_words(String.t(), String.t(), Word.RelatedWords.related_words_params()) ::
+          {:error, String.t()} | {:ok, Word.RelatedWords.related_words()}
   def get_related_words(word, api_key, params \\ []),
     do: Word.RelatedWords.get_related_words(word, api_key, params)
 

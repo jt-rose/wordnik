@@ -16,4 +16,5 @@ defmodule Formatter.ParamTypes do
   @type source_dict :: {:source_dict, String.t()}
   @type source_dictionaries :: {:source_dictionaries, String.t()}
   @type type_format :: {:type_format, String.t()}
+  @type relationship_types :: {:relationship_types, String.t()}
 end

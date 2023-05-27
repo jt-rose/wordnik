@@ -1,5 +1,34 @@
 defmodule Word.RelatedWords do
-  @moduledoc false
+  @moduledoc """
+  find related words organized by type of relationship (synonym, antonym, etc.)
+  """
+  alias Formatter.ParamTypes
+
+  @typedoc """
+  optional parameter that can be passed to 'get_related_words' query
+  """
+  @type related_words_param ::
+          ParamTypes.use_canonical() | ParamTypes.limit() | ParamTypes.relationship_types()
+
+  @typedoc """
+  map or list of optional parameters that can be passed to 'get_related_words' query
+  """
+  @type related_words_params ::
+          %{
+            optional(:use_canonical) => boolean(),
+            optional(:limit) => integer(),
+            optional(:relationship_types) => String.t()
+          }
+          | list(related_words_param())
+
+  @typedoc """
+  parsed JSON response to 'get_related_words' query
+  """
+  @type related_words ::
+          list(%{
+            relationshipType: String.t(),
+            words: list(String.t())
+          })
 
   @valid_params [
     :limit,
@@ -11,6 +40,14 @@ defmodule Word.RelatedWords do
     "http://api.wordnik.com/v4/word.json/#{word}/relatedWords?api_key=#{api_key}"
   end
 
+  @doc """
+  get related_words for requested word
+
+  `get_related_words("verbose", "SECRET_KEY", [:use_canonical, relationship_types: "synonym"])`
+
+  """
+  @spec get_related_words(String.t(), String.t(), related_words_params()) ::
+          {:error, String.t()} | {:ok, related_words()}
   def get_related_words(word, api_key, params \\ []) do
     {fn_name, _} = __ENV__.function
 
