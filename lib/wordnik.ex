@@ -112,6 +112,14 @@ defmodule Wordnik do
   def get_scrabble_score(word, api_key),
     do: Word.ScrabbleScore.get_scrabble_score(word, api_key)
 
+  @doc """
+  get top_example for requested word
+
+  `get_top_example("verbose", "SECRET_KEY", [:use_canonical])`
+
+  """
+  @spec get_top_example(String.t(), String.t(), Word.TopExample.top_example_params()) ::
+          {:error, String.t()} | {:ok, Word.Examples.example()}
   def get_top_example(word, api_key, params \\ []),
     do: Word.TopExample.get_top_example(word, api_key, params)
 
