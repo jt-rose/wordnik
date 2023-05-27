@@ -101,6 +101,14 @@ defmodule Wordnik do
   def get_related_words(word, api_key, params \\ []),
     do: Word.RelatedWords.get_related_words(word, api_key, params)
 
+  @doc """
+  get scrabble_score for requested word
+
+  `get_scrabble_score("verbose", "SECRET_KEY")`
+
+  """
+  @spec get_scrabble_score(String.t(), String.t()) ::
+          {:error, String.t()} | {:ok, Word.ScrabbleScore.scrabble_score()}
   def get_scrabble_score(word, api_key),
     do: Word.ScrabbleScore.get_scrabble_score(word, api_key)
 
