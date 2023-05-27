@@ -57,6 +57,14 @@ defmodule Wordnik do
   def get_frequency(word, api_key, params \\ []),
     do: Word.Frequency.get_frequency(word, api_key, params)
 
+  @doc """
+  get hyphenation for requested word
+
+  `get_hyphenation("verbose", "SECRET_KEY", [:use_canonical])`
+
+  """
+  @spec get_hyphenation(String.t(), String.t(), Word.Hyphenation.hyphenation_params()) ::
+          {:error, String.t()} | {:ok, Word.Hyphenation.hyphenation()}
   def get_hyphenation(word, api_key, params \\ []),
     do: Word.Hyphenation.get_hyphenation(word, api_key, params)
 
