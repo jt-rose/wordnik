@@ -68,6 +68,14 @@ defmodule Wordnik do
   def get_hyphenation(word, api_key, params \\ []),
     do: Word.Hyphenation.get_hyphenation(word, api_key, params)
 
+  @doc """
+  get phrases for requested word
+
+  `get_phrases("verbose", "SECRET_KEY", [:use_canonical, limit: 5])`
+
+  """
+  @spec get_phrases(String.t(), String.t(), Word.Phrases.phrases_params()) ::
+          {:error, String.t()} | {:ok, Word.Phrases.phrases()}
   def get_phrases(word, api_key, params \\ []),
     do: Word.Phrases.get_phrases(word, api_key, params)
 
