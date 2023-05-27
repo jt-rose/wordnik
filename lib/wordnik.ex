@@ -134,6 +134,14 @@ defmodule Wordnik do
   def get_random_word(api_key, params \\ []),
     do: Words.RandomWord.get_random_word(api_key, params)
 
+  @doc """
+  get random_words for requested word
+
+  `get_random_words("SECRET_KEY", [:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])`
+
+  """
+  @spec get_random_words(String.t(), Words.RandomWords.random_words_params()) ::
+          {:error, String.t()} | {:ok, Words.RandomWords.random_words()}
   def get_random_words(api_key, params \\ []),
     do: Words.RandomWords.get_random_words(api_key, params)
 

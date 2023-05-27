@@ -27,4 +27,6 @@ defmodule Formatter.ParamTypes do
   @type include_part_of_speech :: {:include_part_of_speech, String.t()}
   @type exclude_part_of_speech :: {:exclude_part_of_speech, String.t()}
   @type date :: {:date, String.t()}
+  @type sort_by :: {:sort_by, String.t()}
+  @type sort_order :: {:sort_order, String.t()}
 end
