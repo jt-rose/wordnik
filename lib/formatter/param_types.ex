@@ -26,4 +26,5 @@ defmodule Formatter.ParamTypes do
   @type relationship_types :: {:relationship_types, String.t()}
   @type include_part_of_speech :: {:include_part_of_speech, String.t()}
   @type exclude_part_of_speech :: {:exclude_part_of_speech, String.t()}
+  @type date :: {:date, String.t()}
 end

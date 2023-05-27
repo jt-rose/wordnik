@@ -1,5 +1,53 @@
 defmodule Words.WordOfTheDay do
-  @moduledoc false
+  @moduledoc """
+  word of the day, searchable by date
+  """
+  alias Formatter.ParamTypes
+
+  @typedoc """
+  optional parameter that can be passed to 'get_word_of_the_day' query
+  """
+  @type word_of_the_day_param :: ParamTypes.date()
+
+  @typedoc """
+  map or list of optional parameters that can be passed to 'get_word_of_the_day' query
+  """
+  @type word_of_the_day_params ::
+          %{
+            optional(:date) => String.t()
+          }
+          | list(word_of_the_day_param())
+
+  @typedoc """
+  parsed JSON response to 'get_word_of_the_day' query
+  """
+  @type word_of_the_day ::
+          %{
+            _id: String.t(),
+            word: String.t(),
+            contentProvider: %{
+              name: String.t(),
+              id: integer
+            },
+            definitions:
+              list(%{
+                source: String.t(),
+                text: String.t(),
+                note: any,
+                partOfSpeech: String.t()
+              }),
+            publishDate: String.t(),
+            examples:
+              list(%{
+                url: String.t(),
+                title: String.t(),
+                text: String.t(),
+                id: integer
+              }),
+            pdd: String.t(),
+            note: String.t(),
+            htmlExtra: any
+          }
 
   @valid_params [
     :date
@@ -55,6 +103,14 @@ defmodule Words.WordOfTheDay do
     end
   end
 
+  @doc """
+  get word_of_the_day for requested word
+
+  `get_word_of_the_day("SECRET_KEY", [date: "1985-12-31])`
+
+  """
+  @spec get_word_of_the_day(String.t(), word_of_the_day_params()) ::
+          {:error, String.t()} | {:ok, word_of_the_day()}
   def get_word_of_the_day(api_key, params) do
     {fn_name, _} = __ENV__.function
 

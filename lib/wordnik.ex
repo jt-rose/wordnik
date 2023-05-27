@@ -137,6 +137,14 @@ defmodule Wordnik do
   def get_random_words(api_key, params \\ []),
     do: Words.RandomWords.get_random_words(api_key, params)
 
+  @doc """
+  get word_of_the_day for requested word
+
+  `get_word_of_the_day("SECRET_KEY", [date: "1985-12-31])`
+
+  """
+  @spec get_word_of_the_day(String.t(), Words.WordOfTheDay.word_of_the_day_params()) ::
+          {:error, String.t()} | {:ok, Words.WordOfTheDay.word_of_the_day()}
   def get_word_of_the_day(api_key, params),
     do: Words.WordOfTheDay.get_word_of_the_day(api_key, params)
 end
