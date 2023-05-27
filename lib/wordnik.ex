@@ -123,6 +123,14 @@ defmodule Wordnik do
   def get_top_example(word, api_key, params \\ []),
     do: Word.TopExample.get_top_example(word, api_key, params)
 
+  @doc """
+  get random_word for requested word
+
+  `get_random_word("SECRET_KEY", [:has_dictionary_def, min_length: 5])`
+
+  """
+  @spec get_random_word(String.t(), Words.RandomWord.random_word_params()) ::
+          {:error, String.t()} | {:ok, Words.RandomWord.random_word()}
   def get_random_word(api_key, params \\ []),
     do: Words.RandomWord.get_random_word(api_key, params)
 
