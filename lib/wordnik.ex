@@ -79,6 +79,14 @@ defmodule Wordnik do
   def get_phrases(word, api_key, params \\ []),
     do: Word.Phrases.get_phrases(word, api_key, params)
 
+  @doc """
+  get pronunciations for requested word
+
+  `get_pronunciations("verbose", "SECRET_KEY", [:use_canonical, limit: 5])`
+
+  """
+  @spec get_pronunciations(String.t(), String.t(), Word.Pronunciations.pronunciations_params()) ::
+          {:error, String.t()} | {:ok, Word.Pronunciations.pronunciations()}
   def get_pronunciations(word, api_key, params \\ []),
     do: Word.Pronunciations.get_pronunciations(word, api_key, params)
 

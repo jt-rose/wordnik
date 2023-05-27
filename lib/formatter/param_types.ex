@@ -15,4 +15,5 @@ defmodule Formatter.ParamTypes do
   @type part_of_speech :: {:part_of_speech, String.t()}
   @type source_dict :: {:source_dict, String.t()}
   @type source_dictionaries :: {:source_dictionaries, String.t()}
+  @type type_format :: {:type_format, String.t()}
 end
