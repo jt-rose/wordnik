@@ -27,7 +27,7 @@ This key will need to be set as an environmental variable called `WORDNIK_API_KE
 ## Sample Query
 
 ```elixir
-iex> Wordnik.get_definitions("sublime", "MY_SECRET_API_KEY")
+iex> Wordnik.get_definitions("sublime")
 {:ok, definitions_response}
 ```
 
@@ -36,7 +36,7 @@ iex> Wordnik.get_definitions("sublime", "MY_SECRET_API_KEY")
 Optional parameters can be passed as a map to queries to help refine them:
 
 ```elixir
-iex> Wordnik.get_definitions("sublime", "MY_SECRET_API_KEY", %{
+iex> Wordnik.get_definitions("sublime" %{
   "include_tags" => true,
   "include_related" => true,
   "source_dictionaries" => "wiktionary,webster",
@@ -47,7 +47,7 @@ iex> Wordnik.get_definitions("sublime", "MY_SECRET_API_KEY", %{
 Parameters can also be expressed as a list:
 
 ```elixir
-iex> Wordnik.get_definitions("sublime", "MY_SECRET_API_KEY", [
+iex> Wordnik.get_definitions("sublime", [
   include_tags: true,
   include_related: true,
   source_dictionaries: "wiktionary,webster",
@@ -58,7 +58,7 @@ iex> Wordnik.get_definitions("sublime", "MY_SECRET_API_KEY", [
 And when one of the fields has a boolean value of `true`, it can be further shortened by just providing the atom, but needs to come at the beginning of the list:
 
 ```elixir
-iex> Wordnik.get_definitions("sublime", "MY_SECRET_API_KEY", [
+iex> Wordnik.get_definitions("sublime", [
   :include_tags,
   :include_related,
   source_dictionaries: "wiktionary,webster",
