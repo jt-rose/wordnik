@@ -22,22 +22,23 @@ defmodule Word.TopExample do
     :use_canonical
   ]
 
-  defp format_url(word, api_key) do
-    "http://api.wordnik.com/v4/word.json/#{word}/topExample?api_key=#{api_key}"
+  defp format_url(word) do
+    "http://api.wordnik.com/v4/word.json/#{word}/topExample"
   end
 
   @doc """
   get top_example for requested word
 
-  `iex> get_top_example("verbose", "SECRET_API_KEY", [:use_canonical])`
+  `iex> get_top_example("verbose", [:use_canonical])`
 
   """
-  @spec get_top_example(String.t(), String.t(), top_example_params()) ::
+  @spec get_top_example(String.t(), top_example_params()) ::
           {:error, String.t()} | {:ok, Word.Examples.example()}
-  def get_top_example(word, api_key, params \\ []) do
+  def get_top_example(word, params \\ []) do
     {fn_name, _} = __ENV__.function
 
-    format_url(word, api_key)
+    word
+    |> format_url
     |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

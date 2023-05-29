@@ -55,10 +55,6 @@ defmodule Words.WordOfTheDay do
 
   @invalid_date_error_msg "Error: please provide a valid date in 'yyyy-MM-dd' format"
 
-  defp format_url(api_key) do
-    "http://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=#{api_key}"
-  end
-
   defp validate_date_format(date) do
     yyyy_mm_dd = ~r/^\d{4}-((0\d)|(10)|(11)|(12))-((30)|(31)|([0-2]\d))$/
 
@@ -75,9 +71,9 @@ defmodule Words.WordOfTheDay do
     end
   end
 
-  def get_word_of_the_day(api_key, params \\ [])
+  def get_word_of_the_day(params \\ [])
 
-  def get_word_of_the_day(api_key, %{"date" => date}) do
+  def get_word_of_the_day(%{"date" => date}) do
     {status, msg} = validate_date_format(date)
 
     if status == :error do
@@ -85,12 +81,16 @@ defmodule Words.WordOfTheDay do
     else
       {fn_name, _} = __ENV__.function
 
-      format_url(api_key)
-      |> Formatter.Params.validate_and_fetch_query([{:date, date}], @valid_params, fn_name)
+      Formatter.Params.validate_and_fetch_query(
+        "http://api.wordnik.com/v4/words.json/wordOfTheDay",
+        [{:date, date}],
+        @valid_params,
+        fn_name
+      )
     end
   end
 
-  def get_word_of_the_day(api_key, [{:date, date}]) do
+  def get_word_of_the_day([{:date, date}]) do
     {status, msg} = validate_date_format(date)
 
     if status == :error do
@@ -98,8 +98,12 @@ defmodule Words.WordOfTheDay do
     else
       {fn_name, _} = __ENV__.function
 
-      format_url(api_key)
-      |> Formatter.Params.validate_and_fetch_query([{:date, date}], @valid_params, fn_name)
+      Formatter.Params.validate_and_fetch_query(
+        "http://api.wordnik.com/v4/words.json/wordOfTheDay",
+        [{:date, date}],
+        @valid_params,
+        fn_name
+      )
     end
   end
 
@@ -109,12 +113,16 @@ defmodule Words.WordOfTheDay do
   `iex> get_word_of_the_day("SECRET_API_KEY", [date: "1985-12-31"])`
 
   """
-  @spec get_word_of_the_day(String.t(), word_of_the_day_params()) ::
+  @spec get_word_of_the_day(word_of_the_day_params()) ::
           {:error, String.t()} | {:ok, word_of_the_day()}
-  def get_word_of_the_day(api_key, params) do
+  def get_word_of_the_day(params) do
     {fn_name, _} = __ENV__.function
 
-    format_url(api_key)
-    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
+    Formatter.Params.validate_and_fetch_query(
+      "http://api.wordnik.com/v4/words.json/wordOfTheDay",
+      params,
+      @valid_params,
+      fn_name
+    )
   end
 end

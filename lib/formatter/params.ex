@@ -199,9 +199,15 @@ defmodule Formatter.Params do
 
   # validate, format, and run query
   def validate_and_fetch_query(url, params, valid_params, fn_name) do
-    params
-    |> standardize_params
-    |> validate_params(valid_params, fn_name)
-    |> fetch_query(url)
+    api_key = System.get_env("WORDNIK_API_KEY")
+
+    if api_key == nil do
+      {:error, "'WORDNIK_API_KEY' could not be loaded from environment"}
+    else
+      params
+      |> standardize_params
+      |> validate_params(valid_params, fn_name)
+      |> fetch_query(url <> "?api_key=#{api_key}")
+    end
   end
 end

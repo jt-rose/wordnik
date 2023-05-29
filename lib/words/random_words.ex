@@ -60,22 +60,22 @@ defmodule Words.RandomWords do
     :sort_order
   ]
 
-  defp format_url(api_key) do
-    "http://api.wordnik.com/v4/words.json/randomWords?api_key=#{api_key}"
-  end
-
   @doc """
   get random_words for requested word
 
-  `iex> get_random_words("SECRET_API_KEY", [:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])`
+  `iex> get_random_words([:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])`
 
   """
-  @spec get_random_words(String.t(), random_words_params()) ::
+  @spec get_random_words(random_words_params()) ::
           {:error, String.t()} | {:ok, random_words()}
-  def get_random_words(api_key, params \\ []) do
+  def get_random_words(params \\ []) do
     {fn_name, _} = __ENV__.function
 
-    format_url(api_key)
-    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
+    Formatter.Params.validate_and_fetch_query(
+      "http://api.wordnik.com/v4/words.json/randomWords",
+      params,
+      @valid_params,
+      fn_name
+    )
   end
 end

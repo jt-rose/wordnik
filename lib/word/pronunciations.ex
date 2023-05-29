@@ -45,22 +45,23 @@ defmodule Word.Pronunciations do
     :use_canonical
   ]
 
-  defp format_url(word, api_key) do
-    "http://api.wordnik.com/v4/word.json/#{word}/definitions?api_key=#{api_key}"
+  defp format_url(word) do
+    "http://api.wordnik.com/v4/word.json/#{word}/definitions"
   end
 
   @doc """
   get pronunciations for requested word
 
-  `iex> get_pronunciations("verbose", "SECRET_API_KEY", [:use_canonical, limit: 5])`
+  `iex> get_pronunciations("verbose", [:use_canonical, limit: 5])`
 
   """
-  @spec get_pronunciations(String.t(), String.t(), pronunciations_params()) ::
+  @spec get_pronunciations(String.t(), pronunciations_params()) ::
           {:error, String.t()} | {:ok, pronunciations()}
-  def get_pronunciations(word, api_key, params \\ []) do
+  def get_pronunciations(word, params \\ []) do
     {fn_name, _} = __ENV__.function
 
-    format_url(word, api_key)
+    word
+    |> format_url
     |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

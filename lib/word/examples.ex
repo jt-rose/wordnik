@@ -53,22 +53,23 @@ defmodule Word.Examples do
     :include_duplicates
   ]
 
-  defp format_url(word, api_key) do
-    "http://api.wordnik.com/v4/word.json/#{word}/examples?api_key=#{api_key}"
+  defp format_url(word) do
+    "http://api.wordnik.com/v4/word.json/#{word}/examples"
   end
 
   @doc """
   get examples for requested word
 
-  `iex> get_examples("verbose", "SECRET_API_KEY", [:use_canonical, limit: 5])`
+  `iex> get_examples("verbose", [:use_canonical, limit: 5])`
 
   """
-  @spec get_examples(String.t(), String.t(), examples_params()) ::
+  @spec get_examples(String.t(), examples_params()) ::
           {:error, String.t()} | {:ok, example()}
-  def get_examples(word, api_key, params \\ []) do
+  def get_examples(word, params \\ []) do
     {fn_name, _} = __ENV__.function
 
-    format_url(word, api_key)
+    word
+    |> format_url
     |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

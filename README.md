@@ -14,6 +14,16 @@ def deps do
 end
 ```
 
+## Wordnik API key
+
+To access the Wordnik API, you will need a free API key that can be obtained [here](https://developer.wordnik.com/).
+
+This key will need to be set as an environmental variable called `WORDNIK_API_KEY` and the wordnik library will pick it up automatically. If this key is not present the library will alert you with an error tuple:
+
+```elixir
+{:error, "'WORDNIK_API_KEY' could not be loaded from environment"}
+```
+
 ## Sample Query
 
 ```elixir

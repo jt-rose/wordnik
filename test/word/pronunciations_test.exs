@@ -2,10 +2,9 @@ defmodule PronunciationsTest do
   use ExUnit.Case
 
   @test_word "elixir"
-  @api_key System.get_env("WORDNIK_API_KEY")
 
   test "get pronunciations" do
-    {status, resp} = Word.Pronunciations.get_pronunciations(@test_word, @api_key)
+    {status, resp} = Word.Pronunciations.get_pronunciations(@test_word)
     [pron | _tail] = resp
 
     assert status == :ok
@@ -14,7 +13,7 @@ defmodule PronunciationsTest do
 
   test "get pronunciations with parameters" do
     {status, resp} =
-      Word.Pronunciations.get_pronunciations(@test_word, @api_key, [
+      Word.Pronunciations.get_pronunciations(@test_word, [
         :use_canonical,
         limit: 5,
         type_format: "ahd-5",
@@ -28,7 +27,7 @@ defmodule PronunciationsTest do
   end
 
   test "reject prnonuciationa query with invalid params" do
-    {status, msg} = Word.Pronunciations.get_pronunciations(@test_word, @api_key, [:whoops])
+    {status, msg} = Word.Pronunciations.get_pronunciations(@test_word, [:whoops])
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_pronunciations' function"

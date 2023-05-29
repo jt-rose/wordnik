@@ -39,22 +39,23 @@ defmodule Word.Frequency do
     :use_canonical
   ]
 
-  defp format_url(word, api_key) do
-    "http://api.wordnik.com/v4/word.json/#{word}/frequency?api_key=#{api_key}"
+  defp format_url(word) do
+    "http://api.wordnik.com/v4/word.json/#{word}/frequency"
   end
 
   @doc """
   get frequency for requested word
 
-  `iex> get_frequency("verbose", "SECRET_API_KEY", [:use_canonical, start_year: 1990, end_year: 2000])`
+  `iex> get_frequency("verbose", [:use_canonical, start_year: 1990, end_year: 2000])`
 
   """
-  @spec get_frequency(String.t(), String.t(), frequency_params()) ::
+  @spec get_frequency(String.t(), frequency_params()) ::
           {:error, String.t()} | {:ok, frequency()}
-  def get_frequency(word, api_key, params \\ []) do
+  def get_frequency(word, params \\ []) do
     {fn_name, _} = __ENV__.function
 
-    format_url(word, api_key)
+    word
+    |> format_url
     |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

@@ -3,10 +3,9 @@ defmodule ExamplesTest do
 
   @test_word "elixir"
   @example "In the eternal quest for a fountain of youth, no elixir is beyond the realm of consideration."
-  @api_key System.get_env("WORDNIK_API_KEY")
 
   test "get examples" do
-    {status, resp} = Word.Examples.get_examples(@test_word, @api_key)
+    {status, resp} = Word.Examples.get_examples(@test_word)
 
     found = Enum.find(resp["examples"], fn item -> item["text"] == @example end)
 
@@ -16,7 +15,7 @@ defmodule ExamplesTest do
 
   test "get examples with params" do
     {status, resp} =
-      Word.Examples.get_examples(@test_word, @api_key, [
+      Word.Examples.get_examples(@test_word, [
         :use_canonical,
         :include_duplicates,
         limit: 3,
@@ -30,7 +29,7 @@ defmodule ExamplesTest do
   end
 
   test "reject examples query with invalid params" do
-    {status, msg} = Word.Examples.get_examples(@test_word, @api_key, [:whoops])
+    {status, msg} = Word.Examples.get_examples(@test_word, [:whoops])
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_examples' function"

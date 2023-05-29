@@ -56,22 +56,22 @@ defmodule Words.RandomWord do
     :max_length
   ]
 
-  defp format_url(api_key) do
-    "http://api.wordnik.com/v4/words.json/randomWord?api_key=#{api_key}"
-  end
-
   @doc """
   get random_word for requested word
 
-  `iex> get_random_word("SECRET_API_KEY", [:has_dictionary_def, min_length: 5])`
+  `iex> get_random_word( [:has_dictionary_def, min_length: 5])`
 
   """
-  @spec get_random_word(String.t(), random_word_params()) ::
+  @spec get_random_word(random_word_params()) ::
           {:error, String.t()} | {:ok, random_word()}
-  def get_random_word(api_key, params \\ []) do
+  def get_random_word(params \\ []) do
     {fn_name, _} = __ENV__.function
 
-    format_url(api_key)
-    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
+    Formatter.Params.validate_and_fetch_query(
+      "http://api.wordnik.com/v4/words.json/randomWord",
+      params,
+      @valid_params,
+      fn_name
+    )
   end
 end

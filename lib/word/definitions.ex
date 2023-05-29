@@ -74,8 +74,8 @@ defmodule Word.Definitions do
     :include_tags
   ]
 
-  defp format_url(word, api_key) do
-    "http://api.wordnik.com/v4/word.json/#{word}/definitions?api_key=#{api_key}"
+  defp format_url(word) do
+    "http://api.wordnik.com/v4/word.json/#{word}/definitions"
   end
 
   defp has_source_dictionaries_field?({:source_dictionaries, _dicts}), do: true
@@ -99,19 +99,20 @@ defmodule Word.Definitions do
   @doc """
   get definition(s) for requested word
 
-  `iex> get_definitions("verbose", "SECRET_API_KEY", [part_of_speech: "noun", limit: 5])`
+  `iex> get_definitions("verbose", [part_of_speech: "noun", limit: 5])`
 
   """
-  @spec get_definitions(String.t(), String.t(), definitions_params()) ::
+  @spec get_definitions(String.t(), definitions_params()) ::
           {:error, String.t()} | {:ok, list(definition)}
-  def get_definitions(word, api_key, params \\ []) do
+  def get_definitions(word, params \\ []) do
     if !has_valid_source_dictionaries?(params) do
       {:error,
        "Invalid source dictionaries provided. Provide 'all', a single dictionary, or a comma-separated list of dictionaries excluding 'all'."}
     else
       {fn_name, _} = __ENV__.function
 
-      format_url(word, api_key)
+      word
+      |> format_url
       |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
     end
   end

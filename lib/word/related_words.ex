@@ -36,22 +36,23 @@ defmodule Word.RelatedWords do
     :use_canonical
   ]
 
-  defp format_url(word, api_key) do
-    "http://api.wordnik.com/v4/word.json/#{word}/relatedWords?api_key=#{api_key}"
+  defp format_url(word) do
+    "http://api.wordnik.com/v4/word.json/#{word}/relatedWords"
   end
 
   @doc """
   get related_words for requested word
 
-  `iex> get_related_words("verbose", "SECRET_API_KEY", [:use_canonical, relationship_types: "synonym"])`
+  `iex> get_related_words("verbose", [:use_canonical, relationship_types: "synonym"])`
 
   """
-  @spec get_related_words(String.t(), String.t(), related_words_params()) ::
+  @spec get_related_words(String.t(), related_words_params()) ::
           {:error, String.t()} | {:ok, related_words()}
-  def get_related_words(word, api_key, params \\ []) do
+  def get_related_words(word, params \\ []) do
     {fn_name, _} = __ENV__.function
 
-    format_url(word, api_key)
+    word
+    |> format_url
     |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

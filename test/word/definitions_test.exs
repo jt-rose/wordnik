@@ -3,10 +3,9 @@ defmodule DefinitionsTest do
 
   @test_word "elixir"
   @definition "A sweetened aromatic solution of alcohol and water, serving as a vehicle for medicine."
-  @api_key System.get_env("WORDNIK_API_KEY")
 
   test "get definitions" do
-    {status, resp} = Word.Definitions.get_definitions(@test_word, @api_key)
+    {status, resp} = Word.Definitions.get_definitions(@test_word)
 
     found = Enum.find(resp, fn item -> item["text"] == @definition end)
     assert status == :ok
@@ -15,7 +14,7 @@ defmodule DefinitionsTest do
 
   test "get definitions with params" do
     {status, resp} =
-      Word.Definitions.get_definitions(@test_word, @api_key, [
+      Word.Definitions.get_definitions(@test_word, [
         :use_canonical,
         :include_related,
         :include_tags,
@@ -29,14 +28,14 @@ defmodule DefinitionsTest do
   end
 
   test "reject definitions query with invalid params" do
-    {status, msg} = Word.Definitions.get_definitions(@test_word, @api_key, [:whoops])
+    {status, msg} = Word.Definitions.get_definitions(@test_word, [:whoops])
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_definitions' function"
   end
 
   test "reject definitions query with invalid list of source dictionaries" do
     {status, msg} =
-      Word.Definitions.get_definitions(@test_word, @api_key,
+      Word.Definitions.get_definitions(@test_word,
         source_dictionaries: "adh-5,webster,whoops"
       )
 

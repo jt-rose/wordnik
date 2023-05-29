@@ -3,10 +3,9 @@ defmodule PhrasesTest do
 
   @test_word "elixir"
   @wlmi_answer 19.93858137067612
-  @api_key System.get_env("WORDNIK_API_KEY")
 
   test "get phrases" do
-    {status, [resp | _]} = Word.Phrases.get_phrases(@test_word, @api_key)
+    {status, [resp | _]} = Word.Phrases.get_phrases(@test_word)
     wlmi = resp["wlmi"]
 
     assert status == :ok
@@ -15,7 +14,7 @@ defmodule PhrasesTest do
 
   test "get phrases with parameters" do
     {status, [resp | _]} =
-      Word.Phrases.get_phrases(@test_word, @api_key, [:use_canonical, limit: 3, wlmi: 5])
+      Word.Phrases.get_phrases(@test_word, [:use_canonical, limit: 3, wlmi: 5])
 
     wlmi = resp["wlmi"]
 
@@ -24,7 +23,7 @@ defmodule PhrasesTest do
   end
 
   test "reject phrases query with invalid params" do
-    {status, msg} = Word.Phrases.get_phrases(@test_word, @api_key, [:whoops])
+    {status, msg} = Word.Phrases.get_phrases(@test_word, [:whoops])
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_phrases' function"

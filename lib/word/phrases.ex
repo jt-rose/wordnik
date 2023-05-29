@@ -38,22 +38,23 @@ defmodule Word.Phrases do
     :use_canonical
   ]
 
-  defp format_url(word, api_key) do
-    "http://api.wordnik.com/v4/word.json/#{word}/phrases?api_key=#{api_key}"
+  defp format_url(word) do
+    "http://api.wordnik.com/v4/word.json/#{word}/phrases"
   end
 
   @doc """
   get phrases for requested word
 
-  `iex> get_phrases("verbose", "SECRET_API_KEY", [:use_canonical, limit: 5])`
+  `iex> get_phrases("verbose", [:use_canonical, limit: 5])`
 
   """
-  @spec get_phrases(String.t(), String.t(), phrases_params()) ::
+  @spec get_phrases(String.t(), phrases_params()) ::
           {:error, String.t()} | {:ok, phrases()}
-  def get_phrases(word, api_key, params \\ []) do
+  def get_phrases(word, params \\ []) do
     {fn_name, _} = __ENV__.function
 
-    format_url(word, api_key)
+    word
+    |> format_url
     |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

@@ -1,10 +1,8 @@
 defmodule Words.RandomWordTest do
   use ExUnit.Case
 
-  @api_key System.get_env("WORDNIK_API_KEY")
-
   test "get random word" do
-    {status, resp} = Words.RandomWord.get_random_word(@api_key)
+    {status, resp} = Words.RandomWord.get_random_word()
 
     assert status == :ok
     assert Map.has_key?(resp, "id") == true
@@ -13,7 +11,7 @@ defmodule Words.RandomWordTest do
 
   test "get random word with parameters" do
     {status, resp} =
-      Words.RandomWord.get_random_word(@api_key, [
+      Words.RandomWord.get_random_word([
         :has_dictionary_def,
         include_part_of_speech: "noun",
         exclude_part_of_speech: "verb",
@@ -31,7 +29,7 @@ defmodule Words.RandomWordTest do
   end
 
   test "reject random word query with invalid params" do
-    {status, msg} = Words.RandomWord.get_random_word(@api_key, [:whoops])
+    {status, msg} = Words.RandomWord.get_random_word([:whoops])
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_random_word' function"
