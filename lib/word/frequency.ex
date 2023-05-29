@@ -46,7 +46,7 @@ defmodule Word.Frequency do
   @doc """
   get frequency for requested word
 
-  `get_frequency("verbose", "SECRET_KEY", [:use_canonical, start_year: 1990, end_year: 2000])`
+  `iex> get_frequency("verbose", "SECRET_API_KEY", [:use_canonical, start_year: 1990, end_year: 2000])`
 
   """
   @spec get_frequency(String.t(), String.t(), frequency_params()) ::

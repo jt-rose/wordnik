@@ -60,7 +60,7 @@ defmodule Word.Examples do
   @doc """
   get examples for requested word
 
-  `get_examples("verbose", "SECRET_KEY", [:use_canonical, limit: 5])`
+  `iex> get_examples("verbose", "SECRET_API_KEY", [:use_canonical, limit: 5])`
 
   """
   @spec get_examples(String.t(), String.t(), examples_params()) ::

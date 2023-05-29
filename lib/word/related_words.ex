@@ -43,7 +43,7 @@ defmodule Word.RelatedWords do
   @doc """
   get related_words for requested word
 
-  `get_related_words("verbose", "SECRET_KEY", [:use_canonical, relationship_types: "synonym"])`
+  `iex> get_related_words("verbose", "SECRET_API_KEY", [:use_canonical, relationship_types: "synonym"])`
 
   """
   @spec get_related_words(String.t(), String.t(), related_words_params()) ::

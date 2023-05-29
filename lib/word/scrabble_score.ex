@@ -15,7 +15,7 @@ defmodule Word.ScrabbleScore do
   @doc """
   get scrabble_score for requested word
 
-  `get_scrabble_score("verbose", "SECRET_KEY")`
+  `iex> get_scrabble_score("verbose", "SECRET_API_KEY")`
 
   """
   @spec get_scrabble_score(String.t(), String.t()) ::

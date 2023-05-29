@@ -45,7 +45,7 @@ defmodule Word.Phrases do
   @doc """
   get phrases for requested word
 
-  `get_phrases("verbose", "SECRET_KEY", [:use_canonical, limit: 5])`
+  `iex> get_phrases("verbose", "SECRET_API_KEY", [:use_canonical, limit: 5])`
 
   """
   @spec get_phrases(String.t(), String.t(), phrases_params()) ::

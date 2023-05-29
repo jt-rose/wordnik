@@ -45,7 +45,7 @@ iex> Wordnik.get_definitions("sublime", "MY_SECRET_API_KEY", [
 ])
 ```
 
-And when one of the fields has a boolean value of `true`, it can be further shortened by just providing the atom:
+And when one of the fields has a boolean value of `true`, it can be further shortened by just providing the atom, but needs to come at the beginning of the list:
 
 ```elixir
 iex> Wordnik.get_definitions("sublime", "MY_SECRET_API_KEY", [

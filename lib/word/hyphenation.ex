@@ -44,7 +44,7 @@ defmodule Word.Hyphenation do
   @doc """
   get hyphenation for requested word
 
-  `get_hyphenation("verbose", "SECRET_KEY", [:use_canonical])`
+  `iex> get_hyphenation("verbose", "SECRET_API_KEY", [:use_canonical])`
 
   """
   @spec get_hyphenation(String.t(), String.t(), hyphenation_params()) ::

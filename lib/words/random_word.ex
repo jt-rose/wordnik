@@ -63,7 +63,7 @@ defmodule Words.RandomWord do
   @doc """
   get random_word for requested word
 
-  `get_random_word("SECRET_KEY", [:has_dictionary_def, min_length: 5])`
+  `iex> get_random_word("SECRET_API_KEY", [:has_dictionary_def, min_length: 5])`
 
   """
   @spec get_random_word(String.t(), random_word_params()) ::

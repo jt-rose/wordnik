@@ -29,7 +29,7 @@ defmodule Word.TopExample do
   @doc """
   get top_example for requested word
 
-  `get_top_example("verbose", "SECRET_KEY", [:use_canonical])`
+  `iex> get_top_example("verbose", "SECRET_API_KEY", [:use_canonical])`
 
   """
   @spec get_top_example(String.t(), String.t(), top_example_params()) ::

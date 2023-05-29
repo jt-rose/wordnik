@@ -99,7 +99,7 @@ defmodule Word.Definitions do
   @doc """
   get definition(s) for requested word
 
-  `get_definitions("verbose", "SECRET_KEY", [part_of_speech: "noun", limit: 5])`
+  `iex> get_definitions("verbose", "SECRET_API_KEY", [part_of_speech: "noun", limit: 5])`
 
   """
   @spec get_definitions(String.t(), String.t(), definitions_params()) ::

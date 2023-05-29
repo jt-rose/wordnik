@@ -36,7 +36,7 @@ defmodule Word.Etymologies do
   @doc """
   get etymologies for requested word
 
-  `get_etymologies("verbose", "SECRET_KEY", [:use_canonical])`
+  `iex> get_etymologies("verbose", "SECRET_API_KEY", [:use_canonical])`
 
   """
   @spec get_etymologies(String.t(), String.t(), etymologies_params()) ::

@@ -52,7 +52,7 @@ defmodule Word.Pronunciations do
   @doc """
   get pronunciations for requested word
 
-  `get_pronunciations("verbose", "SECRET_KEY", [:use_canonical, limit: 5])`
+  `iex> get_pronunciations("verbose", "SECRET_API_KEY", [:use_canonical, limit: 5])`
 
   """
   @spec get_pronunciations(String.t(), String.t(), pronunciations_params()) ::

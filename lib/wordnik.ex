@@ -6,7 +6,7 @@ defmodule Wordnik do
   @doc """
   get audio information for requested word, including link to recording
 
-  `get_audio("Havana", "SECRET_KEY", [:use_canonical, limit: 5])`
+  `iex> get_audio("Havana", "SECRET_API_KEY", [:use_canonical, limit: 5])`
 
   """
   @spec get_audio(String.t(), String.t(), Word.Audio.audio_params()) ::
@@ -16,7 +16,7 @@ defmodule Wordnik do
   @doc """
   get definition(s) for requested word
 
-  `get_definitions("verbose", "SECRET_KEY", [part_of_speech: "noun", limit: 5])`
+  `iex> get_definitions("verbose", "SECRET_API_KEY", [part_of_speech: "noun", limit: 5])`
 
   """
   @spec get_definitions(String.t(), String.t(), Word.Definitions.definitions_params()) ::
@@ -27,7 +27,7 @@ defmodule Wordnik do
   @doc """
   get etymologies for requested word
 
-  `get_etymologies("verbose", "SECRET_KEY", [:use_canonical])`
+  `iex> get_etymologies("verbose", "SECRET_API_KEY", [:use_canonical])`
 
   """
   @spec get_etymologies(String.t(), String.t(), Word.Etymologies.etymologies_params()) ::
@@ -38,7 +38,7 @@ defmodule Wordnik do
   @doc """
   get examples for requested word
 
-  `get_examples("verbose", "SECRET_KEY", [:use_canonical, limit: 5])`
+  `iex> get_examples("verbose", "SECRET_API_KEY", [:use_canonical, limit: 5])`
 
   """
   @spec get_examples(String.t(), String.t(), Word.Examples.examples_params()) ::
@@ -49,7 +49,7 @@ defmodule Wordnik do
   @doc """
   get frequency for requested word
 
-  `get_frequency("verbose", "SECRET_KEY", [:use_canonical, start_year: 1990, end_year: 2000])`
+  `iex> get_frequency("verbose", "SECRET_API_KEY", [:use_canonical, start_year: 1990, end_year: 2000])`
 
   """
   @spec get_frequency(String.t(), String.t(), Word.Frequency.frequency_params()) ::
@@ -60,7 +60,7 @@ defmodule Wordnik do
   @doc """
   get hyphenation for requested word
 
-  `get_hyphenation("verbose", "SECRET_KEY", [:use_canonical])`
+  `iex> get_hyphenation("verbose", "SECRET_API_KEY", [:use_canonical])`
 
   """
   @spec get_hyphenation(String.t(), String.t(), Word.Hyphenation.hyphenation_params()) ::
@@ -71,7 +71,7 @@ defmodule Wordnik do
   @doc """
   get phrases for requested word
 
-  `get_phrases("verbose", "SECRET_KEY", [:use_canonical, limit: 5])`
+  `iex> get_phrases("verbose", "SECRET_API_KEY", [:use_canonical, limit: 5])`
 
   """
   @spec get_phrases(String.t(), String.t(), Word.Phrases.phrases_params()) ::
@@ -82,7 +82,7 @@ defmodule Wordnik do
   @doc """
   get pronunciations for requested word
 
-  `get_pronunciations("verbose", "SECRET_KEY", [:use_canonical, limit: 5])`
+  `iex> get_pronunciations("verbose", "SECRET_API_KEY", [:use_canonical, limit: 5])`
 
   """
   @spec get_pronunciations(String.t(), String.t(), Word.Pronunciations.pronunciations_params()) ::
@@ -93,7 +93,7 @@ defmodule Wordnik do
   @doc """
   get related_words for requested word
 
-  `get_related_words("verbose", "SECRET_KEY", [:use_canonical, relationship_types: "synonym"])`
+  `iex> get_related_words("verbose", "SECRET_API_KEY", [:use_canonical, relationship_types: "synonym"])`
 
   """
   @spec get_related_words(String.t(), String.t(), Word.RelatedWords.related_words_params()) ::
@@ -104,7 +104,7 @@ defmodule Wordnik do
   @doc """
   get scrabble_score for requested word
 
-  `get_scrabble_score("verbose", "SECRET_KEY")`
+  `iex> get_scrabble_score("verbose", "SECRET_API_KEY")`
 
   """
   @spec get_scrabble_score(String.t(), String.t()) ::
@@ -115,7 +115,7 @@ defmodule Wordnik do
   @doc """
   get top_example for requested word
 
-  `get_top_example("verbose", "SECRET_KEY", [:use_canonical])`
+  `iex> get_top_example("verbose", "SECRET_API_KEY", [:use_canonical])`
 
   """
   @spec get_top_example(String.t(), String.t(), Word.TopExample.top_example_params()) ::
@@ -126,7 +126,7 @@ defmodule Wordnik do
   @doc """
   get random_word for requested word
 
-  `get_random_word("SECRET_KEY", [:has_dictionary_def, min_length: 5])`
+  `iex> get_random_word("SECRET_API_KEY", [:has_dictionary_def, min_length: 5])`
 
   """
   @spec get_random_word(String.t(), Words.RandomWord.random_word_params()) ::
@@ -137,7 +137,7 @@ defmodule Wordnik do
   @doc """
   get random_words for requested word
 
-  `get_random_words("SECRET_KEY", [:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])`
+  `iex> get_random_words("SECRET_API_KEY", [:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])`
 
   """
   @spec get_random_words(String.t(), Words.RandomWords.random_words_params()) ::
@@ -148,7 +148,7 @@ defmodule Wordnik do
   @doc """
   get word_of_the_day for requested word
 
-  `get_word_of_the_day("SECRET_KEY", [date: "1985-12-31])`
+  `iex> get_word_of_the_day("SECRET_API_KEY", [date: "1985-12-31])`
 
   """
   @spec get_word_of_the_day(String.t(), Words.WordOfTheDay.word_of_the_day_params()) ::

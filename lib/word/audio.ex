@@ -52,7 +52,7 @@ defmodule Word.Audio do
   @doc """
   get audio information for requested word, including link to recording
 
-  `get_audio("Havana", "SECRET_KEY", [:use_canonical, limit: 5])`
+  `iex> get_audio("Havana", "SECRET_API_KEY", [:use_canonical, limit: 5])`
 
   """
   @spec get_audio(String.t(), String.t(), audio_params()) ::

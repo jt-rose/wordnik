@@ -106,7 +106,7 @@ defmodule Words.WordOfTheDay do
   @doc """
   get word_of_the_day for requested word
 
-  `get_word_of_the_day("SECRET_KEY", [date: "1985-12-31"])`
+  `iex> get_word_of_the_day("SECRET_API_KEY", [date: "1985-12-31"])`
 
   """
   @spec get_word_of_the_day(String.t(), word_of_the_day_params()) ::
