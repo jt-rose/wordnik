@@ -49,13 +49,14 @@ defmodule Word.RelatedWords do
   - relationship_types: string
 
   ### Example
-
   ```elixir
   iex> get_related_words("verbose", [:use_canonical, relationship_types: "synonym"])
   ```
 
-  ### Wordnik Docs
+   ### Response
+  `t:Word.RelatedWords.related_words/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getRelatedWords
   """
   @spec get_related_words(String.t(), related_words_params()) ::

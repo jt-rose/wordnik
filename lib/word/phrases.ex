@@ -51,13 +51,14 @@ defmodule Word.Phrases do
   - wlmi: string
 
   ### Example
-
   ```elixir
   iex> get_phrases("verbose", [:use_canonical, limit: 5])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Phrases.phrases/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getPhrases
   """
   @spec get_phrases(String.t(), phrases_params()) ::

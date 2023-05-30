@@ -52,13 +52,14 @@ defmodule Word.Frequency do
   - end_year: integer
 
   ### Example
-
   ```elixir
   iex> get_frequency("verbose", [:use_canonical, start_year: 1990, end_year: 2000])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Frequency.frequency/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getWordFrequency
   """
   @spec get_frequency(String.t(), frequency_params()) ::

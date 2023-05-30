@@ -50,13 +50,14 @@ defmodule Word.Hyphenation do
   - source_dict: string
 
   ### Example
-
   ```elixir
   iex> get_hyphenation("verbose", [:use_canonical])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Hyphenation.hyphenation/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getHyphenation
   """
   @spec get_hyphenation(String.t(), hyphenation_params()) ::

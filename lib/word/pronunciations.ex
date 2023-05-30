@@ -59,13 +59,14 @@ defmodule Word.Pronunciations do
   - source_dict: string
 
   ### Example
-
   ```elixir
   iex> get_pronunciations("verbose", [:use_canonical, limit: 5])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Pronunciations.pronunciations/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getTextPronunciations
   """
   @spec get_pronunciations(String.t(), pronunciations_params()) ::

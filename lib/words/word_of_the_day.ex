@@ -114,13 +114,14 @@ defmodule Words.WordOfTheDay do
   - date: string
 
   ### Example
-
   ```elixir
   iex> get_word_of_the_day("SECRET_API_KEY", [date: "1985-12-31"])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Words.WordOfTheDay.word_of_the_day/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getWordOfTheDay
   """
   @spec get_word_of_the_day(word_of_the_day_params()) ::

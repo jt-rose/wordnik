@@ -29,21 +29,23 @@ defmodule Word.Examples do
   @typedoc """
           parsed JSON response to `get_examples/2` query
   """
+
   @type example :: %{
-          examples:
-            list(%{
-              provider: %{
-                id: integer
-              },
-              year: integer,
-              rating: integer,
-              url: String.t(),
-              word: String.t(),
-              text: String.t(),
-              documentId: integer,
-              exampleId: integer,
-              title: String.t()
-            })
+          provider: %{
+            id: integer
+          },
+          year: integer,
+          rating: integer,
+          url: String.t(),
+          word: String.t(),
+          text: String.t(),
+          documentId: integer,
+          exampleId: integer,
+          title: String.t()
+        }
+
+  @type examples :: %{
+          examples: list(example())
         }
 
   @valid_params [
@@ -67,17 +69,18 @@ defmodule Word.Examples do
   - skip: integer
 
   ### Example
-
   ```elixir
   iex> get_examples("verbose", [:use_canonical, limit: 5])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Examples.examples/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getExamples
   """
   @spec get_examples(String.t(), examples_params()) ::
-          {:error, String.t()} | {:ok, example()}
+          {:error, String.t()} | {:ok, examples()}
   def get_examples(word, params \\ []) do
     {fn_name, _} = __ENV__.function
 

@@ -23,7 +23,7 @@ defmodule Word.Audio do
   parsed JSON response to `get_audio/2` query
   """
   @type audio ::
-          %{
+          list(%{
             attributionText: String.t(),
             attributionUrl: String.t(),
             audioType: String.t(),
@@ -38,7 +38,7 @@ defmodule Word.Audio do
             voteCount: integer,
             voteWeightedAverage: integer,
             word: String.t()
-          }
+          })
 
   @valid_params [
     :limit,
@@ -61,12 +61,14 @@ defmodule Word.Audio do
   iex> get_audio("Havana", [:use_canonical, limit: 5])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Audio.audio/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getAudio
   """
   @spec get_audio(String.t(), audio_params()) ::
-          {:error, String.t()} | {:ok, list(audio)}
+          {:error, String.t()} | {:ok, audio}
   def get_audio(word, params \\ []) do
     {fn_name, _} = __ENV__.function
 

@@ -15,12 +15,14 @@ defmodule Wordnik do
   iex> get_audio("Havana", [:use_canonical, limit: 5])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Audio.audio/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getAudio
   """
   @spec get_audio(String.t(), Word.Audio.audio_params()) ::
-          {:error, String.t()} | {:ok, list(Word.Audio.audio())}
+          {:error, String.t()} | {:ok, Word.Audio.audio()}
   def get_audio(word, params \\ []), do: Word.Audio.get_audio(word, params)
 
   @doc """
@@ -39,12 +41,14 @@ defmodule Wordnik do
   iex> get_definitions("verbose", [part_of_speech: "noun", limit: 5])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Definitions.definitions/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getDefinitions
   """
   @spec get_definitions(String.t(), Word.Definitions.definitions_params()) ::
-          {:error, String.t()} | {:ok, list(Word.Definitions.definition())}
+          {:error, String.t()} | {:ok, Word.Definitions.definitions()}
   def get_definitions(word, params \\ []),
     do: Word.Definitions.get_definitions(word, params)
 
@@ -55,13 +59,14 @@ defmodule Wordnik do
   - use_canonical: boolean
 
   ### Example
-
   ```elixir
   iex> get_etymologies("verbose", [:use_canonical])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Etymologies.etymology/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getEtymologies
   """
   @spec get_etymologies(String.t(), Word.Etymologies.etymologies_params()) ::
@@ -79,17 +84,18 @@ defmodule Wordnik do
   - skip: integer
 
   ### Example
-
   ```elixir
   iex> get_examples("verbose", [:use_canonical, limit: 5])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Examples.examples/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getExamples
   """
   @spec get_examples(String.t(), Word.Examples.examples_params()) ::
-          {:error, String.t()} | {:ok, Word.Examples.example()}
+          {:error, String.t()} | {:ok, Word.Examples.examples()}
   def get_examples(word, params \\ []),
     do: Word.Examples.get_examples(word, params)
 
@@ -102,13 +108,14 @@ defmodule Wordnik do
   - end_year: integer
 
   ### Example
-
   ```elixir
   iex> get_frequency("verbose", [:use_canonical, start_year: 1990, end_year: 2000])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Frequency.frequency/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getWordFrequency
   """
   @spec get_frequency(String.t(), Word.Frequency.frequency_params()) ::
@@ -125,13 +132,14 @@ defmodule Wordnik do
   - source_dict: string
 
   ### Example
-
   ```elixir
   iex> get_hyphenation("verbose", [:use_canonical])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Hyphenation.hyphenation/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getHyphenation
   """
   @spec get_hyphenation(String.t(), Word.Hyphenation.hyphenation_params()) ::
@@ -148,13 +156,14 @@ defmodule Wordnik do
   - wlmi: string
 
   ### Example
-
   ```elixir
   iex> get_phrases("verbose", [:use_canonical, limit: 5])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Phrases.phrases/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getPhrases
   """
   @spec get_phrases(String.t(), Word.Phrases.phrases_params()) ::
@@ -172,13 +181,14 @@ defmodule Wordnik do
   - source_dict: string
 
   ### Example
-
   ```elixir
   iex> get_pronunciations("verbose", [:use_canonical, limit: 5])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Pronunciations.pronunciations/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getTextPronunciations
   """
   @spec get_pronunciations(String.t(), Word.Pronunciations.pronunciations_params()) ::
@@ -195,13 +205,14 @@ defmodule Wordnik do
   - relationship_types: string
 
   ### Example
-
   ```elixir
   iex> get_related_words("verbose", [:use_canonical, relationship_types: "synonym"])
   ```elixir
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.RelatedWords.related_words/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getRelatedWords
   """
   @spec get_related_words(String.t(), Word.RelatedWords.related_words_params()) ::
@@ -213,13 +224,14 @@ defmodule Wordnik do
   get scrabble_score for requested word
 
   ### Example
-
   ```elixir
   iex> get_scrabble_score("verbose")
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.ScrabbleScore.scrabble_score/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getScrabbleScore
   """
   @spec get_scrabble_score(String.t()) ::
@@ -234,13 +246,14 @@ defmodule Wordnik do
   - use_canonical: boolean
 
   ### Example
-
   ```elixir
   iex> get_top_example("verbose", [:use_canonical])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Examples.example/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getTopExample
   """
   @spec get_top_example(String.t(), Word.TopExample.top_example_params()) ::
@@ -263,13 +276,14 @@ defmodule Wordnik do
   - max_length: integer
 
   ### Example
-
   ```elixir
   iex> get_random_word( [:has_dictionary_def, min_length: 5])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Words.RandomWord.random_word/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getRandomWord
   """
   @spec get_random_word(Words.RandomWord.random_word_params()) ::
@@ -295,13 +309,14 @@ defmodule Wordnik do
   - sort_order: string
 
   ### Example
-
   ```elixir
   iex> get_random_words([:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Words.RandomWords.random_words/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getRandomWords
   """
   @spec get_random_words(Words.RandomWords.random_words_params()) ::
@@ -316,13 +331,14 @@ defmodule Wordnik do
   - date: string
 
   ### Example
-
   ```elixir
   iex> get_word_of_the_day([date: "1985-12-31"])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Words.WordOfTheDay.word_of_the_day/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getWordOfTheDay
   """
   @spec get_word_of_the_day(Words.WordOfTheDay.word_of_the_day_params()) ::

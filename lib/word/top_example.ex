@@ -33,13 +33,14 @@ defmodule Word.TopExample do
   - use_canonical: boolean
 
   ### Example
-
   ```elixir
   iex> get_top_example("verbose", [:use_canonical])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Examples.example/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getTopExample
   """
   @spec get_top_example(String.t(), top_example_params()) ::

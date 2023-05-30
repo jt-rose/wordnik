@@ -33,8 +33,8 @@ defmodule Word.Definitions do
   @typedoc """
           parsed JSON response to `get_definitions/2` query
   """
-  @type definition ::
-          %{
+  @type definitions ::
+          list(%{
             attributionText: String.t(),
             attributionUrl: String.t(),
             citations: [
@@ -63,7 +63,7 @@ defmodule Word.Definitions do
               any
             ],
             word: String.t()
-          }
+          })
 
   @valid_params [
     :limit,
@@ -112,12 +112,14 @@ defmodule Word.Definitions do
   iex> get_definitions("verbose", [part_of_speech: "noun", limit: 5])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Definitions.definitions/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getDefinitions
   """
   @spec get_definitions(String.t(), definitions_params()) ::
-          {:error, String.t()} | {:ok, list(definition)}
+          {:error, String.t()} | {:ok, definitions}
   def get_definitions(word, params \\ []) do
     if !has_valid_source_dictionaries?(params) do
       {:error,

@@ -78,13 +78,14 @@ defmodule Words.RandomWords do
   - sort_order: string
 
   ### Example
-
   ```elixir
   iex> get_random_words([:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Words.RandomWords.random_words/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getRandomWords
   """
   @spec get_random_words(random_words_params()) ::

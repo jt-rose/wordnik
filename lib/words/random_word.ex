@@ -71,13 +71,13 @@ defmodule Words.RandomWord do
   - max_length: integer
 
   ### Example
-
   ```elixir
   iex> get_random_word( [:has_dictionary_def, min_length: 5])
   ```
+  ### Response
+  `t:Words.RandomWord.random_word/0`
 
   ### Wordnik Docs
-
   https://developer.wordnik.com/docs#!/word/getRandomWord
   """
   @spec get_random_word(random_word_params()) ::

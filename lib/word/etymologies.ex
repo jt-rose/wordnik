@@ -45,8 +45,10 @@ defmodule Word.Etymologies do
   iex> get_etymologies("verbose", [:use_canonical])
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.Etymologies.etymology/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getEtymologies
   """
   @spec get_etymologies(String.t(), etymologies_params()) ::

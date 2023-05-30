@@ -16,13 +16,14 @@ defmodule Word.ScrabbleScore do
   get scrabble_score for requested word
 
   ### Example
-
   ```elixir
   iex> get_scrabble_score("verbose")
   ```
 
-  ### Wordnik Docs
+  ### Response
+  `t:Word.ScrabbleScore.scrabble_score/0`
 
+  ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getScrabbleScore
   """
   @spec get_scrabble_score(String.t()) ::
