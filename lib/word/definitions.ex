@@ -26,8 +26,8 @@ defmodule Word.Definitions do
             optional(:include_related) => boolean,
             optional(:include_tags) => boolean,
             optional(:limit) => integer,
-            optional(:part_of_speech) => String.t(),
-            optional(:source_dictionaries) => String.t()
+            optional(:part_of_speech) => Formatter.Enums.part_of_speech(),
+            optional(:source_dictionaries) => Formatter.Enums.source_dictionaries()
           }
           | list(definitions_param())
 

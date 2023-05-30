@@ -25,8 +25,8 @@ defmodule Words.RandomWord do
   @type random_word_params ::
           %{
             optional(:has_dictionary_def) => boolean(),
-            optional(:include_part_of_speech) => String.t(),
-            optional(:exclude_part_of_speech) => String.t(),
+            optional(:include_part_of_speech) => Formatter.Enums.include_part_of_speech(),
+            optional(:exclude_part_of_speech) => Formatter.Enums.exclude_part_of_speech(),
             optional(:min_corpus_count) => integer(),
             optional(:max_corpus_count) => integer(),
             optional(:min_dictionary_count) => integer(),

@@ -15,7 +15,7 @@ defmodule Words.WordOfTheDay do
   """
   @type word_of_the_day_params ::
           %{
-            optional(:date) => String.t()
+            optional(:date) => Formatter.Enums.date()
           }
           | list(word_of_the_day_param())
 

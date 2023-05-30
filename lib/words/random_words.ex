@@ -27,16 +27,16 @@ defmodule Words.RandomWords do
   @type random_words_params ::
           %{
             optional(:has_dictionary_def) => boolean(),
-            optional(:include_part_of_speech) => String.t(),
-            optional(:exclude_part_of_speech) => String.t(),
+            optional(:include_part_of_speech) => Formatter.Enums.include_part_of_speech(),
+            optional(:exclude_part_of_speech) => Formatter.Enums.exclude_part_of_speech(),
             optional(:min_corpus_count) => integer(),
             optional(:max_corpus_count) => integer(),
             optional(:min_dictionary_count) => integer(),
             optional(:max_dictionary_count) => integer(),
             optional(:min_length) => integer(),
             optional(:max_length) => integer(),
-            optional(:sort_by) => String.t(),
-            optional(:sort_order) => String.t()
+            optional(:sort_by) => Formatter.Enums.sort_by(),
+            optional(:sort_order) => Formatter.Enums.sort_order()
           }
           | list(random_words_param())
 

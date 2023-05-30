@@ -18,7 +18,7 @@ defmodule Word.RelatedWords do
           %{
             optional(:use_canonical) => boolean(),
             optional(:limit) => integer(),
-            optional(:relationship_types) => String.t()
+            optional(:relationship_types) => Formatter.Enums.relationship_types()
           }
           | list(related_words_param())
 

@@ -1,4 +1,6 @@
 defmodule Formatter.ParamTypes do
+  alias Formatter.Enums
+
   @type use_canonical :: :use_canonical | {:use_canonical, boolean()}
   @type include_related :: :include_related | {:include_related, boolean()}
   @type include_tags :: :include_tags | {:include_tags, boolean()}
@@ -19,14 +21,15 @@ defmodule Formatter.ParamTypes do
 
   @type wlmi :: {:wlmi, integer}
 
-  @type part_of_speech :: {:part_of_speech, String.t()}
-  @type source_dict :: {:source_dict, String.t()}
-  @type source_dictionaries :: {:source_dictionaries, String.t()}
-  @type type_format :: {:type_format, String.t()}
-  @type relationship_types :: {:relationship_types, String.t()}
-  @type include_part_of_speech :: {:include_part_of_speech, String.t()}
-  @type exclude_part_of_speech :: {:exclude_part_of_speech, String.t()}
-  @type date :: {:date, String.t()}
-  @type sort_by :: {:sort_by, String.t()}
-  @type sort_order :: {:sort_order, String.t()}
+  @type part_of_speech :: {:part_of_speech, Enums.part_of_speech()}
+  @type source_dict :: {:source_dict, Enums.source_dict()}
+  @type source_dictionaries :: {:source_dictionaries, Enums.source_dictionaries()}
+  @type type_format :: {:type_format, Enums.type_format()}
+  @type relationship_types :: {:relationship_types, Enums.relationship_types()}
+  @type include_part_of_speech :: {:include_part_of_speech, Enums.include_part_of_speech()}
+  @type exclude_part_of_speech :: {:exclude_part_of_speech, Enums.exclude_part_of_speech()}
+
+  @type date :: {:date, Enums.date()}
+  @type sort_by :: {:sort_by, Enums.sort_by()}
+  @type sort_order :: {:sort_order, Enums.sort_order()}
 end

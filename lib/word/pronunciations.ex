@@ -21,8 +21,8 @@ defmodule Word.Pronunciations do
           %{
             optional(:use_canonical) => boolean(),
             optional(:limit) => integer(),
-            optional(:source_dict) => String.t(),
-            optional(:type_format) => String.t()
+            optional(:source_dict) => Formatter.Enums.source_dict(),
+            optional(:type_format) => Formatter.Enums.type_format()
           }
           | list(pronunciations_param())
 

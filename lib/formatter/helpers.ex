@@ -5,7 +5,6 @@ defmodule Formatter.Helpers do
   """
   def get_dictionaries do
     [
-      "all",
       "ahd-5",
       "century",
       "wiktionary",

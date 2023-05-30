@@ -18,7 +18,7 @@ defmodule Word.Hyphenation do
           %{
             optional(:use_canonical) => boolean(),
             optional(:limit) => integer(),
-            optional(:source_dict) => String.t()
+            optional(:source_dict) => Formatter.Enums.source_dict()
           }
           | list(hyphenation_param())
 
