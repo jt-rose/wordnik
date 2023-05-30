@@ -3,6 +3,7 @@ defmodule Word.Frequency do
   frequency of usage across years for the requested word
   """
   alias Formatter.ParamTypes
+  alias Formatter.Query
 
   @typedoc """
   optional parameter that can be passed to `get_frequency/2` query
@@ -69,6 +70,6 @@ defmodule Word.Frequency do
 
     word
     |> format_url
-    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
+    |> Query.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

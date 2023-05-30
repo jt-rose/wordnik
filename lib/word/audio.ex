@@ -3,6 +3,7 @@ defmodule Word.Audio do
   audio information about requested word, including link to audio recording
   """
   alias Formatter.ParamTypes
+  alias Formatter.Query
 
   @typedoc """
   optional parameter that can be passed to `get_audio/2` query
@@ -74,6 +75,6 @@ defmodule Word.Audio do
 
     word
     |> format_url
-    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
+    |> Query.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

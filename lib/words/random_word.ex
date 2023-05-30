@@ -3,6 +3,7 @@ defmodule Words.RandomWord do
   get random word
   """
   alias Formatter.ParamTypes
+  alias Formatter.Query
 
   @typedoc """
   optional parameter that can be passed to `get_random_word/1` query
@@ -85,7 +86,7 @@ defmodule Words.RandomWord do
   def get_random_word(params \\ []) do
     {fn_name, _} = __ENV__.function
 
-    Formatter.Params.validate_and_fetch_query(
+    Query.validate_and_fetch_query(
       "http://api.wordnik.com/v4/words.json/randomWord",
       params,
       @valid_params,

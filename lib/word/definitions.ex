@@ -4,6 +4,7 @@ defmodule Word.Definitions do
   """
 
   alias Formatter.ParamTypes
+  alias Formatter.Query
 
   @typedoc """
   optional parameter that can be passed to `get_definitions/2` query
@@ -129,7 +130,7 @@ defmodule Word.Definitions do
 
       word
       |> format_url
-      |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
+      |> Query.validate_and_fetch_query(params, @valid_params, fn_name)
     end
   end
 end

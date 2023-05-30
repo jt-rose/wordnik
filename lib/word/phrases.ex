@@ -3,6 +3,7 @@ defmodule Word.Phrases do
   phrases that include the selected word
   """
   alias Formatter.ParamTypes
+  alias Formatter.Query
 
   @typedoc """
   optional parameter that can be passed to `get_phrases/2` query
@@ -68,6 +69,6 @@ defmodule Word.Phrases do
 
     word
     |> format_url
-    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
+    |> Query.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

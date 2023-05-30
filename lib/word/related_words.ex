@@ -3,6 +3,7 @@ defmodule Word.RelatedWords do
   find related words organized by type of relationship (synonym, antonym, etc.)
   """
   alias Formatter.ParamTypes
+  alias Formatter.Query
 
   @typedoc """
   optional parameter that can be passed to `get_related_words/2` query
@@ -66,6 +67,6 @@ defmodule Word.RelatedWords do
 
     word
     |> format_url
-    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
+    |> Query.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

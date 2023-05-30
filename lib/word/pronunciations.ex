@@ -3,6 +3,7 @@ defmodule Word.Pronunciations do
   pronunciation information for requested word
   """
   alias Formatter.ParamTypes
+  alias Formatter.Query
 
   @typedoc """
   optional parameter that can be passed to `get_pronunciations/2` query
@@ -76,6 +77,6 @@ defmodule Word.Pronunciations do
 
     word
     |> format_url
-    |> Formatter.Params.validate_and_fetch_query(params, @valid_params, fn_name)
+    |> Query.validate_and_fetch_query(params, @valid_params, fn_name)
   end
 end

@@ -3,6 +3,7 @@ defmodule Words.WordOfTheDay do
   word of the day, searchable by date
   """
   alias Formatter.ParamTypes
+  alias Formatter.Query
 
   @typedoc """
   optional parameter that can be passed to `get_word_of_the_day/1` query
@@ -81,7 +82,7 @@ defmodule Words.WordOfTheDay do
     else
       {fn_name, _} = __ENV__.function
 
-      Formatter.Params.validate_and_fetch_query(
+      Query.validate_and_fetch_query(
         "http://api.wordnik.com/v4/words.json/wordOfTheDay",
         [{:date, date}],
         @valid_params,
@@ -98,7 +99,7 @@ defmodule Words.WordOfTheDay do
     else
       {fn_name, _} = __ENV__.function
 
-      Formatter.Params.validate_and_fetch_query(
+      Query.validate_and_fetch_query(
         "http://api.wordnik.com/v4/words.json/wordOfTheDay",
         [{:date, date}],
         @valid_params,
@@ -129,7 +130,7 @@ defmodule Words.WordOfTheDay do
   def get_word_of_the_day(params) do
     {fn_name, _} = __ENV__.function
 
-    Formatter.Params.validate_and_fetch_query(
+    Query.validate_and_fetch_query(
       "http://api.wordnik.com/v4/words.json/wordOfTheDay",
       params,
       @valid_params,

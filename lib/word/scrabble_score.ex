@@ -3,6 +3,8 @@ defmodule Word.ScrabbleScore do
   scrabble_score information about requested word
   """
 
+  alias Formatter.Query
+
   @typedoc """
   parsed JSON response to `get_scrabble_score/1` query
   """
@@ -33,6 +35,6 @@ defmodule Word.ScrabbleScore do
 
     word
     |> format_url
-    |> Formatter.Params.validate_and_fetch_query([], [], fn_name)
+    |> Query.validate_and_fetch_query([], [], fn_name)
   end
 end
