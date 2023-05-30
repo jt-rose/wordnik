@@ -1,81 +1,19 @@
 defmodule Formatter.Params do
   @moduledoc false
 
-  @dictonaries [
-    "all",
-    "ahd-5",
-    "century",
-    "wiktionary",
-    "webster",
-    "wordnet"
-  ]
+  alias Formatter.Helpers
 
-  @parts_of_speech [
-    "noun",
-    "adjective",
-    "verb",
-    "adverb",
-    "interjection",
-    "pronoun",
-    "preposition",
-    "abbreviation",
-    "affix",
-    "article",
-    "auxiliary-verb",
-    "conjunction",
-    "definite-article",
-    "family-name",
-    "given-name",
-    "idiom",
-    "imperative",
-    "noun-plural",
-    "noun-posessive",
-    "past-participle",
-    "phrasal-prefix",
-    "proper-noun",
-    "proper-noun-plural",
-    "proper-noun-posessive",
-    "suffix",
-    "verb-intransitive",
-    "verb-transitive"
-  ]
+  @dictonaries Helpers.get_dictionaries()
 
-  @sort_by [
-    "alpha",
-    "count"
-  ]
+  @parts_of_speech Helpers.get_parts_of_speech()
 
-  @sort_order [
-    "asc",
-    "desc"
-  ]
+  @sort_by Helpers.get_sort_by_options()
 
-  @type_format [
-    "ahd-5",
-    "arpabet",
-    "gcide-diacritical",
-    "IPA"
-  ]
+  @sort_order Helpers.get_sort_order_options()
 
-  @relationship_types [
-    "synonym",
-    "antonym",
-    "variant",
-    "equivalent",
-    "cross-reference",
-    "related-word",
-    "rhyme",
-    "form",
-    "etymologically-related-term",
-    "hypernym",
-    "hyponym",
-    "inflected-form",
-    "primary",
-    "same-context",
-    "verb-form",
-    "verb-stem",
-    "has-topic"
-  ]
+  @type_format Helpers.get_type_formats()
+
+  @relationship_types Helpers.get_relationship_types()
 
   defguardp is_valid_relationship_types(types) when types in @relationship_types
   defguardp is_valid_dict(source_dict) when source_dict in @dictonaries
