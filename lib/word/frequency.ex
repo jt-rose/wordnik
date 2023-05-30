@@ -53,7 +53,9 @@ defmodule Word.Frequency do
 
   ### Example
 
-  `iex> get_frequency("verbose", [:use_canonical, start_year: 1990, end_year: 2000])`
+  ```elixir
+  iex> get_frequency("verbose", [:use_canonical, start_year: 1990, end_year: 2000])
+  ```
 
   ### Wordnik Docs
 

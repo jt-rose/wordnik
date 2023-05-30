@@ -79,7 +79,9 @@ defmodule Words.RandomWords do
 
   ### Example
 
-  `iex> get_random_words([:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])`
+  ```elixir
+  iex> get_random_words([:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])
+  ```
 
   ### Wordnik Docs
 

@@ -108,7 +108,9 @@ defmodule Word.Definitions do
   - source_dictionaries: string
 
   ### Example
-  `iex> get_definitions("verbose", [part_of_speech: "noun", limit: 5])`
+  ```elixir
+  iex> get_definitions("verbose", [part_of_speech: "noun", limit: 5])
+  ```
 
   ### Wordnik Docs
 

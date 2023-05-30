@@ -41,7 +41,9 @@ defmodule Word.Etymologies do
 
   ### Example
 
-  `iex> get_etymologies("verbose", [:use_canonical])`
+  ```elixir
+  iex> get_etymologies("verbose", [:use_canonical])
+  ```
 
   ### Wordnik Docs
 

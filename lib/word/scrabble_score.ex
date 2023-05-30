@@ -17,7 +17,9 @@ defmodule Word.ScrabbleScore do
 
   ### Example
 
-  `iex> get_scrabble_score("verbose")`
+  ```elixir
+  iex> get_scrabble_score("verbose")
+  ```
 
   ### Wordnik Docs
 

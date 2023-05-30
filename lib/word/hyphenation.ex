@@ -51,7 +51,9 @@ defmodule Word.Hyphenation do
 
   ### Example
 
-  `iex> get_hyphenation("verbose", [:use_canonical])`
+  ```elixir
+  iex> get_hyphenation("verbose", [:use_canonical])
+  ```
 
   ### Wordnik Docs
 

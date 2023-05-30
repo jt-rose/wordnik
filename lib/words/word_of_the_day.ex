@@ -115,7 +115,9 @@ defmodule Words.WordOfTheDay do
 
   ### Example
 
-  `iex> get_word_of_the_day("SECRET_API_KEY", [date: "1985-12-31"])`
+  ```elixir
+  iex> get_word_of_the_day("SECRET_API_KEY", [date: "1985-12-31"])
+  ```
 
   ### Wordnik Docs
 

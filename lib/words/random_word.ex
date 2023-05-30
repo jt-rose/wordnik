@@ -72,7 +72,9 @@ defmodule Words.RandomWord do
 
   ### Example
 
-  `iex> get_random_word( [:has_dictionary_def, min_length: 5])`
+  ```elixir
+  iex> get_random_word( [:has_dictionary_def, min_length: 5])
+  ```
 
   ### Wordnik Docs
 

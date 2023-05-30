@@ -68,7 +68,9 @@ defmodule Word.Examples do
 
   ### Example
 
-  `iex> get_examples("verbose", [:use_canonical, limit: 5])`
+  ```elixir
+  iex> get_examples("verbose", [:use_canonical, limit: 5])
+  ```
 
   ### Wordnik Docs
 

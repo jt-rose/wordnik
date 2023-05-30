@@ -60,7 +60,9 @@ defmodule Word.Pronunciations do
 
   ### Example
 
-  `iex> get_pronunciations("verbose", [:use_canonical, limit: 5])`
+  ```elixir
+  iex> get_pronunciations("verbose", [:use_canonical, limit: 5])
+  ```
 
   ### Wordnik Docs
 

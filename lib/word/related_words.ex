@@ -50,7 +50,9 @@ defmodule Word.RelatedWords do
 
   ### Example
 
-  `iex> get_related_words("verbose", [:use_canonical, relationship_types: "synonym"])`
+  ```elixir
+  iex> get_related_words("verbose", [:use_canonical, relationship_types: "synonym"])
+  ```
 
   ### Wordnik Docs
 

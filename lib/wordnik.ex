@@ -11,7 +11,9 @@ defmodule Wordnik do
   - use_canonical: boolean
 
   ### Example
-  `iex> get_audio("Havana", [:use_canonical, limit: 5])`
+  ```elixir
+  iex> get_audio("Havana", [:use_canonical, limit: 5])
+  ```
 
   ### Wordnik Docs
 
@@ -33,7 +35,9 @@ defmodule Wordnik do
   - source_dictionaries: string
 
   ### Example
-  `iex> get_definitions("verbose", [part_of_speech: "noun", limit: 5])`
+  ```elixir
+  iex> get_definitions("verbose", [part_of_speech: "noun", limit: 5])
+  ```
 
   ### Wordnik Docs
 
@@ -52,7 +56,9 @@ defmodule Wordnik do
 
   ### Example
 
-  `iex> get_etymologies("verbose", [:use_canonical])`
+  ```elixir
+  iex> get_etymologies("verbose", [:use_canonical])
+  ```
 
   ### Wordnik Docs
 
@@ -74,7 +80,9 @@ defmodule Wordnik do
 
   ### Example
 
-  `iex> get_examples("verbose", [:use_canonical, limit: 5])`
+  ```elixir
+  iex> get_examples("verbose", [:use_canonical, limit: 5])
+  ```
 
   ### Wordnik Docs
 
@@ -95,7 +103,9 @@ defmodule Wordnik do
 
   ### Example
 
-  `iex> get_frequency("verbose", [:use_canonical, start_year: 1990, end_year: 2000])`
+  ```elixir
+  iex> get_frequency("verbose", [:use_canonical, start_year: 1990, end_year: 2000])
+  ```
 
   ### Wordnik Docs
 
@@ -116,7 +126,9 @@ defmodule Wordnik do
 
   ### Example
 
-  `iex> get_hyphenation("verbose", [:use_canonical])`
+  ```elixir
+  iex> get_hyphenation("verbose", [:use_canonical])
+  ```
 
   ### Wordnik Docs
 
@@ -137,7 +149,9 @@ defmodule Wordnik do
 
   ### Example
 
-  `iex> get_phrases("verbose", [:use_canonical, limit: 5])`
+  ```elixir
+  iex> get_phrases("verbose", [:use_canonical, limit: 5])
+  ```
 
   ### Wordnik Docs
 
@@ -159,7 +173,9 @@ defmodule Wordnik do
 
   ### Example
 
-  `iex> get_pronunciations("verbose", [:use_canonical, limit: 5])`
+  ```elixir
+  iex> get_pronunciations("verbose", [:use_canonical, limit: 5])
+  ```
 
   ### Wordnik Docs
 
@@ -180,7 +196,9 @@ defmodule Wordnik do
 
   ### Example
 
-  `iex> get_related_words("verbose", [:use_canonical, relationship_types: "synonym"])`
+  ```elixir
+  iex> get_related_words("verbose", [:use_canonical, relationship_types: "synonym"])
+  ```elixir
 
   ### Wordnik Docs
 
@@ -196,7 +214,9 @@ defmodule Wordnik do
 
   ### Example
 
-  `iex> get_scrabble_score("verbose")`
+  ```elixir
+  iex> get_scrabble_score("verbose")
+  ```
 
   ### Wordnik Docs
 
@@ -215,7 +235,9 @@ defmodule Wordnik do
 
   ### Example
 
-  `iex> get_top_example("verbose", [:use_canonical])`
+  ```elixir
+  iex> get_top_example("verbose", [:use_canonical])
+  ```
 
   ### Wordnik Docs
 
@@ -242,7 +264,9 @@ defmodule Wordnik do
 
   ### Example
 
-  `iex> get_random_word( [:has_dictionary_def, min_length: 5])`
+  ```elixir
+  iex> get_random_word( [:has_dictionary_def, min_length: 5])
+  ```
 
   ### Wordnik Docs
 
@@ -272,7 +296,9 @@ defmodule Wordnik do
 
   ### Example
 
-  `iex> get_random_words([:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])`
+  ```elixir
+  iex> get_random_words([:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])
+  ```
 
   ### Wordnik Docs
 
@@ -291,7 +317,9 @@ defmodule Wordnik do
 
   ### Example
 
-  `iex> get_word_of_the_day([date: "1985-12-31"])`
+  ```elixir
+  iex> get_word_of_the_day([date: "1985-12-31"])
+  ```
 
   ### Wordnik Docs
 

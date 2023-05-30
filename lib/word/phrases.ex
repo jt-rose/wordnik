@@ -52,7 +52,9 @@ defmodule Word.Phrases do
 
   ### Example
 
-  `iex> get_phrases("verbose", [:use_canonical, limit: 5])`
+  ```elixir
+  iex> get_phrases("verbose", [:use_canonical, limit: 5])
+  ```
 
   ### Wordnik Docs
 

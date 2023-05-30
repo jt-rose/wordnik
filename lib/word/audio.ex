@@ -57,7 +57,9 @@ defmodule Word.Audio do
   - use_canonical: boolean
 
   ### Example
-  `iex> get_audio("Havana", [:use_canonical, limit: 5])`
+  ```elixir
+  iex> get_audio("Havana", [:use_canonical, limit: 5])
+  ```
 
   ### Wordnik Docs
 

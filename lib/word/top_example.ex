@@ -34,7 +34,9 @@ defmodule Word.TopExample do
 
   ### Example
 
-  `iex> get_top_example("verbose", [:use_canonical])`
+  ```elixir
+  iex> get_top_example("verbose", [:use_canonical])
+  ```
 
   ### Wordnik Docs
 
