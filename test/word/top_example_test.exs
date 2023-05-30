@@ -13,7 +13,7 @@ defmodule TopExampleTest do
   end
 
   test "get top example with parameters" do
-    {status, resp} = Word.TopExample.get_top_example(@test_word, [:use_canonical])
+    {status, resp} = Word.TopExample.get_top_example(@test_word, %{use_canonical: true})
 
     assert status == :ok
     assert resp["exampleId"] == 944_083_198
@@ -21,7 +21,7 @@ defmodule TopExampleTest do
   end
 
   test "reject top_example query with invalid params" do
-    {status, msg} = Word.TopExample.get_top_example(@test_word, [:whoops])
+    {status, msg} = Word.TopExample.get_top_example(@test_word, %{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_top_example' function"

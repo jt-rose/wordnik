@@ -14,7 +14,7 @@ defmodule PhrasesTest do
 
   test "get phrases with parameters" do
     {status, [resp | _]} =
-      Word.Phrases.get_phrases(@test_word, [:use_canonical, limit: 3, wlmi: 5])
+      Word.Phrases.get_phrases(@test_word, %{use_canonical: true, limit: 3, wlmi: 5})
 
     wlmi = resp["wlmi"]
 
@@ -23,7 +23,7 @@ defmodule PhrasesTest do
   end
 
   test "reject phrases query with invalid params" do
-    {status, msg} = Word.Phrases.get_phrases(@test_word, [:whoops])
+    {status, msg} = Word.Phrases.get_phrases(@test_word, %{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_phrases' function"

@@ -16,11 +16,11 @@ defmodule HyphenationTest do
 
   test "get hyphenation with params" do
     {status, resp} =
-      Word.Hyphenation.get_hyphenation(@test_word, [
-        :use_canonical,
+      Word.Hyphenation.get_hyphenation(@test_word, %{
+        use_canonical: true,
         limit: 5,
         source_dict: "webster"
-      ])
+      })
 
     [e, lix, ir] = resp
 
@@ -32,7 +32,7 @@ defmodule HyphenationTest do
   end
 
   test "reject hyphenation query with invalid params" do
-    {status, msg} = Word.Hyphenation.get_hyphenation(@test_word, [:whoops])
+    {status, msg} = Word.Hyphenation.get_hyphenation(@test_word, %{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_hyphenation' function"

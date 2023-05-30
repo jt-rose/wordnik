@@ -15,7 +15,7 @@ defmodule EtymologiesTest do
   end
 
   test "get etymologies with params" do
-    {status, resp} = Word.Etymologies.get_etymologies(@test_word, [:use_canonical])
+    {status, resp} = Word.Etymologies.get_etymologies(@test_word, %{use_canonical: true})
     message = resp["message"]
 
     assert status == :ok
@@ -23,7 +23,7 @@ defmodule EtymologiesTest do
   end
 
   test "reject etymologies query with invalid params" do
-    {status, msg} = Word.Etymologies.get_etymologies(@test_word, [:whoops])
+    {status, msg} = Word.Etymologies.get_etymologies(@test_word, %{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_etymologies' function"

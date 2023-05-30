@@ -13,11 +13,11 @@ defmodule RelatedWordsTest do
 
   test "get related words with params" do
     {status, resp} =
-      Word.RelatedWords.get_related_words(@test_word, [
-        :use_canonical,
+      Word.RelatedWords.get_related_words(@test_word, %{
+        use_canonical: true,
         limit: 5,
         relationship_types: "synonym"
-      ])
+      })
 
     [relationship | _tail] = resp
 
@@ -26,7 +26,7 @@ defmodule RelatedWordsTest do
   end
 
   test "reject related_words query with invalid params" do
-    {status, msg} = Word.RelatedWords.get_related_words(@test_word, [:whoops])
+    {status, msg} = Word.RelatedWords.get_related_words(@test_word, %{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_related_words' function"

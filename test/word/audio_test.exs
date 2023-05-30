@@ -12,7 +12,7 @@ defmodule AudioTest do
   end
 
   test "get audio with params" do
-    {status, resp} = Word.Audio.get_audio(@test_word, [:use_canonical, limit: 2])
+    {status, resp} = Word.Audio.get_audio(@test_word, %{use_canonical: true, limit: 2})
     [details | _tail] = resp
 
     assert status == :ok
@@ -20,7 +20,7 @@ defmodule AudioTest do
   end
 
   test "reject audio query with invalid params" do
-    {status, msg} = Word.Audio.get_audio(@test_word, [:whoops])
+    {status, msg} = Word.Audio.get_audio(@test_word, %{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_audio' function"

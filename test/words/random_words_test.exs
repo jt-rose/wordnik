@@ -11,8 +11,8 @@ defmodule Words.RandomWordsTest do
 
   test "get random words with parameters" do
     {status, [resp | _]} =
-      Words.RandomWords.get_random_words([
-        :has_dictionary_def,
+      Words.RandomWords.get_random_words(%{
+        has_dictionary_def: true,
         include_part_of_speech: "noun",
         exclude_part_of_speech: "verb",
         min_corpus_count: 1,
@@ -24,7 +24,7 @@ defmodule Words.RandomWordsTest do
         limit: 5,
         sort_by: "alpha",
         sort_order: "asc"
-      ])
+      })
 
     assert status == :ok
     assert Map.has_key?(resp, "id") == true
@@ -32,7 +32,7 @@ defmodule Words.RandomWordsTest do
   end
 
   test "reject random words query with invalid params" do
-    {status, msg} = Words.RandomWords.get_random_words([:whoops])
+    {status, msg} = Words.RandomWords.get_random_words(%{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_random_words' function"
