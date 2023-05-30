@@ -3,17 +3,7 @@ defmodule Word.Examples do
   examples for a given word
   """
 
-  alias Formatter.ParamTypes
   alias Formatter.Query
-
-  @typedoc """
-  optional parameter that can be passed to `get_examples/2` query
-  """
-  @type examples_param ::
-          ParamTypes.use_canonical()
-          | ParamTypes.include_duplicates()
-          | ParamTypes.limit()
-          | ParamTypes.skip()
 
   @typedoc """
   map or list of optional parameters that can be passed to `get_examples/2` query
@@ -25,7 +15,6 @@ defmodule Word.Examples do
             optional(:limit) => integer,
             optional(:skip) => integer
           }
-          | list(examples_param())
 
   @typedoc """
           parsed JSON response to `get_examples/2` query
@@ -71,7 +60,7 @@ defmodule Word.Examples do
 
   ### Example
   ```elixir
-  iex> get_examples("verbose", [:use_canonical, limit: 5])
+  iex> get_examples("verbose", %{use_canonical: true, limit: 5})
   ```
 
   ### Response
@@ -82,7 +71,7 @@ defmodule Word.Examples do
   """
   @spec get_examples(String.t(), examples_params()) ::
           {:error, String.t()} | {:ok, examples()}
-  def get_examples(word, params \\ []) do
+  def get_examples(word, params \\ %{}) do
     {fn_name, _} = __ENV__.function
 
     word

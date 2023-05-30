@@ -3,14 +3,7 @@ defmodule Word.Etymologies do
   etymologies for a given word
   """
 
-  alias Formatter.ParamTypes
   alias Formatter.Query
-
-  @typedoc """
-  optional parameter that can be passed to `get_etymologies/2` query
-  """
-  @type etymologies_param ::
-          ParamTypes.use_canonical()
 
   @typedoc """
   map or list of optional parameters that can be passed to `get_etymologies/2` query
@@ -19,7 +12,6 @@ defmodule Word.Etymologies do
           %{
             optional(:use_canonical) => boolean
           }
-          | list(etymologies_param())
 
   @typedoc """
           parsed JSON response to `get_etymologies/2` query
@@ -54,7 +46,7 @@ defmodule Word.Etymologies do
   """
   @spec get_etymologies(String.t(), etymologies_params()) ::
           {:error, String.t()} | {:ok, etymology()}
-  def get_etymologies(word, params \\ []) do
+  def get_etymologies(word, params \\ %{}) do
     {fn_name, _} = __ENV__.function
 
     word

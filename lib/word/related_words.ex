@@ -2,14 +2,7 @@ defmodule Word.RelatedWords do
   @moduledoc """
   find related words organized by type of relationship (synonym, antonym, etc.)
   """
-  alias Formatter.ParamTypes
   alias Formatter.Query
-
-  @typedoc """
-  optional parameter that can be passed to `get_related_words/2` query
-  """
-  @type related_words_param ::
-          ParamTypes.use_canonical() | ParamTypes.limit() | ParamTypes.relationship_types()
 
   @typedoc """
   map or list of optional parameters that can be passed to `get_related_words/2` query
@@ -20,7 +13,6 @@ defmodule Word.RelatedWords do
             optional(:limit) => integer(),
             optional(:relationship_types) => Formatter.Enums.relationship_types()
           }
-          | list(related_words_param())
 
   @typedoc """
   parsed JSON response to `get_related_words/2` query
@@ -51,7 +43,7 @@ defmodule Word.RelatedWords do
 
   ### Example
   ```elixir
-  iex> get_related_words("verbose", [:use_canonical, relationship_types: "synonym"])
+  iex> get_related_words("verbose", %{use_canonical: true, relationship_types: "synonym"})
   ```
 
    ### Response
@@ -62,7 +54,7 @@ defmodule Word.RelatedWords do
   """
   @spec get_related_words(String.t(), related_words_params()) ::
           {:error, String.t()} | {:ok, related_words()}
-  def get_related_words(word, params \\ []) do
+  def get_related_words(word, params \\ %{}) do
     {fn_name, _} = __ENV__.function
 
     word

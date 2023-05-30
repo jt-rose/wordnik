@@ -2,13 +2,7 @@ defmodule Word.Phrases do
   @moduledoc """
   phrases that include the selected word
   """
-  alias Formatter.ParamTypes
   alias Formatter.Query
-
-  @typedoc """
-  optional parameter that can be passed to `get_phrases/2` query
-  """
-  @type phrases_param :: ParamTypes.use_canonical() | ParamTypes.limit() | ParamTypes.wlmi()
 
   @typedoc """
   map or list of optional parameters that can be passed to `get_phrases/2` query
@@ -19,7 +13,6 @@ defmodule Word.Phrases do
             optional(:limit) => integer(),
             optional(:wlmi) => integer()
           }
-          | list(phrases_param())
 
   @typedoc """
   parsed JSON response to `get_phrases/2` query
@@ -53,7 +46,7 @@ defmodule Word.Phrases do
 
   ### Example
   ```elixir
-  iex> get_phrases("verbose", [:use_canonical, limit: 5])
+  iex> get_phrases("verbose", %{use_canonical: true, limit: 5})
   ```
 
   ### Response
@@ -64,7 +57,7 @@ defmodule Word.Phrases do
   """
   @spec get_phrases(String.t(), phrases_params()) ::
           {:error, String.t()} | {:ok, phrases()}
-  def get_phrases(word, params \\ []) do
+  def get_phrases(word, params \\ %{}) do
     {fn_name, _} = __ENV__.function
 
     word

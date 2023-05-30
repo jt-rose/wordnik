@@ -2,24 +2,7 @@ defmodule Words.RandomWords do
   @moduledoc """
   get random_words
   """
-  alias Formatter.ParamTypes
   alias Formatter.Query
-
-  @typedoc """
-  optional parameter that can be passed to `get_random_words/1` query
-  """
-  @type random_words_param ::
-          ParamTypes.has_dictionary_def()
-          | ParamTypes.include_part_of_speech()
-          | ParamTypes.exclude_part_of_speech()
-          | ParamTypes.min_corpus_count()
-          | ParamTypes.max_corpus_count()
-          | ParamTypes.min_dictionary_count()
-          | ParamTypes.max_dictionary_count()
-          | ParamTypes.min_length()
-          | ParamTypes.max_length()
-          | ParamTypes.sort_by()
-          | ParamTypes.sort_order()
 
   @typedoc """
   map or list of optional parameters that can be passed to `get_random_words/1` query
@@ -38,7 +21,6 @@ defmodule Words.RandomWords do
             optional(:sort_by) => Formatter.Enums.sort_by(),
             optional(:sort_order) => Formatter.Enums.sort_order()
           }
-          | list(random_words_param())
 
   @typedoc """
   parsed JSON response to `get_random_words/1` query
@@ -80,7 +62,7 @@ defmodule Words.RandomWords do
 
   ### Example
   ```elixir
-  iex> get_random_words([:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])
+  iex> get_random_words(%{has_dictionary_def: true, sort_by: "alpha", sort_order: "asc"})
   ```
 
   ### Response
@@ -91,7 +73,7 @@ defmodule Words.RandomWords do
   """
   @spec get_random_words(random_words_params()) ::
           {:error, String.t()} | {:ok, random_words()}
-  def get_random_words(params \\ []) do
+  def get_random_words(params \\ %{}) do
     {fn_name, _} = __ENV__.function
 
     Query.validate_and_fetch_query(

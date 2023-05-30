@@ -2,13 +2,8 @@ defmodule Word.Audio do
   @moduledoc """
   audio information about requested word, including link to audio recording
   """
-  alias Formatter.ParamTypes
-  alias Formatter.Query
 
-  @typedoc """
-  optional parameter that can be passed to `get_audio/2` query
-  """
-  @type audio_param :: ParamTypes.use_canonical() | ParamTypes.limit()
+  alias Formatter.Query
 
   @typedoc """
   map or list of optional parameters that can be passed to `get_audio/2` query
@@ -18,7 +13,6 @@ defmodule Word.Audio do
             optional(:limit) => integer(),
             optional(:use_canonical) => boolean()
           }
-          | list(audio_param())
 
   @typedoc """
   parsed JSON response to `get_audio/2` query
@@ -59,7 +53,7 @@ defmodule Word.Audio do
 
   ### Example
   ```elixir
-  iex> get_audio("Havana", [:use_canonical, limit: 5])
+  iex> get_audio("Havana", %{use_canonical: true, limit: 5})
   ```
 
   ### Response
@@ -70,7 +64,7 @@ defmodule Word.Audio do
   """
   @spec get_audio(String.t(), audio_params()) ::
           {:error, String.t()} | {:ok, audio}
-  def get_audio(word, params \\ []) do
+  def get_audio(word, params \\ %{}) do
     {fn_name, _} = __ENV__.function
 
     word

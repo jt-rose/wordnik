@@ -3,19 +3,7 @@ defmodule Word.Definitions do
   word definition(s) across various dictionaries
   """
 
-  alias Formatter.ParamTypes
   alias Formatter.Query
-
-  @typedoc """
-  optional parameter that can be passed to `get_definitions/2` query
-  """
-  @type definitions_param ::
-          ParamTypes.use_canonical()
-          | ParamTypes.include_related()
-          | ParamTypes.include_tags()
-          | ParamTypes.limit()
-          | ParamTypes.part_of_speech()
-          | ParamTypes.source_dictionaries()
 
   @typedoc """
   map or list of optional parameters that can be passed to `get_definitions/2` query
@@ -29,7 +17,6 @@ defmodule Word.Definitions do
             optional(:part_of_speech) => Formatter.Enums.part_of_speech(),
             optional(:source_dictionaries) => Formatter.Enums.source_dictionaries()
           }
-          | list(definitions_param())
 
   @typedoc """
           parsed JSON response to `get_definitions/2` query
@@ -110,7 +97,7 @@ defmodule Word.Definitions do
 
   ### Example
   ```elixir
-  iex> get_definitions("verbose", [part_of_speech: "noun", limit: 5])
+  iex> get_definitions("verbose", %{part_of_speech: "noun", limit: 5})
   ```
 
   ### Response
@@ -121,7 +108,7 @@ defmodule Word.Definitions do
   """
   @spec get_definitions(String.t(), definitions_params()) ::
           {:error, String.t()} | {:ok, definitions}
-  def get_definitions(word, params \\ []) do
+  def get_definitions(word, params \\ %{}) do
     if !has_valid_source_dictionaries?(params) do
       {:error,
        "Invalid source dictionaries provided. Provide 'all', a single dictionary, or a comma-separated list of dictionaries excluding 'all'."}

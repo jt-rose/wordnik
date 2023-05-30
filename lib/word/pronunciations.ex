@@ -2,17 +2,7 @@ defmodule Word.Pronunciations do
   @moduledoc """
   pronunciation information for requested word
   """
-  alias Formatter.ParamTypes
   alias Formatter.Query
-
-  @typedoc """
-  optional parameter that can be passed to `get_pronunciations/2` query
-  """
-  @type pronunciations_param ::
-          ParamTypes.use_canonical()
-          | ParamTypes.limit()
-          | ParamTypes.source_dict()
-          | ParamTypes.type_format()
 
   @typedoc """
   map or list of optional parameters that can be passed to `get_pronunciations/2` query
@@ -24,7 +14,6 @@ defmodule Word.Pronunciations do
             optional(:source_dict) => Formatter.Enums.source_dict(),
             optional(:type_format) => Formatter.Enums.type_format()
           }
-          | list(pronunciations_param())
 
   @typedoc """
   parsed JSON response to `get_pronunciations/2` query
@@ -61,7 +50,7 @@ defmodule Word.Pronunciations do
 
   ### Example
   ```elixir
-  iex> get_pronunciations("verbose", [:use_canonical, limit: 5])
+  iex> get_pronunciations("verbose", %{use_canonical: true, limit: 5})
   ```
 
   ### Response
@@ -72,7 +61,7 @@ defmodule Word.Pronunciations do
   """
   @spec get_pronunciations(String.t(), pronunciations_params()) ::
           {:error, String.t()} | {:ok, pronunciations()}
-  def get_pronunciations(word, params \\ []) do
+  def get_pronunciations(word, params \\ %{}) do
     {fn_name, _} = __ENV__.function
 
     word

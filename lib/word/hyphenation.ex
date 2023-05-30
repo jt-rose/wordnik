@@ -2,14 +2,7 @@ defmodule Word.Hyphenation do
   @moduledoc """
   hyphenation information about requested word
   """
-  alias Formatter.ParamTypes
   alias Formatter.Query
-
-  @typedoc """
-  optional parameter that can be passed to `get_hyphenation/2` query
-  """
-  @type hyphenation_param ::
-          ParamTypes.use_canonical() | ParamTypes.limit() | ParamTypes.source_dict()
 
   @typedoc """
   map or list of optional parameters that can be passed to `get_hyphenation/2` query
@@ -20,7 +13,6 @@ defmodule Word.Hyphenation do
             optional(:limit) => integer(),
             optional(:source_dict) => Formatter.Enums.source_dict()
           }
-          | list(hyphenation_param())
 
   @typedoc """
   parsed JSON response to `get_hyphenation/2` query
@@ -52,7 +44,7 @@ defmodule Word.Hyphenation do
 
   ### Example
   ```elixir
-  iex> get_hyphenation("verbose", [:use_canonical])
+  iex> get_hyphenation("verbose", %{use_canonical})
   ```
 
   ### Response
@@ -63,7 +55,7 @@ defmodule Word.Hyphenation do
   """
   @spec get_hyphenation(String.t(), hyphenation_params()) ::
           {:error, String.t()} | {:ok, hyphenation()}
-  def get_hyphenation(word, params \\ []) do
+  def get_hyphenation(word, params \\ %{}) do
     {fn_name, _} = __ENV__.function
 
     word

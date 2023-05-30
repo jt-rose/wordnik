@@ -2,13 +2,7 @@ defmodule Words.WordOfTheDay do
   @moduledoc """
   word of the day, searchable by date
   """
-  alias Formatter.ParamTypes
   alias Formatter.Query
-
-  @typedoc """
-  optional parameter that can be passed to `get_word_of_the_day/1` query
-  """
-  @type word_of_the_day_param :: ParamTypes.date()
 
   @typedoc """
   map or list of optional parameters that can be passed to `get_word_of_the_day/1` query
@@ -17,7 +11,6 @@ defmodule Words.WordOfTheDay do
           %{
             optional(:date) => Formatter.Enums.date()
           }
-          | list(word_of_the_day_param())
 
   @typedoc """
   parsed JSON response to `get_word_of_the_day/1` query
@@ -72,26 +65,9 @@ defmodule Words.WordOfTheDay do
     end
   end
 
-  def get_word_of_the_day(params \\ [])
+  def get_word_of_the_day(params \\ %{})
 
   def get_word_of_the_day(%{"date" => date}) do
-    {status, msg} = validate_date_format(date)
-
-    if status == :error do
-      {status, msg}
-    else
-      {fn_name, _} = __ENV__.function
-
-      Query.validate_and_fetch_query(
-        "http://api.wordnik.com/v4/words.json/wordOfTheDay",
-        [{:date, date}],
-        @valid_params,
-        fn_name
-      )
-    end
-  end
-
-  def get_word_of_the_day([{:date, date}]) do
     {status, msg} = validate_date_format(date)
 
     if status == :error do
@@ -116,7 +92,7 @@ defmodule Words.WordOfTheDay do
 
   ### Example
   ```elixir
-  iex> get_word_of_the_day("SECRET_API_KEY", [date: "1985-12-31"])
+  iex> get_word_of_the_day("SECRET_API_KEY", %{date: "1985-12-31"})
   ```
 
   ### Response

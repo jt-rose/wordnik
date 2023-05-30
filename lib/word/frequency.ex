@@ -2,14 +2,7 @@ defmodule Word.Frequency do
   @moduledoc """
   frequency of usage across years for the requested word
   """
-  alias Formatter.ParamTypes
   alias Formatter.Query
-
-  @typedoc """
-  optional parameter that can be passed to `get_frequency/2` query
-  """
-  @type frequency_param ::
-          ParamTypes.use_canonical() | ParamTypes.start_year() | ParamTypes.end_year()
 
   @typedoc """
   map or list of optional parameters that can be passed to `get_frequency/2` query
@@ -20,7 +13,6 @@ defmodule Word.Frequency do
             optional(:end_year) => integer(),
             optional(:use_canonical) => boolean()
           }
-          | list(frequency_param())
 
   @typedoc """
   parsed JSON response to `get_frequency/2` query
@@ -54,7 +46,7 @@ defmodule Word.Frequency do
 
   ### Example
   ```elixir
-  iex> get_frequency("verbose", [:use_canonical, start_year: 1990, end_year: 2000])
+  iex> get_frequency("verbose", %{ use_canonical: true, start_year: 1990, end_year: 2000 })
   ```
 
   ### Response
@@ -65,7 +57,7 @@ defmodule Word.Frequency do
   """
   @spec get_frequency(String.t(), frequency_params()) ::
           {:error, String.t()} | {:ok, frequency()}
-  def get_frequency(word, params \\ []) do
+  def get_frequency(word, params \\ %{}) do
     {fn_name, _} = __ENV__.function
 
     word

@@ -44,26 +44,10 @@ iex> Wordnik.get_definitions("sublime" %{
 })
 ```
 
-Parameters can also be expressed as a list:
+If no parameters are needed, you can skip the params argument:
 
 ```elixir
-iex> Wordnik.get_definitions("sublime", [
-  include_tags: true,
-  include_related: true,
-  source_dictionaries: "wiktionary,webster",
-  limit: 5
-])
-```
-
-And when one of the fields has a boolean value of `true`, it can be further shortened by just providing the atom, but needs to come at the beginning of the list:
-
-```elixir
-iex> Wordnik.get_definitions("sublime", [
-  :include_tags,
-  :include_related,
-  source_dictionaries: "wiktionary,webster",
-  limit: 5
-])
+iex> Wordnik.get_definitions("sublime")
 ```
 
 The parameter fields for each query are based on the Wordnik documentation (linked to below) but follow elixir naming conventions (snake_case). The parameters are also listed in each function's typespecs and documentation. Lastly, parameters pass validation checks and return an error tuple `{:error, error_msg}` when an invalid parameter is provided.

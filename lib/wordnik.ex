@@ -12,7 +12,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_audio("Havana", [:use_canonical, limit: 5])
+  iex> get_audio("Havana", %{use_canonical: true: true, limit: 5})
   ```
 
   ### Response
@@ -23,7 +23,7 @@ defmodule Wordnik do
   """
   @spec get_audio(String.t(), Word.Audio.audio_params()) ::
           {:error, String.t()} | {:ok, Word.Audio.audio()}
-  def get_audio(word, params \\ []), do: Word.Audio.get_audio(word, params)
+  def get_audio(word, params \\ %{}), do: Word.Audio.get_audio(word, params)
 
   @doc """
   get definition(s) for requested word
@@ -38,7 +38,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_definitions("verbose", [part_of_speech: "noun", limit: 5])
+  iex> get_definitions("verbose", %{part_of_speech: "noun", limit: 5})
   ```
 
   ### Response
@@ -49,7 +49,7 @@ defmodule Wordnik do
   """
   @spec get_definitions(String.t(), Word.Definitions.definitions_params()) ::
           {:error, String.t()} | {:ok, Word.Definitions.definitions()}
-  def get_definitions(word, params \\ []),
+  def get_definitions(word, params \\ %{}),
     do: Word.Definitions.get_definitions(word, params)
 
   @doc """
@@ -60,7 +60,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_etymologies("verbose", [:use_canonical])
+  iex> get_etymologies("verbose", %{use_canonical: true})
   ```
 
   ### Response
@@ -71,7 +71,7 @@ defmodule Wordnik do
   """
   @spec get_etymologies(String.t(), Word.Etymologies.etymologies_params()) ::
           {:error, String.t()} | {:ok, Word.Etymologies.etymology()}
-  def get_etymologies(word, params \\ []),
+  def get_etymologies(word, params \\ %{}),
     do: Word.Etymologies.get_etymologies(word, params)
 
   @doc """
@@ -85,7 +85,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_examples("verbose", [:use_canonical, limit: 5])
+  iex> get_examples("verbose", %{use_canonical: true, limit: 5})
   ```
 
   ### Response
@@ -96,7 +96,7 @@ defmodule Wordnik do
   """
   @spec get_examples(String.t(), Word.Examples.examples_params()) ::
           {:error, String.t()} | {:ok, Word.Examples.examples()}
-  def get_examples(word, params \\ []),
+  def get_examples(word, params \\ %{}),
     do: Word.Examples.get_examples(word, params)
 
   @doc """
@@ -109,7 +109,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_frequency("verbose", [:use_canonical, start_year: 1990, end_year: 2000])
+  iex> get_frequency("verbose", %{use_canonical: true, start_year: 1990, end_year: 2000})
   ```
 
   ### Response
@@ -120,7 +120,7 @@ defmodule Wordnik do
   """
   @spec get_frequency(String.t(), Word.Frequency.frequency_params()) ::
           {:error, String.t()} | {:ok, Word.Frequency.frequency()}
-  def get_frequency(word, params \\ []),
+  def get_frequency(word, params \\ %{}),
     do: Word.Frequency.get_frequency(word, params)
 
   @doc """
@@ -133,7 +133,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_hyphenation("verbose", [:use_canonical])
+  iex> get_hyphenation("verbose", %{use_canonical: true})
   ```
 
   ### Response
@@ -144,7 +144,7 @@ defmodule Wordnik do
   """
   @spec get_hyphenation(String.t(), Word.Hyphenation.hyphenation_params()) ::
           {:error, String.t()} | {:ok, Word.Hyphenation.hyphenation()}
-  def get_hyphenation(word, params \\ []),
+  def get_hyphenation(word, params \\ %{}),
     do: Word.Hyphenation.get_hyphenation(word, params)
 
   @doc """
@@ -157,7 +157,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_phrases("verbose", [:use_canonical, limit: 5])
+  iex> get_phrases("verbose", %{use_canonical: true, limit: 5})
   ```
 
   ### Response
@@ -168,7 +168,7 @@ defmodule Wordnik do
   """
   @spec get_phrases(String.t(), Word.Phrases.phrases_params()) ::
           {:error, String.t()} | {:ok, Word.Phrases.phrases()}
-  def get_phrases(word, params \\ []),
+  def get_phrases(word, params \\ %{}),
     do: Word.Phrases.get_phrases(word, params)
 
   @doc """
@@ -182,7 +182,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_pronunciations("verbose", [:use_canonical, limit: 5])
+  iex> get_pronunciations("verbose", %{use_canonical: true, limit: 5})
   ```
 
   ### Response
@@ -193,7 +193,7 @@ defmodule Wordnik do
   """
   @spec get_pronunciations(String.t(), Word.Pronunciations.pronunciations_params()) ::
           {:error, String.t()} | {:ok, Word.Pronunciations.pronunciations()}
-  def get_pronunciations(word, params \\ []),
+  def get_pronunciations(word, params \\ %{}),
     do: Word.Pronunciations.get_pronunciations(word, params)
 
   @doc """
@@ -206,7 +206,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_related_words("verbose", [:use_canonical, relationship_types: "synonym"])
+  iex> get_related_words("verbose", %{use_canonical: true, relationship_types: "synonym"})
   ```elixir
 
   ### Response
@@ -217,7 +217,7 @@ defmodule Wordnik do
   """
   @spec get_related_words(String.t(), Word.RelatedWords.related_words_params()) ::
           {:error, String.t()} | {:ok, Word.RelatedWords.related_words()}
-  def get_related_words(word, params \\ []),
+  def get_related_words(word, params \\ %{}),
     do: Word.RelatedWords.get_related_words(word, params)
 
   @doc """
@@ -247,7 +247,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_top_example("verbose", [:use_canonical])
+  iex> get_top_example("verbose", %{use_canonical: true})
   ```
 
   ### Response
@@ -258,7 +258,7 @@ defmodule Wordnik do
   """
   @spec get_top_example(String.t(), Word.TopExample.top_example_params()) ::
           {:error, String.t()} | {:ok, Word.Examples.example()}
-  def get_top_example(word, params \\ []),
+  def get_top_example(word, params \\ %{}),
     do: Word.TopExample.get_top_example(word, params)
 
   @doc """
@@ -277,7 +277,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_random_word( [:has_dictionary_def, min_length: 5])
+  iex> get_random_word( %{has_dictionary_def: true, min_length: 5})
   ```
 
   ### Response
@@ -288,7 +288,7 @@ defmodule Wordnik do
   """
   @spec get_random_word(Words.RandomWord.random_word_params()) ::
           {:error, String.t()} | {:ok, Words.RandomWord.random_word()}
-  def get_random_word(params \\ []),
+  def get_random_word(params \\ %{}),
     do: Words.RandomWord.get_random_word(params)
 
   @doc """
@@ -310,7 +310,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_random_words([:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])
+  iex> get_random_words(%{has_dictionary_def: true, sort_by: "alpha", sort_order: "asc"})
   ```
 
   ### Response
@@ -321,7 +321,7 @@ defmodule Wordnik do
   """
   @spec get_random_words(Words.RandomWords.random_words_params()) ::
           {:error, String.t()} | {:ok, Words.RandomWords.random_words()}
-  def get_random_words(params \\ []),
+  def get_random_words(params \\ %{}),
     do: Words.RandomWords.get_random_words(params)
 
   @doc """
@@ -332,7 +332,7 @@ defmodule Wordnik do
 
   ### Example
   ```elixir
-  iex> get_word_of_the_day([date: "1985-12-31"])
+  iex> get_word_of_the_day(%{date: "1985-12-31"})
   ```
 
   ### Response
