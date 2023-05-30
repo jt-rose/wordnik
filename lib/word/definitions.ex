@@ -6,7 +6,7 @@ defmodule Word.Definitions do
   alias Formatter.ParamTypes
 
   @typedoc """
-  optional parameter that can be passed to 'get_definitions' query
+  optional parameter that can be passed to `get_definitions/2` query
   """
   @type definitions_param ::
           ParamTypes.use_canonical()
@@ -17,7 +17,7 @@ defmodule Word.Definitions do
           | ParamTypes.source_dictionaries()
 
   @typedoc """
-  map or list of optional parameters that can be passed to 'get_definitions' query
+  map or list of optional parameters that can be passed to `get_definitions/2` query
   """
   @type definitions_params ::
           %{
@@ -31,7 +31,7 @@ defmodule Word.Definitions do
           | list(definitions_param())
 
   @typedoc """
-          parsed JSON response to 'get_definitions' query
+          parsed JSON response to `get_definitions/2` query
   """
   @type definition ::
           %{
@@ -99,8 +99,20 @@ defmodule Word.Definitions do
   @doc """
   get definition(s) for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+  - include_related: boolean
+  - include_tags: boolean
+  - limit: integer
+  - part_of_speech: string
+  - source_dictionaries: string
+
+  ### Example
   `iex> get_definitions("verbose", [part_of_speech: "noun", limit: 5])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getDefinitions
   """
   @spec get_definitions(String.t(), definitions_params()) ::
           {:error, String.t()} | {:ok, list(definition)}

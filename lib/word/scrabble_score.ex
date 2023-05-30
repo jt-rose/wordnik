@@ -4,7 +4,7 @@ defmodule Word.ScrabbleScore do
   """
 
   @typedoc """
-  parsed JSON response to 'get_scrabble_score' query
+  parsed JSON response to `get_scrabble_score/1` query
   """
   @type scrabble_score :: integer
 
@@ -15,8 +15,13 @@ defmodule Word.ScrabbleScore do
   @doc """
   get scrabble_score for requested word
 
+  ### Example
+
   `iex> get_scrabble_score("verbose")`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getScrabbleScore
   """
   @spec get_scrabble_score(String.t()) ::
           {:error, String.t()} | {:ok, scrabble_score()}

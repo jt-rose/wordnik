@@ -5,7 +5,7 @@ defmodule Words.RandomWords do
   alias Formatter.ParamTypes
 
   @typedoc """
-  optional parameter that can be passed to 'get_random_words' query
+  optional parameter that can be passed to `get_random_words/1` query
   """
   @type random_words_param ::
           ParamTypes.has_dictionary_def()
@@ -21,7 +21,7 @@ defmodule Words.RandomWords do
           | ParamTypes.sort_order()
 
   @typedoc """
-  map or list of optional parameters that can be passed to 'get_random_words' query
+  map or list of optional parameters that can be passed to `get_random_words/1` query
   """
   @type random_words_params ::
           %{
@@ -40,7 +40,7 @@ defmodule Words.RandomWords do
           | list(random_words_param())
 
   @typedoc """
-  parsed JSON response to 'get_random_words' query
+  parsed JSON response to `get_random_words/1` query
   """
   @type random_words ::
           list(Words.RandomWord.random_word())
@@ -63,8 +63,27 @@ defmodule Words.RandomWords do
   @doc """
   get random_words for requested word
 
+  ### Parameters
+  - has_dictionary_def: boolean
+  - include_part_of_speech: string
+  - exclude_part_of_speech: string
+  - min_corpus_count: integer
+  - max_corpus_count: integer
+  - min_dictionary_count: integer
+  - max_dictionary_count: integer
+  - min_length: integer
+  - max_length: integer
+  - limit: integer
+  - sort_by: string
+  - sort_order: string
+
+  ### Example
+
   `iex> get_random_words([:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getRandomWords
   """
   @spec get_random_words(random_words_params()) ::
           {:error, String.t()} | {:ok, random_words()}

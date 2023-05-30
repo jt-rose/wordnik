@@ -5,13 +5,13 @@ defmodule Word.Hyphenation do
   alias Formatter.ParamTypes
 
   @typedoc """
-  optional parameter that can be passed to 'get_hyphenation' query
+  optional parameter that can be passed to `get_hyphenation/2` query
   """
   @type hyphenation_param ::
           ParamTypes.use_canonical() | ParamTypes.limit() | ParamTypes.source_dict()
 
   @typedoc """
-  map or list of optional parameters that can be passed to 'get_hyphenation' query
+  map or list of optional parameters that can be passed to `get_hyphenation/2` query
   """
   @type hyphenation_params ::
           %{
@@ -22,7 +22,7 @@ defmodule Word.Hyphenation do
           | list(hyphenation_param())
 
   @typedoc """
-  parsed JSON response to 'get_hyphenation' query
+  parsed JSON response to `get_hyphenation/2` query
   """
   @type hyphenation ::
           list(%{
@@ -44,8 +44,18 @@ defmodule Word.Hyphenation do
   @doc """
   get hyphenation for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+  - limit: integer
+  - source_dict: string
+
+  ### Example
+
   `iex> get_hyphenation("verbose", [:use_canonical])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getHyphenation
   """
   @spec get_hyphenation(String.t(), hyphenation_params()) ::
           {:error, String.t()} | {:ok, hyphenation()}

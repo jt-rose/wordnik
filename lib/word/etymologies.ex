@@ -6,13 +6,13 @@ defmodule Word.Etymologies do
   alias Formatter.ParamTypes
 
   @typedoc """
-  optional parameter that can be passed to 'get_etymologies' query
+  optional parameter that can be passed to `get_etymologies/2` query
   """
   @type etymologies_param ::
           ParamTypes.use_canonical()
 
   @typedoc """
-  map or list of optional parameters that can be passed to 'get_etymologies' query
+  map or list of optional parameters that can be passed to `get_etymologies/2` query
   """
   @type etymologies_params ::
           %{
@@ -21,7 +21,7 @@ defmodule Word.Etymologies do
           | list(etymologies_param())
 
   @typedoc """
-          parsed JSON response to 'get_etymologies' query
+          parsed JSON response to `get_etymologies/2` query
   """
   @type etymology :: String.t()
 
@@ -36,8 +36,16 @@ defmodule Word.Etymologies do
   @doc """
   get etymologies for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+
+  ### Example
+
   `iex> get_etymologies("verbose", [:use_canonical])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getEtymologies
   """
   @spec get_etymologies(String.t(), etymologies_params()) ::
           {:error, String.t()} | {:ok, etymology()}

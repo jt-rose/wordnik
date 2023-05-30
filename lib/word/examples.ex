@@ -6,7 +6,7 @@ defmodule Word.Examples do
   alias Formatter.ParamTypes
 
   @typedoc """
-  optional parameter that can be passed to 'get_examples' query
+  optional parameter that can be passed to `get_examples/2` query
   """
   @type examples_param ::
           ParamTypes.use_canonical()
@@ -15,7 +15,7 @@ defmodule Word.Examples do
           | ParamTypes.skip()
 
   @typedoc """
-  map or list of optional parameters that can be passed to 'get_examples' query
+  map or list of optional parameters that can be passed to `get_examples/2` query
   """
   @type examples_params ::
           %{
@@ -27,7 +27,7 @@ defmodule Word.Examples do
           | list(examples_param())
 
   @typedoc """
-          parsed JSON response to 'get_examples' query
+          parsed JSON response to `get_examples/2` query
   """
   @type example :: %{
           examples:
@@ -60,8 +60,19 @@ defmodule Word.Examples do
   @doc """
   get examples for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+  - include_duplicates: boolean
+  - limit: integer
+  - skip: integer
+
+  ### Example
+
   `iex> get_examples("verbose", [:use_canonical, limit: 5])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getExamples
   """
   @spec get_examples(String.t(), examples_params()) ::
           {:error, String.t()} | {:ok, example()}

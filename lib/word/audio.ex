@@ -5,12 +5,12 @@ defmodule Word.Audio do
   alias Formatter.ParamTypes
 
   @typedoc """
-  optional parameter that can be passed to 'get_audio' query
+  optional parameter that can be passed to `get_audio/2` query
   """
   @type audio_param :: ParamTypes.use_canonical() | ParamTypes.limit()
 
   @typedoc """
-  map or list of optional parameters that can be passed to 'get_audio' query
+  map or list of optional parameters that can be passed to `get_audio/2` query
   """
   @type audio_params ::
           %{
@@ -20,7 +20,7 @@ defmodule Word.Audio do
           | list(audio_param())
 
   @typedoc """
-  parsed JSON response to 'get_audio' query
+  parsed JSON response to `get_audio/2` query
   """
   @type audio ::
           %{
@@ -52,8 +52,16 @@ defmodule Word.Audio do
   @doc """
   get audio information for requested word, including link to recording
 
+  ### Parameters
+  - limit: integer
+  - use_canonical: boolean
+
+  ### Example
   `iex> get_audio("Havana", [:use_canonical, limit: 5])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getAudio
   """
   @spec get_audio(String.t(), audio_params()) ::
           {:error, String.t()} | {:ok, list(audio)}

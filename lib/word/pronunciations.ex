@@ -5,7 +5,7 @@ defmodule Word.Pronunciations do
   alias Formatter.ParamTypes
 
   @typedoc """
-  optional parameter that can be passed to 'get_pronunciations' query
+  optional parameter that can be passed to `get_pronunciations/2` query
   """
   @type pronunciations_param ::
           ParamTypes.use_canonical()
@@ -14,7 +14,7 @@ defmodule Word.Pronunciations do
           | ParamTypes.type_format()
 
   @typedoc """
-  map or list of optional parameters that can be passed to 'get_pronunciations' query
+  map or list of optional parameters that can be passed to `get_pronunciations/2` query
   """
   @type pronunciations_params ::
           %{
@@ -26,7 +26,7 @@ defmodule Word.Pronunciations do
           | list(pronunciations_param())
 
   @typedoc """
-  parsed JSON response to 'get_pronunciations' query
+  parsed JSON response to `get_pronunciations/2` query
   """
   @type pronunciations ::
           list(%{
@@ -52,8 +52,19 @@ defmodule Word.Pronunciations do
   @doc """
   get pronunciations for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+  - limit: integer
+  - type_format: string
+  - source_dict: string
+
+  ### Example
+
   `iex> get_pronunciations("verbose", [:use_canonical, limit: 5])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getTextPronunciations
   """
   @spec get_pronunciations(String.t(), pronunciations_params()) ::
           {:error, String.t()} | {:ok, pronunciations()}

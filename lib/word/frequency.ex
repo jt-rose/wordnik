@@ -5,13 +5,13 @@ defmodule Word.Frequency do
   alias Formatter.ParamTypes
 
   @typedoc """
-  optional parameter that can be passed to 'get_frequency' query
+  optional parameter that can be passed to `get_frequency/2` query
   """
   @type frequency_param ::
           ParamTypes.use_canonical() | ParamTypes.start_year() | ParamTypes.end_year()
 
   @typedoc """
-  map or list of optional parameters that can be passed to 'get_frequency' query
+  map or list of optional parameters that can be passed to `get_frequency/2` query
   """
   @type frequency_params ::
           %{
@@ -22,7 +22,7 @@ defmodule Word.Frequency do
           | list(frequency_param())
 
   @typedoc """
-  parsed JSON response to 'get_frequency' query
+  parsed JSON response to `get_frequency/2` query
   """
   @type frequency ::
           %{
@@ -46,8 +46,18 @@ defmodule Word.Frequency do
   @doc """
   get frequency for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+  - start_year: integer
+  - end_year: integer
+
+  ### Example
+
   `iex> get_frequency("verbose", [:use_canonical, start_year: 1990, end_year: 2000])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getWordFrequency
   """
   @spec get_frequency(String.t(), frequency_params()) ::
           {:error, String.t()} | {:ok, frequency()}

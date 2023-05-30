@@ -6,8 +6,16 @@ defmodule Wordnik do
   @doc """
   get audio information for requested word, including link to recording
 
+  ### Parameters
+  - limit: integer
+  - use_canonical: boolean
+
+  ### Example
   `iex> get_audio("Havana", [:use_canonical, limit: 5])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getAudio
   """
   @spec get_audio(String.t(), Word.Audio.audio_params()) ::
           {:error, String.t()} | {:ok, list(Word.Audio.audio())}
@@ -16,8 +24,20 @@ defmodule Wordnik do
   @doc """
   get definition(s) for requested word
 
-  `iex> get_definitions("verbose",[part_of_speech: "noun", limit: 5])`
+  ### Parameters
+  - use_canonical: boolean
+  - include_related: boolean
+  - include_tags: boolean
+  - limit: integer
+  - part_of_speech: string
+  - source_dictionaries: string
 
+  ### Example
+  `iex> get_definitions("verbose", [part_of_speech: "noun", limit: 5])`
+
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getDefinitions
   """
   @spec get_definitions(String.t(), Word.Definitions.definitions_params()) ::
           {:error, String.t()} | {:ok, list(Word.Definitions.definition())}
@@ -27,8 +47,16 @@ defmodule Wordnik do
   @doc """
   get etymologies for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+
+  ### Example
+
   `iex> get_etymologies("verbose", [:use_canonical])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getEtymologies
   """
   @spec get_etymologies(String.t(), Word.Etymologies.etymologies_params()) ::
           {:error, String.t()} | {:ok, Word.Etymologies.etymology()}
@@ -38,8 +66,19 @@ defmodule Wordnik do
   @doc """
   get examples for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+  - include_duplicates: boolean
+  - limit: integer
+  - skip: integer
+
+  ### Example
+
   `iex> get_examples("verbose", [:use_canonical, limit: 5])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getExamples
   """
   @spec get_examples(String.t(), Word.Examples.examples_params()) ::
           {:error, String.t()} | {:ok, Word.Examples.example()}
@@ -49,8 +88,18 @@ defmodule Wordnik do
   @doc """
   get frequency for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+  - start_year: integer
+  - end_year: integer
+
+  ### Example
+
   `iex> get_frequency("verbose", [:use_canonical, start_year: 1990, end_year: 2000])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getWordFrequency
   """
   @spec get_frequency(String.t(), Word.Frequency.frequency_params()) ::
           {:error, String.t()} | {:ok, Word.Frequency.frequency()}
@@ -60,8 +109,18 @@ defmodule Wordnik do
   @doc """
   get hyphenation for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+  - limit: integer
+  - source_dict: string
+
+  ### Example
+
   `iex> get_hyphenation("verbose", [:use_canonical])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getHyphenation
   """
   @spec get_hyphenation(String.t(), Word.Hyphenation.hyphenation_params()) ::
           {:error, String.t()} | {:ok, Word.Hyphenation.hyphenation()}
@@ -71,8 +130,18 @@ defmodule Wordnik do
   @doc """
   get phrases for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+  - limit: integer
+  - wlmi: string
+
+  ### Example
+
   `iex> get_phrases("verbose", [:use_canonical, limit: 5])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getPhrases
   """
   @spec get_phrases(String.t(), Word.Phrases.phrases_params()) ::
           {:error, String.t()} | {:ok, Word.Phrases.phrases()}
@@ -82,8 +151,19 @@ defmodule Wordnik do
   @doc """
   get pronunciations for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+  - limit: integer
+  - type_format: string
+  - source_dict: string
+
+  ### Example
+
   `iex> get_pronunciations("verbose", [:use_canonical, limit: 5])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getTextPronunciations
   """
   @spec get_pronunciations(String.t(), Word.Pronunciations.pronunciations_params()) ::
           {:error, String.t()} | {:ok, Word.Pronunciations.pronunciations()}
@@ -93,8 +173,18 @@ defmodule Wordnik do
   @doc """
   get related_words for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+  - limit: integer
+  - relationship_types: string
+
+  ### Example
+
   `iex> get_related_words("verbose", [:use_canonical, relationship_types: "synonym"])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getRelatedWords
   """
   @spec get_related_words(String.t(), Word.RelatedWords.related_words_params()) ::
           {:error, String.t()} | {:ok, Word.RelatedWords.related_words()}
@@ -104,8 +194,13 @@ defmodule Wordnik do
   @doc """
   get scrabble_score for requested word
 
-  `iex> get_scrabble_score("verbose", "SECRET_API_KEY")`
+  ### Example
 
+  `iex> get_scrabble_score("verbose")`
+
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getScrabbleScore
   """
   @spec get_scrabble_score(String.t()) ::
           {:error, String.t()} | {:ok, Word.ScrabbleScore.scrabble_score()}
@@ -115,8 +210,16 @@ defmodule Wordnik do
   @doc """
   get top_example for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+
+  ### Example
+
   `iex> get_top_example("verbose", [:use_canonical])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getTopExample
   """
   @spec get_top_example(String.t(), Word.TopExample.top_example_params()) ::
           {:error, String.t()} | {:ok, Word.Examples.example()}
@@ -126,8 +229,24 @@ defmodule Wordnik do
   @doc """
   get random_word for requested word
 
-  `iex> get_random_word([:has_dictionary_def, min_length: 5])`
+  ### Parameters
+  - has_dictionary_def: boolean
+  - include_part_of_speech: string
+  - exclude_part_of_speech: string
+  - min_corpus_count: integer
+  - max_corpus_count: integer
+  - min_dictionary_count: integer
+  - max_dictionary_count: integer
+  - min_length: integer
+  - max_length: integer
 
+  ### Example
+
+  `iex> get_random_word( [:has_dictionary_def, min_length: 5])`
+
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getRandomWord
   """
   @spec get_random_word(Words.RandomWord.random_word_params()) ::
           {:error, String.t()} | {:ok, Words.RandomWord.random_word()}
@@ -137,8 +256,27 @@ defmodule Wordnik do
   @doc """
   get random_words for requested word
 
+  ### Parameters
+  - has_dictionary_def: boolean
+  - include_part_of_speech: string
+  - exclude_part_of_speech: string
+  - min_corpus_count: integer
+  - max_corpus_count: integer
+  - min_dictionary_count: integer
+  - max_dictionary_count: integer
+  - min_length: integer
+  - max_length: integer
+  - limit: integer
+  - sort_by: string
+  - sort_order: string
+
+  ### Example
+
   `iex> get_random_words([:has_dictionary_def, sort_by: "alpha", sort_order: "asc"])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getRandomWords
   """
   @spec get_random_words(Words.RandomWords.random_words_params()) ::
           {:error, String.t()} | {:ok, Words.RandomWords.random_words()}
@@ -148,8 +286,16 @@ defmodule Wordnik do
   @doc """
   get word_of_the_day for requested word
 
-  `iex> get_word_of_the_day([date: "1985-12-31])`
+  ### Parameters
+  - date: string
 
+  ### Example
+
+  `iex> get_word_of_the_day([date: "1985-12-31"])`
+
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getWordOfTheDay
   """
   @spec get_word_of_the_day(Words.WordOfTheDay.word_of_the_day_params()) ::
           {:error, String.t()} | {:ok, Words.WordOfTheDay.word_of_the_day()}

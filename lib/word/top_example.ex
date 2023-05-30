@@ -5,12 +5,12 @@ defmodule Word.TopExample do
   alias Formatter.ParamTypes
 
   @typedoc """
-  optional parameter that can be passed to 'get_top_example' query
+  optional parameter that can be passed to `get_top_example/2` query
   """
   @type top_example_param :: ParamTypes.use_canonical()
 
   @typedoc """
-  map or list of optional parameters that can be passed to 'get_top_example' query
+  map or list of optional parameters that can be passed to `get_top_example/2` query
   """
   @type top_example_params ::
           %{
@@ -29,8 +29,16 @@ defmodule Word.TopExample do
   @doc """
   get top_example for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+
+  ### Example
+
   `iex> get_top_example("verbose", [:use_canonical])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getTopExample
   """
   @spec get_top_example(String.t(), top_example_params()) ::
           {:error, String.t()} | {:ok, Word.Examples.example()}

@@ -5,12 +5,12 @@ defmodule Words.WordOfTheDay do
   alias Formatter.ParamTypes
 
   @typedoc """
-  optional parameter that can be passed to 'get_word_of_the_day' query
+  optional parameter that can be passed to `get_word_of_the_day/1` query
   """
   @type word_of_the_day_param :: ParamTypes.date()
 
   @typedoc """
-  map or list of optional parameters that can be passed to 'get_word_of_the_day' query
+  map or list of optional parameters that can be passed to `get_word_of_the_day/1` query
   """
   @type word_of_the_day_params ::
           %{
@@ -19,7 +19,7 @@ defmodule Words.WordOfTheDay do
           | list(word_of_the_day_param())
 
   @typedoc """
-  parsed JSON response to 'get_word_of_the_day' query
+  parsed JSON response to `get_word_of_the_day/1` query
   """
   @type word_of_the_day ::
           %{
@@ -110,8 +110,16 @@ defmodule Words.WordOfTheDay do
   @doc """
   get word_of_the_day for requested word
 
+  ### Parameters
+  - date: string
+
+  ### Example
+
   `iex> get_word_of_the_day("SECRET_API_KEY", [date: "1985-12-31"])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getWordOfTheDay
   """
   @spec get_word_of_the_day(word_of_the_day_params()) ::
           {:error, String.t()} | {:ok, word_of_the_day()}

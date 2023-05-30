@@ -5,12 +5,12 @@ defmodule Word.Phrases do
   alias Formatter.ParamTypes
 
   @typedoc """
-  optional parameter that can be passed to 'get_phrases' query
+  optional parameter that can be passed to `get_phrases/2` query
   """
   @type phrases_param :: ParamTypes.use_canonical() | ParamTypes.limit() | ParamTypes.wlmi()
 
   @typedoc """
-  map or list of optional parameters that can be passed to 'get_phrases' query
+  map or list of optional parameters that can be passed to `get_phrases/2` query
   """
   @type phrases_params ::
           %{
@@ -21,7 +21,7 @@ defmodule Word.Phrases do
           | list(phrases_param())
 
   @typedoc """
-  parsed JSON response to 'get_phrases' query
+  parsed JSON response to `get_phrases/2` query
   """
   @type phrases ::
           list(%{
@@ -45,8 +45,18 @@ defmodule Word.Phrases do
   @doc """
   get phrases for requested word
 
+  ### Parameters
+  - use_canonical: boolean
+  - limit: integer
+  - wlmi: string
+
+  ### Example
+
   `iex> get_phrases("verbose", [:use_canonical, limit: 5])`
 
+  ### Wordnik Docs
+
+  https://developer.wordnik.com/docs#!/word/getPhrases
   """
   @spec get_phrases(String.t(), phrases_params()) ::
           {:error, String.t()} | {:ok, phrases()}
