@@ -14,7 +14,8 @@ defmodule Wordnik.MixProject do
       description: "Wordnik API Elixir client",
       package: [
         maintainers: ["Jeff Rose"],
-        licenses: ["MIT"]
+        licenses: ["MIT"],
+        links: %{"GitHub" => "https://github.com/jt-rose/wordnik"}
       ],
       source_url: "https://github.com/jt-rose/wordnik",
       docs: [
