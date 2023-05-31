@@ -9,7 +9,7 @@ The package can be installed by adding `wordnik` to your list of dependencies in
 ```elixir
 def deps do
   [
-    {:wordnik, "~> 0.1.0"}
+    {:wordnik, "~> 1.0.0"}
   ]
 end
 ```
