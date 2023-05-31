@@ -35,8 +35,9 @@ defmodule DefinitionsTest do
 
   test "reject definitions query with invalid list of source dictionaries" do
     {status, msg} =
-      Wordnik.get_definitions(@test_word,
-        source_dictionaries: "adh-5,webster,whoops"
+      Wordnik.get_definitions(
+        @test_word,
+        %{source_dictionaries: "adh-5,webster,whoops"}
       )
 
     assert status == :error
