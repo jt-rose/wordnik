@@ -1,6 +1,8 @@
 defmodule Words.WordOfTheDay do
   @moduledoc """
   word of the day, searchable by date
+
+  [Wordnik Docs](https://developer.wordnik.com/docs#!/words/getWordOfTheDay)
   """
   alias Formatter.Query
 

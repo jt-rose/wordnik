@@ -1,6 +1,8 @@
 defmodule Word.RelatedWords do
   @moduledoc """
   find related words organized by type of relationship (synonym, antonym, etc.)
+
+  [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getRelatedWords)
   """
   alias Formatter.Query
 

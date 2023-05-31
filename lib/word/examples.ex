@@ -1,6 +1,8 @@
 defmodule Word.Examples do
   @moduledoc """
   examples for a given word
+
+  [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getExamples)
   """
 
   alias Formatter.Query

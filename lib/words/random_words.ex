@@ -1,6 +1,8 @@
 defmodule Words.RandomWords do
   @moduledoc """
   get random_words
+
+  [Wordnik Docs](https://developer.wordnik.com/docs#!/words/getRandomWords)
   """
   alias Formatter.Query
 

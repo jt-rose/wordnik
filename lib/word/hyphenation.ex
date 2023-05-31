@@ -1,6 +1,8 @@
 defmodule Word.Hyphenation do
   @moduledoc """
   hyphenation information about requested word
+
+  [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getHyphenation)
   """
   alias Formatter.Query
 

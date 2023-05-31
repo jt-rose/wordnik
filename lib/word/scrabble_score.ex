@@ -1,6 +1,8 @@
 defmodule Word.ScrabbleScore do
   @moduledoc """
   scrabble_score information about requested word
+
+  [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getScrabbleScore)
   """
 
   alias Formatter.Query

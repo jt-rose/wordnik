@@ -1,6 +1,8 @@
 defmodule Word.TopExample do
   @moduledoc """
   find top-rated example for requested word
+
+  [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getTopExample)
   """
   alias Formatter.Query
 

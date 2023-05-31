@@ -1,6 +1,8 @@
 defmodule Word.Audio do
   @moduledoc """
   audio information about requested word, including link to audio recording
+
+  [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getAudio)
   """
 
   alias Formatter.Query

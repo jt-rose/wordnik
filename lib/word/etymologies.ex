@@ -1,6 +1,8 @@
 defmodule Word.Etymologies do
   @moduledoc """
   etymologies for a given word
+
+  [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getEtymologies)
   """
 
   alias Formatter.Query

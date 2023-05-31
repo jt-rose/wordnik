@@ -1,6 +1,8 @@
 defmodule Word.Pronunciations do
   @moduledoc """
   pronunciation information for requested word
+
+  [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getTextPronunciations)
   """
   alias Formatter.Query
 

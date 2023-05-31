@@ -1,6 +1,8 @@
 defmodule Word.Phrases do
   @moduledoc """
   phrases that include the selected word
+
+  [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getPhrases)
   """
   alias Formatter.Query
 

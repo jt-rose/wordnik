@@ -1,6 +1,8 @@
 defmodule Word.Definitions do
   @moduledoc """
   word definition(s) across various dictionaries
+
+  [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getDefinitions)
   """
 
   alias Formatter.Query
