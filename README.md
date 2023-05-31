@@ -68,23 +68,23 @@ The Wordnik package supports the following queries:
 
 ### Word
 
-- [Audio](https://developer.wordnik.com/docs#!/word/getAudio)
-- [Definitions](https://developer.wordnik.com/docs#!/word/getDefinitions)
-- [Etymologies](https://developer.wordnik.com/docs#!/word/getEtymologies)
-- [Examples](https://developer.wordnik.com/docs#!/word/getExamples)
-- [Frequency](https://developer.wordnik.com/docs#!/word/getWordFrequency)
-- [Hyphenation](https://developer.wordnik.com/docs#!/word/getHyphenation)
-- [Phrases](https://developer.wordnik.com/docs#!/word/getPhrases)
-- [Pronunciations](https://developer.wordnik.com/docs#!/word/getTextPronunciations)
-- [Related Words](https://developer.wordnik.com/docs#!/word/getRelatedWords)
-- [Scrabble Score](https://developer.wordnik.com/docs#!/word/getScrabbleScore)
-- [Top Example](https://developer.wordnik.com/docs#!/word/getTopExample)
+- [Audio](`Word.Audio`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getAudio))
+- [Definitions](`Word.Definitions`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getDefinitions))
+- [Etymologies](`Word.Etymologies`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getEtymologies))
+- [Examples](`Word.Examples`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getExamples))
+- [Frequency](`Word.Frequency`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getWordFrequency))
+- [Hyphenation](`Word.Hyphenation`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getHyphenation))
+- [Phrases](`Word.Phrases`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getPhrases))
+- [Pronunciations](`Word.Pronunciations`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getTextPronunciations))
+- [Related Words](`Word.RelatedWords`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getRelatedWords))
+- [Scrabble Score](`Word.ScrabbleScore`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getScrabbleScore))
+- [Top Example](`Word.TopExample`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getTopExample))
 
 ### Words
 
-- [Random Word](https://developer.wordnik.com/docs#!/words/getRandomWord)
-- [Random Words](https://developer.wordnik.com/docs#!/words/getRandomWords)
-- [Word of the Day](https://developer.wordnik.com/docs#!/words/getWordOfTheDay)
+- [Random Word](`Words.RandomWord`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/words/getRandomWord))
+- [Random Words](`Words.RandomWords`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/words/getRandomWords))
+- [Word of the Day](`Words.WordOfTheDay`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/words/getWordOfTheDay))
 
 Note: The [Reverse Dictionary](https://developer.wordnik.com/docs#!/words/reverseDictionary) and [Search](https://developer.wordnik.com/docs#!/words/searchWords) queries are currently deprecated until the upcoming v5 release of Wordnik. Once the new queries are made available they will be included in the library.
 
