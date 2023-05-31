@@ -69,7 +69,7 @@ defmodule Words.WordOfTheDay do
 
   def get_word_of_the_day(params \\ %{})
 
-  def get_word_of_the_day(%{"date" => date}) do
+  def get_word_of_the_day(%{date: date}) do
     {status, msg} = validate_date_format(date)
 
     if status == :error do
