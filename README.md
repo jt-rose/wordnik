@@ -47,10 +47,10 @@ Optional parameters can be passed as a map to queries to help refine them:
 
 ```elixir
 iex> Wordnik.get_definitions("sublime", %{
-  "include_tags" => true,
-  "include_related" => true,
-  "source_dictionaries" => "wiktionary,webster",
-  "limit" =>  5
+  include_tags: true,
+  include_related: true,
+  source_dictionaries: "wiktionary,webster",
+  limit:  5
 })
 ```
 
