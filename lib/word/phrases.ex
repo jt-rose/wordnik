@@ -5,7 +5,7 @@ defmodule Word.Phrases do
   alias Formatter.Query
 
   @typedoc """
-  map or list of optional parameters that can be passed to `get_phrases/2` query
+  map of optional parameters that can be passed to `get_phrases/2` query
   """
   @type phrases_params ::
           %{

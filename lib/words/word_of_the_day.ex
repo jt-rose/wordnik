@@ -5,7 +5,7 @@ defmodule Words.WordOfTheDay do
   alias Formatter.Query
 
   @typedoc """
-  map or list of optional parameters that can be passed to `get_word_of_the_day/1` query
+  map of optional parameters that can be passed to `get_word_of_the_day/1` query
   """
   @type word_of_the_day_params ::
           %{

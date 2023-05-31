@@ -5,7 +5,7 @@ defmodule Words.RandomWords do
   alias Formatter.Query
 
   @typedoc """
-  map or list of optional parameters that can be passed to `get_random_words/1` query
+  map of optional parameters that can be passed to `get_random_words/1` query
   """
   @type random_words_params ::
           %{

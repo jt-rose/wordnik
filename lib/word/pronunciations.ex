@@ -5,7 +5,7 @@ defmodule Word.Pronunciations do
   alias Formatter.Query
 
   @typedoc """
-  map or list of optional parameters that can be passed to `get_pronunciations/2` query
+  map of optional parameters that can be passed to `get_pronunciations/2` query
   """
   @type pronunciations_params ::
           %{

@@ -5,7 +5,7 @@ defmodule Word.RelatedWords do
   alias Formatter.Query
 
   @typedoc """
-  map or list of optional parameters that can be passed to `get_related_words/2` query
+  map of optional parameters that can be passed to `get_related_words/2` query
   """
   @type related_words_params ::
           %{

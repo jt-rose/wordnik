@@ -5,7 +5,7 @@ defmodule Word.Frequency do
   alias Formatter.Query
 
   @typedoc """
-  map or list of optional parameters that can be passed to `get_frequency/2` query
+  map of optional parameters that can be passed to `get_frequency/2` query
   """
   @type frequency_params ::
           %{

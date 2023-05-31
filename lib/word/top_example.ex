@@ -5,7 +5,7 @@ defmodule Word.TopExample do
   alias Formatter.Query
 
   @typedoc """
-  map or list of optional parameters that can be passed to `get_top_example/2` query
+  map of optional parameters that can be passed to `get_top_example/2` query
   """
   @type top_example_params ::
           %{

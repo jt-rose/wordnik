@@ -14,6 +14,16 @@ def deps do
 end
 ```
 
+## Usage
+
+The main functions for querying the Wordnik API can be found under the root `Wordnik` module. Most of what you will need can be found here.
+
+Submodules such as `Word.Definitions` and `Words.RandomWord` contain the function they are named for, along with type definitions for query parameters and responses.
+
+`Formatter.Enums` contains type definitions for string parameter arguments expecting specific values. These values will be checked at runtime, but are also documented in the typedocs.
+
+`Formatter.Helpers` contains functions for returning lists of valid string arguments used in the paramaters mentioned above (dictionaries, parts of speech, etc.). These can be helpful for quickly getting a list of valid options to provide to end users, for example as select options in a UI.
+
 ## Wordnik API key
 
 To access the Wordnik API, you will need a free API key that can be obtained [here](https://developer.wordnik.com/).
@@ -36,7 +46,7 @@ iex> Wordnik.get_definitions("sublime")
 Optional parameters can be passed as a map to queries to help refine them:
 
 ```elixir
-iex> Wordnik.get_definitions("sublime" %{
+iex> Wordnik.get_definitions("sublime", %{
   "include_tags" => true,
   "include_related" => true,
   "source_dictionaries" => "wiktionary,webster",

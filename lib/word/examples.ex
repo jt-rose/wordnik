@@ -6,7 +6,7 @@ defmodule Word.Examples do
   alias Formatter.Query
 
   @typedoc """
-  map or list of optional parameters that can be passed to `get_examples/2` query
+  map of optional parameters that can be passed to `get_examples/2` query
   """
   @type examples_params ::
           %{

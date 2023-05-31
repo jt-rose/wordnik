@@ -6,7 +6,7 @@ defmodule Word.Etymologies do
   alias Formatter.Query
 
   @typedoc """
-  map or list of optional parameters that can be passed to `get_etymologies/2` query
+  map of optional parameters that can be passed to `get_etymologies/2` query
   """
   @type etymologies_params ::
           %{

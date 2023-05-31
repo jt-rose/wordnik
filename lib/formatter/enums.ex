@@ -180,8 +180,8 @@ defmodule Formatter.Enums do
   setting to sort by alphabetical or total count
 
   allowable values:
-  alpha
-  count
+      "alpha",
+      "count"
   """
   @type sort_by :: String.t()
 
@@ -189,8 +189,8 @@ defmodule Formatter.Enums do
   setting to order by ascending or descending
 
   allowable values:
-  asc
-  desc
+      "asc",
+      "desc"
   """
   @type sort_order :: String.t()
 end

@@ -6,7 +6,7 @@ defmodule Word.Definitions do
   alias Formatter.Query
 
   @typedoc """
-  map or list of optional parameters that can be passed to `get_definitions/2` query
+  map of optional parameters that can be passed to `get_definitions/2` query
   """
   @type definitions_params ::
           %{
