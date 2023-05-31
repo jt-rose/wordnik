@@ -31,18 +31,18 @@ defmodule Wordnik.Words.RandomWords do
           list(Words.RandomWord.random_word())
 
   @valid_params [
-    :has_dictionary_def,
-    :include_part_of_speech,
-    :exclude_part_of_speech,
-    :min_corpus_count,
-    :max_corpus_count,
-    :min_dictionary_count,
-    :max_dictionary_count,
-    :min_length,
-    :max_length,
-    :limit,
-    :sort_by,
-    :sort_order
+    "has_dictionary_def",
+    "include_part_of_speech",
+    "exclude_part_of_speech",
+    "min_corpus_count",
+    "max_corpus_count",
+    "min_dictionary_count",
+    "max_dictionary_count",
+    "min_length",
+    "max_length",
+    "limit",
+    "sort_by",
+    "sort_order"
   ]
 
   @doc """

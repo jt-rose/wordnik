@@ -41,10 +41,10 @@ defmodule Wordnik.Word.Examples do
         }
 
   @valid_params [
-    :limit,
-    :skip,
-    :use_canonical,
-    :include_duplicates
+    "limit",
+    "skip",
+    "use_canonical",
+    "include_duplicates"
   ]
 
   defp format_url(word) do

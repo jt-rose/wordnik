@@ -29,9 +29,9 @@ defmodule Wordnik.Word.Phrases do
           })
 
   @valid_params [
-    :limit,
-    :wlmi,
-    :use_canonical
+    "limit",
+    "wlmi",
+    "use_canonical"
   ]
 
   defp format_url(word) do

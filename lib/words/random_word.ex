@@ -32,15 +32,15 @@ defmodule Wordnik.Words.RandomWord do
           }
 
   @valid_params [
-    :has_dictionary_def,
-    :include_part_of_speech,
-    :exclude_part_of_speech,
-    :min_corpus_count,
-    :max_corpus_count,
-    :min_dictionary_count,
-    :max_dictionary_count,
-    :min_length,
-    :max_length
+    "has_dictionary_def",
+    "include_part_of_speech",
+    "exclude_part_of_speech",
+    "min_corpus_count",
+    "max_corpus_count",
+    "min_dictionary_count",
+    "max_dictionary_count",
+    "min_length",
+    "max_length"
   ]
 
   @doc """

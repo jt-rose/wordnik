@@ -21,7 +21,7 @@ defmodule Wordnik.Word.Etymologies do
   @type etymology :: String.t()
 
   @valid_params [
-    :use_canonical
+    "use_canonical"
   ]
 
   defp format_url(word) do

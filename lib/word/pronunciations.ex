@@ -31,10 +31,10 @@ defmodule Wordnik.Word.Pronunciations do
           })
 
   @valid_params [
-    :limit,
-    :type_format,
-    :source_dict,
-    :use_canonical
+    "limit",
+    "type_format",
+    "source_dict",
+    "use_canonical"
   ]
 
   defp format_url(word) do

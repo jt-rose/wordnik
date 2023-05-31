@@ -38,8 +38,8 @@ defmodule Wordnik.Word.Audio do
           })
 
   @valid_params [
-    :limit,
-    :use_canonical
+    "limit",
+    "use_canonical"
   ]
 
   defp format_url(word) do

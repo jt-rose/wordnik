@@ -20,11 +20,13 @@ defmodule Wordnik.Formatter.Validator do
     end
   end
 
+  defp extract_param_name({name, _}), do: name
+
   # validate params against accepted list of parameters
   def validate_params(params, valid_list, fn_name) do
     invalid_param =
       params
-      |> Enum.map(fn {name, _} -> name end)
+      |> Enum.map(&extract_param_name/1)
       |> Enum.find(fn name -> name not in valid_list end)
 
     if invalid_param == nil do

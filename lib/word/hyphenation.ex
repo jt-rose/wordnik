@@ -27,9 +27,9 @@ defmodule Wordnik.Word.Hyphenation do
           })
 
   @valid_params [
-    :limit,
-    :source_dict,
-    :use_canonical
+    "limit",
+    "source_dict",
+    "use_canonical"
   ]
 
   defp format_url(word) do

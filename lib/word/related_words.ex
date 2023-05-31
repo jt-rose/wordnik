@@ -26,9 +26,9 @@ defmodule Wordnik.Word.RelatedWords do
           })
 
   @valid_params [
-    :limit,
-    :relationship_types,
-    :use_canonical
+    "limit",
+    "relationship_types",
+    "use_canonical"
   ]
 
   defp format_url(word) do

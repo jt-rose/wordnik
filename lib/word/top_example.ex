@@ -15,7 +15,7 @@ defmodule Wordnik.Word.TopExample do
           }
 
   @valid_params [
-    :use_canonical
+    "use_canonical"
   ]
 
   defp format_url(word) do

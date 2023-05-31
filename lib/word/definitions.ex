@@ -57,35 +57,27 @@ defmodule Wordnik.Word.Definitions do
           })
 
   @valid_params [
-    :limit,
-    :part_of_speech,
-    :source_dictionaries,
-    :include_related,
-    :use_canonical,
-    :include_tags
+    "limit",
+    "part_of_speech",
+    "source_dictionaries",
+    "include_related",
+    "use_canonical",
+    "include_tags"
   ]
 
   defp format_url(word) do
     "http://api.wordnik.com/v4/word.json/#{word}/definitions"
   end
 
-  defp has_source_dictionaries_field?({:source_dictionaries, _dicts}), do: true
-  defp has_source_dictionaries_field?(_), do: false
-
-  defp has_valid_source_dictionaries?(params) do
-    if is_map(params) and Map.has_key?(params, "source_dictionaries") do
-      Validator.has_valid_sources?(params["source_dictionaries"])
-    else
-      sources = Enum.find(params, &has_source_dictionaries_field?/1)
-
-      if sources != nil do
-        {_, dicts} = sources
-        Validator.has_valid_sources?(dicts)
-      else
-        true
-      end
-    end
+  defp has_valid_source_dictionaries?(%{source_dictionaries: source_dictionaries}) do
+    Validator.has_valid_sources?(source_dictionaries)
   end
+
+  defp has_valid_source_dictionaries?(%{"source_dictionaries" => source_dictionaries}) do
+    Validator.has_valid_sources?(source_dictionaries)
+  end
+
+  defp has_valid_source_dictionaries?(_params), do: true
 
   @doc """
   get definition(s) for requested word

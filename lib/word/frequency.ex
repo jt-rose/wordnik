@@ -29,9 +29,9 @@ defmodule Wordnik.Word.Frequency do
           }
 
   @valid_params [
-    :start_year,
-    :end_year,
-    :use_canonical
+    "start_year",
+    "end_year",
+    "use_canonical"
   ]
 
   defp format_url(word) do

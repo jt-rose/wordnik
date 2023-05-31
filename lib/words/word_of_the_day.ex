@@ -46,7 +46,7 @@ defmodule Wordnik.Words.WordOfTheDay do
           }
 
   @valid_params [
-    :date
+    "date"
   ]
 
   @invalid_date_error_msg "Error: please provide a valid date in 'yyyy-MM-dd' format"
@@ -69,7 +69,9 @@ defmodule Wordnik.Words.WordOfTheDay do
 
   def get_word_of_the_day(params \\ %{})
 
-  def get_word_of_the_day(%{date: date}) do
+  def get_word_of_the_day(%{date: date}), do: get_word_of_the_day(%{"date" => date})
+
+  def get_word_of_the_day(%{"date" => date}) do
     {status, msg} = validate_date_format(date)
 
     if status == :error do
@@ -79,7 +81,7 @@ defmodule Wordnik.Words.WordOfTheDay do
 
       Query.validate_and_fetch_query(
         "http://api.wordnik.com/v4/words.json/wordOfTheDay",
-        [{:date, date}],
+        %{"date" => date},
         @valid_params,
         fn_name
       )

@@ -37,6 +37,6 @@ defmodule Wordnik.Word.ScrabbleScore do
 
     word
     |> format_url
-    |> Query.validate_and_fetch_query([], [], fn_name)
+    |> Query.validate_and_fetch_query(%{}, [], fn_name)
   end
 end
