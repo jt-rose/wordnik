@@ -1,10 +1,10 @@
-defmodule Words.RandomWord do
+defmodule Wordnik.Words.RandomWord do
   @moduledoc """
   get random word
 
   [Wordnik Docs](https://developer.wordnik.com/docs#!/words/getRandomWord)
   """
-  alias Formatter.Query
+  alias Wordnik.Formatter.Query
 
   @typedoc """
   map of optional parameters that can be passed to `get_random_word/1` query

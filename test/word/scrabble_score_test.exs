@@ -4,7 +4,7 @@ defmodule ScrabbleScoreTest do
   @test_word "elixir"
 
   test "get scrabble score" do
-    {status, resp} = Word.ScrabbleScore.get_scrabble_score(@test_word)
+    {status, resp} = Wordnik.get_scrabble_score(@test_word)
 
     assert status == :ok
     assert resp["value"] == 13

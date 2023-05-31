@@ -3,6 +3,9 @@ defmodule Wordnik do
   queries to the Wordnik API for word definitions, examples, related words, random words, and more
   """
 
+  alias Wordnik.Word
+  alias Wordnik.Words
+
   @doc """
   get audio information for requested word, including link to recording
 
@@ -343,6 +346,6 @@ defmodule Wordnik do
   """
   @spec get_word_of_the_day(Words.WordOfTheDay.word_of_the_day_params()) ::
           {:error, String.t()} | {:ok, Words.WordOfTheDay.word_of_the_day()}
-  def get_word_of_the_day(params),
+  def get_word_of_the_day(params \\ %{}),
     do: Words.WordOfTheDay.get_word_of_the_day(params)
 end

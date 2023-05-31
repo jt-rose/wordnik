@@ -1,4 +1,4 @@
-defmodule Formatter.Enums do
+defmodule Wordnik.Enums do
   @moduledoc """
   custom string types with documentation on accepted values
   """

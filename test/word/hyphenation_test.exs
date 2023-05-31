@@ -4,7 +4,7 @@ defmodule HyphenationTest do
   @test_word "elixir"
 
   test "get hyphenation" do
-    {status, resp} = Word.Hyphenation.get_hyphenation(@test_word)
+    {status, resp} = Wordnik.get_hyphenation(@test_word)
     [e, lix, ir] = resp
 
     assert status == :ok
@@ -16,7 +16,7 @@ defmodule HyphenationTest do
 
   test "get hyphenation with params" do
     {status, resp} =
-      Word.Hyphenation.get_hyphenation(@test_word, %{
+      Wordnik.get_hyphenation(@test_word, %{
         use_canonical: true,
         limit: 5,
         source_dict: "webster"
@@ -32,7 +32,7 @@ defmodule HyphenationTest do
   end
 
   test "reject hyphenation query with invalid params" do
-    {status, msg} = Word.Hyphenation.get_hyphenation(@test_word, %{whoops: true})
+    {status, msg} = Wordnik.get_hyphenation(@test_word, %{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_hyphenation' function"

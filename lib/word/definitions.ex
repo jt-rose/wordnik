@@ -1,11 +1,12 @@
-defmodule Word.Definitions do
+defmodule Wordnik.Word.Definitions do
   @moduledoc """
   word definition(s) across various dictionaries
 
   [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getDefinitions)
   """
 
-  alias Formatter.Query
+  alias Wordnik.Formatter.Query
+  alias Wordnik.Formatter.Validator
 
   @typedoc """
   map of optional parameters that can be passed to `get_definitions/2` query
@@ -73,13 +74,13 @@ defmodule Word.Definitions do
 
   defp has_valid_source_dictionaries?(params) do
     if is_map(params) and Map.has_key?(params, "source_dictionaries") do
-      Formatter.Validator.has_valid_sources?(params["source_dictionaries"])
+      Validator.has_valid_sources?(params["source_dictionaries"])
     else
       sources = Enum.find(params, &has_source_dictionaries_field?/1)
 
       if sources != nil do
         {_, dicts} = sources
-        Formatter.Validator.has_valid_sources?(dicts)
+        Validator.has_valid_sources?(dicts)
       else
         true
       end

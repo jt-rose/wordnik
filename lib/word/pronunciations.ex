@@ -1,10 +1,10 @@
-defmodule Word.Pronunciations do
+defmodule Wordnik.Word.Pronunciations do
   @moduledoc """
   pronunciation information for requested word
 
   [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getTextPronunciations)
   """
-  alias Formatter.Query
+  alias Wordnik.Formatter.Query
 
   @typedoc """
   map of optional parameters that can be passed to `get_pronunciations/2` query

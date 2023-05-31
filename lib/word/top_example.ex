@@ -1,10 +1,10 @@
-defmodule Word.TopExample do
+defmodule Wordnik.Word.TopExample do
   @moduledoc """
   find top-rated example for requested word
 
   [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getTopExample)
   """
-  alias Formatter.Query
+  alias Wordnik.Formatter.Query
 
   @typedoc """
   map of optional parameters that can be passed to `get_top_example/2` query

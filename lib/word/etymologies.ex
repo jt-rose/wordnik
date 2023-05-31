@@ -1,11 +1,11 @@
-defmodule Word.Etymologies do
+defmodule Wordnik.Word.Etymologies do
   @moduledoc """
   etymologies for a given word
 
   [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getEtymologies)
   """
 
-  alias Formatter.Query
+  alias Wordnik.Formatter.Query
 
   @typedoc """
   map of optional parameters that can be passed to `get_etymologies/2` query

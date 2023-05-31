@@ -4,7 +4,7 @@ defmodule FrequencyTest do
   @test_word "elixir"
 
   test "get frequency" do
-    {status, resp} = Word.Frequency.get_frequency(@test_word)
+    {status, resp} = Wordnik.get_frequency(@test_word)
     [record | _tail] = resp["frequency"]
 
     assert status == :ok
@@ -14,7 +14,7 @@ defmodule FrequencyTest do
 
   test "get frequency with params" do
     {status, resp} =
-      Word.Frequency.get_frequency(@test_word, %{
+      Wordnik.get_frequency(@test_word, %{
         use_canonical: true,
         start_year: 1800,
         end_year: 2000
@@ -28,7 +28,7 @@ defmodule FrequencyTest do
   end
 
   test "reject frequency query with invalid params" do
-    {status, msg} = Word.Frequency.get_frequency(@test_word, %{whoops: true})
+    {status, msg} = Wordnik.get_frequency(@test_word, %{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_frequency' function"

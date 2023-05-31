@@ -1,10 +1,10 @@
-defmodule Words.WordOfTheDay do
+defmodule Wordnik.Words.WordOfTheDay do
   @moduledoc """
   word of the day, searchable by date
 
   [Wordnik Docs](https://developer.wordnik.com/docs#!/words/getWordOfTheDay)
   """
-  alias Formatter.Query
+  alias Wordnik.Formatter.Query
 
   @typedoc """
   map of optional parameters that can be passed to `get_word_of_the_day/1` query

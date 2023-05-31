@@ -1,8 +1,8 @@
-defmodule Words.WordOfTheDayTest do
+defmodule WordOfTheDayTest do
   use ExUnit.Case
 
   test "get word of the day" do
-    {status, resp} = Words.WordOfTheDay.get_word_of_the_day()
+    {status, resp} = Wordnik.get_word_of_the_day()
 
     assert status == :ok
     assert Map.has_key?(resp, "_id") == true
@@ -10,7 +10,7 @@ defmodule Words.WordOfTheDayTest do
   end
 
   test "get word of the day with parameters" do
-    {status, resp} = Words.WordOfTheDay.get_word_of_the_day(%{date: "2022-08-22"})
+    {status, resp} = Wordnik.get_word_of_the_day(%{date: "2022-08-22"})
 
     assert status == :ok
     assert Map.has_key?(resp, "_id") == true
@@ -18,21 +18,21 @@ defmodule Words.WordOfTheDayTest do
   end
 
   test "reject word of the day with invalid date format" do
-    {status, resp} = Words.WordOfTheDay.get_word_of_the_day(%{date: "aug 8 2022"})
+    {status, resp} = Wordnik.get_word_of_the_day(%{date: "aug 8 2022"})
 
     assert status == :error
     assert resp == "Error: please provide a valid date in 'yyyy-MM-dd' format"
   end
 
   test "reject word of the day with invalid February date format" do
-    {status, resp} = Words.WordOfTheDay.get_word_of_the_day(%{date: "2022-02-30"})
+    {status, resp} = Wordnik.get_word_of_the_day(%{date: "2022-02-30"})
 
     assert status == :error
     assert resp == "Error: please provide a valid date in 'yyyy-MM-dd' format"
   end
 
   test "reject word of the day query with invalid params" do
-    {status, msg} = Words.WordOfTheDay.get_word_of_the_day(%{whoops: true})
+    {status, msg} = Wordnik.get_word_of_the_day(%{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_word_of_the_day' function"

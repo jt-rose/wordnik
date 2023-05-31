@@ -1,10 +1,10 @@
-defmodule Word.Hyphenation do
+defmodule Wordnik.Word.Hyphenation do
   @moduledoc """
   hyphenation information about requested word
 
   [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getHyphenation)
   """
-  alias Formatter.Query
+  alias Wordnik.Formatter.Query
 
   @typedoc """
   map of optional parameters that can be passed to `get_hyphenation/2` query

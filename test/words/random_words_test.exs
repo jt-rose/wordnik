@@ -1,8 +1,8 @@
-defmodule Words.RandomWordsTest do
+defmodule RandomWordsTest do
   use ExUnit.Case
 
   test "get random words" do
-    {status, [resp | _]} = Words.RandomWords.get_random_words()
+    {status, [resp | _]} = Wordnik.get_random_words()
 
     assert status == :ok
     assert Map.has_key?(resp, "id") == true
@@ -11,7 +11,7 @@ defmodule Words.RandomWordsTest do
 
   test "get random words with parameters" do
     {status, [resp | _]} =
-      Words.RandomWords.get_random_words(%{
+      Wordnik.get_random_words(%{
         has_dictionary_def: true,
         include_part_of_speech: "noun",
         exclude_part_of_speech: "verb",
@@ -32,7 +32,7 @@ defmodule Words.RandomWordsTest do
   end
 
   test "reject random words query with invalid params" do
-    {status, msg} = Words.RandomWords.get_random_words(%{whoops: true})
+    {status, msg} = Wordnik.get_random_words(%{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_random_words' function"

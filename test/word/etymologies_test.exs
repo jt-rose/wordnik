@@ -4,7 +4,7 @@ defmodule EtymologiesTest do
   @test_word "elixir"
 
   test "get etymologies" do
-    {status, resp} = Word.Etymologies.get_etymologies(@test_word)
+    {status, resp} = Wordnik.get_etymologies(@test_word)
     [answer] = resp
 
     et =
@@ -15,7 +15,7 @@ defmodule EtymologiesTest do
   end
 
   test "get etymologies with params" do
-    {status, resp} = Word.Etymologies.get_etymologies(@test_word, %{use_canonical: true})
+    {status, resp} = Wordnik.get_etymologies(@test_word, %{use_canonical: true})
     message = resp["message"]
 
     assert status == :ok
@@ -23,7 +23,7 @@ defmodule EtymologiesTest do
   end
 
   test "reject etymologies query with invalid params" do
-    {status, msg} = Word.Etymologies.get_etymologies(@test_word, %{whoops: true})
+    {status, msg} = Wordnik.get_etymologies(@test_word, %{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_etymologies' function"

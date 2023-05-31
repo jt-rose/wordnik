@@ -1,4 +1,4 @@
-defmodule Formatter.Helpers do
+defmodule Wordnik.Helpers do
   @moduledoc """
   helper functions to provide enum-like list of valid strings
   used in parameters of different queries

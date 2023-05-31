@@ -18,11 +18,11 @@ end
 
 The main functions for querying the Wordnik API can be found under the root `Wordnik` module. Most of what you will need can be found here.
 
-Submodules such as `Word.Definitions` and `Words.RandomWord` contain the function they are named for, along with type definitions for query parameters and responses.
+Submodules such as `Wordnik.Word.Definitions` and `Wordnik.Words.RandomWord` contain the function they are named for, along with type definitions for query parameters and responses.
 
-`Formatter.Enums` contains type definitions for string parameter arguments expecting specific values. These values will be checked at runtime, but are also documented in the typedocs.
+`Wordnik.Enums` contains type definitions for string parameter arguments expecting specific values. These values will be checked at runtime, but are also documented in the typedocs.
 
-`Formatter.Helpers` contains functions for returning lists of valid string arguments used in the paramaters mentioned above (dictionaries, parts of speech, etc.). These can be helpful for quickly getting a list of valid options to provide to end users, for example as select options in a UI.
+`Wordnik.Helpers` contains functions for returning lists of valid string arguments used in the paramaters mentioned above (dictionaries, parts of speech, etc.). These can be helpful for quickly getting a list of valid options to provide to end users, for example as select options in a UI.
 
 ## Wordnik API key
 
@@ -68,23 +68,23 @@ The Wordnik package supports the following queries:
 
 ### Word
 
-- [Audio](`Word.Audio`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getAudio))
-- [Definitions](`Word.Definitions`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getDefinitions))
-- [Etymologies](`Word.Etymologies`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getEtymologies))
-- [Examples](`Word.Examples`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getExamples))
-- [Frequency](`Word.Frequency`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getWordFrequency))
-- [Hyphenation](`Word.Hyphenation`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getHyphenation))
-- [Phrases](`Word.Phrases`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getPhrases))
-- [Pronunciations](`Word.Pronunciations`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getTextPronunciations))
-- [Related Words](`Word.RelatedWords`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getRelatedWords))
-- [Scrabble Score](`Word.ScrabbleScore`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getScrabbleScore))
-- [Top Example](`Word.TopExample`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getTopExample))
+- [Audio](`Wordnik.Word.Audio`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getAudio))
+- [Definitions](`Wordnik.Word.Definitions`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getDefinitions))
+- [Etymologies](`Wordnik.Word.Etymologies`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getEtymologies))
+- [Examples](`Wordnik.Word.Examples`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getExamples))
+- [Frequency](`Wordnik.Word.Frequency`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getWordFrequency))
+- [Hyphenation](`Wordnik.Word.Hyphenation`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getHyphenation))
+- [Phrases](`Wordnik.Word.Phrases`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getPhrases))
+- [Pronunciations](`Wordnik.Word.Pronunciations`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getTextPronunciations))
+- [Related Words](`Wordnik.Word.RelatedWords`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getRelatedWords))
+- [Scrabble Score](`Wordnik.Word.ScrabbleScore`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getScrabbleScore))
+- [Top Example](`Wordnik.Word.TopExample`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/word/getTopExample))
 
 ### Words
 
-- [Random Word](`Words.RandomWord`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/words/getRandomWord))
-- [Random Words](`Words.RandomWords`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/words/getRandomWords))
-- [Word of the Day](`Words.WordOfTheDay`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/words/getWordOfTheDay))
+- [Random Word](`Wordnik.Words.RandomWord`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/words/getRandomWord))
+- [Random Words](`Wordnik.Words.RandomWords`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/words/getRandomWords))
+- [Word of the Day](`Wordnik.Words.WordOfTheDay`) - ([Wordnik Docs](https://developer.wordnik.com/docs#!/words/getWordOfTheDay))
 
 Note: The [Reverse Dictionary](https://developer.wordnik.com/docs#!/words/reverseDictionary) and [Search](https://developer.wordnik.com/docs#!/words/searchWords) queries are currently deprecated until the upcoming v5 release of Wordnik. Once the new queries are made available they will be included in the library.
 

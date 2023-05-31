@@ -1,10 +1,10 @@
-defmodule Word.Frequency do
+defmodule Wordnik.Word.Frequency do
   @moduledoc """
   frequency of usage across years for the requested word
 
   [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getWordFrequency)
   """
-  alias Formatter.Query
+  alias Wordnik.Formatter.Query
 
   @typedoc """
   map of optional parameters that can be passed to `get_frequency/2` query

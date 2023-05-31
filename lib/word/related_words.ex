@@ -1,10 +1,10 @@
-defmodule Word.RelatedWords do
+defmodule Wordnik.Word.RelatedWords do
   @moduledoc """
   find related words organized by type of relationship (synonym, antonym, etc.)
 
   [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getRelatedWords)
   """
-  alias Formatter.Query
+  alias Wordnik.Formatter.Query
 
   @typedoc """
   map of optional parameters that can be passed to `get_related_words/2` query

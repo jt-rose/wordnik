@@ -5,7 +5,7 @@ defmodule DefinitionsTest do
   @definition "A sweetened aromatic solution of alcohol and water, serving as a vehicle for medicine."
 
   test "get definitions" do
-    {status, resp} = Word.Definitions.get_definitions(@test_word)
+    {status, resp} = Wordnik.get_definitions(@test_word)
 
     found = Enum.find(resp, fn item -> item["text"] == @definition end)
     assert status == :ok
@@ -14,7 +14,7 @@ defmodule DefinitionsTest do
 
   test "get definitions with params" do
     {status, resp} =
-      Word.Definitions.get_definitions(@test_word, %{
+      Wordnik.get_definitions(@test_word, %{
         use_canonical: true,
         include_related: true,
         include_tags: true,
@@ -28,14 +28,14 @@ defmodule DefinitionsTest do
   end
 
   test "reject definitions query with invalid params" do
-    {status, msg} = Word.Definitions.get_definitions(@test_word, %{whoops: true})
+    {status, msg} = Wordnik.get_definitions(@test_word, %{whoops: true})
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_definitions' function"
   end
 
   test "reject definitions query with invalid list of source dictionaries" do
     {status, msg} =
-      Word.Definitions.get_definitions(@test_word,
+      Wordnik.get_definitions(@test_word,
         source_dictionaries: "adh-5,webster,whoops"
       )
 

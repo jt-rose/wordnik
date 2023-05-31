@@ -1,11 +1,11 @@
-defmodule Word.Audio do
+defmodule Wordnik.Word.Audio do
   @moduledoc """
   audio information about requested word, including link to audio recording
 
   [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getAudio)
   """
 
-  alias Formatter.Query
+  alias Wordnik.Formatter.Query
 
   @typedoc """
   map of optional parameters that can be passed to `get_audio/2` query

@@ -1,7 +1,7 @@
-defmodule Formatter.Params do
+defmodule Wordnik.Formatter.Params do
   @moduledoc false
 
-  alias Formatter.Helpers
+  alias Wordnik.Helpers
 
   @dictonaries Helpers.get_dictionaries()
 

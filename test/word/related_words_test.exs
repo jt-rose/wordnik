@@ -4,7 +4,7 @@ defmodule RelatedWordsTest do
   @test_word "elixir"
 
   test "get related words" do
-    {status, resp} = Word.RelatedWords.get_related_words(@test_word)
+    {status, resp} = Wordnik.get_related_words(@test_word)
     [relationship | _tail] = resp
 
     assert status == :ok
@@ -13,7 +13,7 @@ defmodule RelatedWordsTest do
 
   test "get related words with params" do
     {status, resp} =
-      Word.RelatedWords.get_related_words(@test_word, %{
+      Wordnik.get_related_words(@test_word, %{
         use_canonical: true,
         limit: 5,
         relationship_types: "synonym"
@@ -26,7 +26,7 @@ defmodule RelatedWordsTest do
   end
 
   test "reject related_words query with invalid params" do
-    {status, msg} = Word.RelatedWords.get_related_words(@test_word, %{whoops: true})
+    {status, msg} = Wordnik.get_related_words(@test_word, %{whoops: true})
 
     assert status == :error
     assert msg == "'whoops' not a valid parameter for the 'get_related_words' function"

@@ -1,8 +1,8 @@
-defmodule Formatter.Validator do
+defmodule Wordnik.Formatter.Validator do
   @moduledoc false
 
   @dictonaries [
-    "all" | Formatter.Helpers.get_dictionaries()
+    "all" | Wordnik.Helpers.get_dictionaries()
   ]
 
   defp valid_source_dict?(dict), do: dict in @dictonaries

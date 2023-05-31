@@ -1,11 +1,11 @@
-defmodule Word.ScrabbleScore do
+defmodule Wordnik.Word.ScrabbleScore do
   @moduledoc """
   scrabble_score information about requested word
 
   [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getScrabbleScore)
   """
 
-  alias Formatter.Query
+  alias Wordnik.Formatter.Query
 
   @typedoc """
   parsed JSON response to `get_scrabble_score/1` query

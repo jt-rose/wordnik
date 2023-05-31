@@ -1,8 +1,8 @@
-defmodule Formatter.Query do
+defmodule Wordnik.Formatter.Query do
   @moduledoc false
 
-  import Formatter.Params, only: [format_params: 2, standardize_params: 1]
-  import Formatter.Validator, only: [validate_params: 3]
+  import Wordnik.Formatter.Params, only: [format_params: 2, standardize_params: 1]
+  import Wordnik.Formatter.Validator, only: [validate_params: 3]
 
   defp handle_rate_limit_error({:ok, %{"message" => "API rate limit exceeded"}}) do
     {:error, "API rate limit exceeded"}

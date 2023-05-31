@@ -1,10 +1,10 @@
-defmodule Word.Phrases do
+defmodule Wordnik.Word.Phrases do
   @moduledoc """
   phrases that include the selected word
 
   [Wordnik Docs](https://developer.wordnik.com/docs#!/word/getPhrases)
   """
-  alias Formatter.Query
+  alias Wordnik.Formatter.Query
 
   @typedoc """
   map of optional parameters that can be passed to `get_phrases/2` query
