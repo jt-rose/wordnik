@@ -100,7 +100,7 @@ defmodule Wordnik.Words.WordOfTheDay do
   ```
 
   ### Response
-  `t:Words.WordOfTheDay.word_of_the_day/0`
+  `t:Wordnik.Words.WordOfTheDay.word_of_the_day/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getWordOfTheDay

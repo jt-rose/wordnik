@@ -50,7 +50,7 @@ defmodule Wordnik.Word.Hyphenation do
   ```
 
   ### Response
-  `t:Word.Hyphenation.hyphenation/0`
+  `t:Wordnik.Word.Hyphenation.hyphenation/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getHyphenation

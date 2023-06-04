@@ -52,7 +52,7 @@ defmodule Wordnik.Word.Phrases do
   ```
 
   ### Response
-  `t:Word.Phrases.phrases/0`
+  `t:Wordnik.Word.Phrases.phrases/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getPhrases

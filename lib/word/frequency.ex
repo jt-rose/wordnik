@@ -52,7 +52,7 @@ defmodule Wordnik.Word.Frequency do
   ```
 
   ### Response
-  `t:Word.Frequency.frequency/0`
+  `t:Wordnik.Word.Frequency.frequency/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getWordFrequency

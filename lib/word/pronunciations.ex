@@ -56,7 +56,7 @@ defmodule Wordnik.Word.Pronunciations do
   ```
 
   ### Response
-  `t:Word.Pronunciations.pronunciations/0`
+  `t:Wordnik.Word.Pronunciations.pronunciations/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getTextPronunciations

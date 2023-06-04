@@ -25,7 +25,7 @@ defmodule Wordnik.Word.ScrabbleScore do
   ```
 
   ### Response
-  `t:Word.ScrabbleScore.scrabble_score/0`
+  `t:Wordnik.Word.ScrabbleScore.scrabble_score/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getScrabbleScore

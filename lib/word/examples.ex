@@ -19,9 +19,8 @@ defmodule Wordnik.Word.Examples do
           }
 
   @typedoc """
-          parsed JSON response to `get_examples/2` query
+  parsed JSON response of word usage example
   """
-
   @type example :: %{
           provider: %{
             id: integer
@@ -36,6 +35,9 @@ defmodule Wordnik.Word.Examples do
           title: String.t()
         }
 
+  @typedoc """
+  parsed JSON response to `get_examples/2` query
+  """
   @type examples :: %{
           examples: list(example())
         }
@@ -66,7 +68,7 @@ defmodule Wordnik.Word.Examples do
   ```
 
   ### Response
-  `t:Word.Examples.examples/0`
+  `t:Wordnik.Word.Examples.examples/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getExamples

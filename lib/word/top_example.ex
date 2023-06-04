@@ -34,7 +34,7 @@ defmodule Wordnik.Word.TopExample do
   ```
 
   ### Response
-  `t:Word.Examples.example/0`
+  `t:Wordnik.Word.Examples.example/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getTopExample

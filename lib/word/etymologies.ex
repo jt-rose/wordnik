@@ -16,7 +16,7 @@ defmodule Wordnik.Word.Etymologies do
           }
 
   @typedoc """
-          parsed JSON response to `get_etymologies/2` query
+  parsed JSON response to `get_etymologies/2` query
   """
   @type etymology :: String.t()
 
@@ -41,7 +41,7 @@ defmodule Wordnik.Word.Etymologies do
   ```
 
   ### Response
-  `t:Word.Etymologies.etymology/0`
+  `t:Wordnik.Word.Etymologies.etymology/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getEtymologies

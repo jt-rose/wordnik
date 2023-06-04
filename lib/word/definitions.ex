@@ -22,7 +22,7 @@ defmodule Wordnik.Word.Definitions do
           }
 
   @typedoc """
-          parsed JSON response to `get_definitions/2` query
+  parsed JSON response to `get_definitions/2` query
   """
   @type definitions ::
           list(%{
@@ -96,7 +96,7 @@ defmodule Wordnik.Word.Definitions do
   ```
 
   ### Response
-  `t:Word.Definitions.definitions/0`
+  `t:Wordnik.Word.Definitions.definitions/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getDefinitions

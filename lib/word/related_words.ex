@@ -48,8 +48,8 @@ defmodule Wordnik.Word.RelatedWords do
   iex> get_related_words("verbose", %{use_canonical: true, relationship_types: "synonym"})
   ```
 
-   ### Response
-  `t:Word.RelatedWords.related_words/0`
+  ### Response
+  `t:Wordnik.Word.RelatedWords.related_words/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getRelatedWords

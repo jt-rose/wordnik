@@ -68,7 +68,7 @@ defmodule Wordnik.Words.RandomWords do
   ```
 
   ### Response
-  `t:Words.RandomWords.random_words/0`
+  `t:Wordnik.Words.RandomWords.random_words/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getRandomWords

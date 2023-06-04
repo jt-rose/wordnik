@@ -59,7 +59,7 @@ defmodule Wordnik.Word.Audio do
   ```
 
   ### Response
-  `t:Word.Audio.audio/0`
+  `t:Wordnik.Word.Audio.audio/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getAudio

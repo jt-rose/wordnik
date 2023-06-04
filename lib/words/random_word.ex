@@ -62,7 +62,7 @@ defmodule Wordnik.Words.RandomWord do
   iex> get_random_word( %{has_dictionary_def: true, min_length: 5})
   ```
   ### Response
-  `t:Words.RandomWord.random_word/0`
+  `t:Wordnik.Words.RandomWord.random_word/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getRandomWord

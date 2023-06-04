@@ -19,7 +19,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Word.Audio.audio/0`
+  `t:Wordnik.Word.Audio.audio/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getAudio
@@ -45,7 +45,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Word.Definitions.definitions/0`
+  `t:Wordnik.Word.Definitions.definitions/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getDefinitions
@@ -67,7 +67,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Word.Etymologies.etymology/0`
+  `t:Wordnik.Word.Etymologies.etymology/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getEtymologies
@@ -92,7 +92,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Word.Examples.examples/0`
+  `t:Wordnik.Word.Examples.examples/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getExamples
@@ -116,7 +116,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Word.Frequency.frequency/0`
+  `t:Wordnik.Word.Frequency.frequency/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getWordFrequency
@@ -140,7 +140,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Word.Hyphenation.hyphenation/0`
+  `t:Wordnik.Word.Hyphenation.hyphenation/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getHyphenation
@@ -164,7 +164,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Word.Phrases.phrases/0`
+  `t:Wordnik.Word.Phrases.phrases/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getPhrases
@@ -189,7 +189,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Word.Pronunciations.pronunciations/0`
+  `t:Wordnik.Word.Pronunciations.pronunciations/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getTextPronunciations
@@ -213,7 +213,7 @@ defmodule Wordnik do
   ```elixir
 
   ### Response
-  `t:Word.RelatedWords.related_words/0`
+  `t:Wordnik.Word.RelatedWords.related_words/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getRelatedWords
@@ -232,7 +232,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Word.ScrabbleScore.scrabble_score/0`
+  `t:Wordnik.Word.ScrabbleScore.scrabble_score/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getScrabbleScore
@@ -254,7 +254,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Word.Examples.example/0`
+  `t:Wordnik.Word.Examples.example/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getTopExample
@@ -284,7 +284,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Words.RandomWord.random_word/0`
+  `t:Wordnik.Words.RandomWord.random_word/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getRandomWord
@@ -317,7 +317,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Words.RandomWords.random_words/0`
+  `t:Wordnik.Words.RandomWords.random_words/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getRandomWords
@@ -339,7 +339,7 @@ defmodule Wordnik do
   ```
 
   ### Response
-  `t:Words.WordOfTheDay.word_of_the_day/0`
+  `t:Wordnik.Words.WordOfTheDay.word_of_the_day/0`
 
   ### Wordnik Docs
   https://developer.wordnik.com/docs#!/word/getWordOfTheDay
